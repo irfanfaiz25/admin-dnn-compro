@@ -8,4 +8,8 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('contents.dashboard');
-})->name('dashboard');
+})->name('dashboard.index');
+
+Route::get('/beranda', function () {
+    return view('contents.beranda');
+})->name('beranda.index');

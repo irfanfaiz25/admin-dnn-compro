@@ -10,31 +10,31 @@ class SidebarToggle extends Component
     public $sidebarMenu = [
         [
             'name' => 'dashboard',
-            'route' => 'dashboard',
+            'route' => 'dashboard.index',
             'icon' => 'fa-solid fa-house',
             'request' => 'dashboard*'
         ],
         [
             'name' => 'beranda',
-            'route' => 'dashboard',
+            'route' => 'beranda.index',
             'icon' => 'fa-solid fa-layer-group',
             'request' => 'beranda*'
         ],
         [
             'name' => 'data master',
-            'route' => 'dashboard',
+            'route' => 'dashboard.index',
             'icon' => 'fa-solid fa-layer-group',
             'request' => 'products*',
             'children' => [
                 [
                     'name' => 'produk',
-                    'route' => 'dashboard',
+                    'route' => 'dashboard.index',
                     'icon' => 'fa-solid fa-rectangle-list',
                     'request' => 'products/data*',
                 ],
                 [
                     'name' => 'manajemen stok',
-                    'route' => 'dashboard',
+                    'route' => 'dashboard.index',
                     'icon' => 'fa-solid fa-stopwatch-20',
                     'request' => 'products/stock*',
                 ],
