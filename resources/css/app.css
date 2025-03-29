@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Fugaz+One&family=Overpass:ital,wght@0,100..900;1,100..900&display=swap");
+
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@source "../views";
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-header: "Fugaz One", "serif";
+    --font-display: "Merriweather", "serif";
+    --font-sans: "Overpass", "sans-serif";
+
+    /* colors */
+    --color-primary-gold: #efbf04;
+    --color-secondary-green: #0e8045;
+    --color-tertiary-red: #e3333c;
+}
