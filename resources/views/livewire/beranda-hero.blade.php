@@ -38,6 +38,7 @@
         @endfor
     </div>
 
+    {{-- form --}}
     <div class="mt-5 w-full bg-white backdrop-blur-md border border-gray-300 rounded-md">
         <div class="px-4 py-3 flex justify-between items-center border-b border-gray-300">
             <h3 class="text-lg font-semibold text-gray-600">
@@ -65,19 +66,18 @@
                     </div>
                     <div class="w-[65%]">
                         <div class="mb-4">
-                            <label for="title" class="block mb-2 text-sm font-medium text-gray-900">Title</label>
+                            <label for="title" class="block mb-2 text-sm font-medium text-gray-900">Judul</label>
                             <input type="text" id="title" name="title"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
-                                placeholder="Title">
+                                placeholder="Judul">
                         </div>
                         <div class="mb-4">
                             <label for="description"
-                                class="block mb-2 text-sm font-medium text-gray-900">Description</label>
+                                class="block mb-2 text-sm font-medium text-gray-900">Deskripsi</label>
                             <textarea id="description" name="description" rows="4"
                                 class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-md border border-gray-300  focus:outline-gray-400"
-                                placeholder="Description"></textarea>
+                                placeholder="Deskripsi"></textarea>
                         </div>
-
                     </div>
                 </div>
             </form>
