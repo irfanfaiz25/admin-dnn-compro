@@ -14,6 +14,9 @@
 
             {{-- Featured Products --}}
             @livewire('beranda-product')
+
+            {{-- Testimonials --}}
+            @livewire('beranda-testimonial')
         </div>
     </div>
 @endsection
