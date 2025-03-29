@@ -11,6 +11,9 @@
 
             {{-- About Section --}}
             @livewire('beranda-about')
+
+            {{-- Featured Products --}}
+            @livewire('beranda-product')
         </div>
     </div>
 @endsection
