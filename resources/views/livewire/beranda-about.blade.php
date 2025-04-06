@@ -1,4 +1,4 @@
-<div class="h-fit w-full p-4 bg-white backdrop-blur-md border border-gray-300 rounded-md">
+<div class="h-fit w-full p-4 bg-white backdrop-blur-md border border-gray-300 rounded-md shadow-md">
     <div class="pb-4">
         <h3 class="text-lg font-semibold text-gray-600">
             Tentang
@@ -48,7 +48,7 @@
     </div>
 
     {{-- form --}}
-    <div class="mt-5 w-full bg-white backdrop-blur-md border border-gray-300 rounded-md">
+    <div class="mt-5 w-full bg-white backdrop-blur-md border border-gray-300 rounded-md shadow-md">
         <div class="px-4 py-3 flex justify-between items-center border-b border-gray-300">
             <h3 class="text-lg font-semibold text-gray-600">
                 Form

@@ -21,22 +21,22 @@ class SidebarToggle extends Component
             'request' => 'beranda*'
         ],
         [
-            'name' => 'data master',
-            'route' => 'dashboard.index',
+            'name' => 'tentang kami',
+            'route' => '',
             'icon' => 'fa-solid fa-layer-group',
-            'request' => 'products*',
+            'request' => 'tentang*',
             'children' => [
                 [
-                    'name' => 'produk',
-                    'route' => 'dashboard.index',
+                    'name' => 'sejarah',
+                    'route' => 'sejarah.index',
                     'icon' => 'fa-solid fa-rectangle-list',
-                    'request' => 'products/data*',
+                    'request' => 'tentang/sejarah*',
                 ],
                 [
-                    'name' => 'manajemen stok',
-                    'route' => 'dashboard.index',
+                    'name' => 'tim manajemen',
+                    'route' => 'sejarah.index',
                     'icon' => 'fa-solid fa-stopwatch-20',
-                    'request' => 'products/stock*',
+                    'request' => 'tentang/tim-manajemen*',
                 ],
             ],
         ],

@@ -21,3 +21,7 @@
     --color-secondary-green: #0e8045;
     --color-tertiary-red: #e3333c;
 }
+
+.trix-button-group--file-tools {
+    display: none !important;
+}

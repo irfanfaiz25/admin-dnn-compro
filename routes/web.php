@@ -13,3 +13,7 @@ Route::get('/dashboard', function () {
 Route::get('/beranda', function () {
     return view('contents.beranda');
 })->name('beranda.index');
+
+Route::get('/sejarah', function () {
+    return view('contents.sejarah');
+})->name('sejarah.index');
