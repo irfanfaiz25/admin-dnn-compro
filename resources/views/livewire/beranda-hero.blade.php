@@ -59,8 +59,8 @@
                             class="w-full h-60 object-cover rounded-md shadow-lg">
                         <div class="flex space-x-2">
                             <button type="button"
-                                class="w-full text-gray-600 bg-gray-200 hover:bg-gray-300 focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center">Hapus</button>
-                            <button type="submit"
+                                class="w-full text-gray-600 bg-gray-200 hover:bg-gray-300 focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center">Batal</button>
+                            <button type="button"
                                 class="w-full text-white bg-secondary-green hover:bg-secondary-green focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center">Ubah</button>
                         </div>
                     </div>

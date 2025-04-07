@@ -14,6 +14,10 @@ Route::get('/beranda', function () {
     return view('contents.beranda');
 })->name('beranda.index');
 
-Route::get('/sejarah', function () {
+Route::get('/tentang/sejarah', function () {
     return view('contents.sejarah');
 })->name('sejarah.index');
+
+Route::get('/tentang/tim-manajemen', function () {
+    return view('contents.tim-manajemen');
+})->name('tim-manajemen.index');

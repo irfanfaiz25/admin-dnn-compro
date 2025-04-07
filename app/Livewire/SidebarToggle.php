@@ -34,7 +34,7 @@ class SidebarToggle extends Component
                 ],
                 [
                     'name' => 'tim manajemen',
-                    'route' => 'sejarah.index',
+                    'route' => 'tim-manajemen.index',
                     'icon' => 'fa-solid fa-stopwatch-20',
                     'request' => 'tentang/tim-manajemen*',
                 ],
