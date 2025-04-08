@@ -7,7 +7,7 @@
 
     <div class="flex justify-center mb-5">
         <div class="border border-gray-300 min-w-1/2 max-w-2/3 rounded-md relative">
-            <div class="p-12 flex flex-col justify-center items-center text-center">
+            <div class="p-8 flex flex-col justify-center items-center text-center">
                 <h1 class="text-4xl font-bold font-display mb-1">
                     Jaringan Cabang Kami
                 </h1>

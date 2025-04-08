@@ -7,10 +7,11 @@
 
     <div class="mb-5 flex justify-center">
         <div class="border border-gray-300 min-w-1/2 max-w-2/3 rounded-md relative">
-            <div class="p-12 text-center">
+            <div class="p-8 flex flex-col justify-center items-center text-center">
                 <h1 class="text-4xl font-bold font-display mb-1">
                     Pencapaian Kami
                 </h1>
+                <div class="w-24 h-1.5 bg-primary-gold mt-5 mb-8 rounded-full"></div>
                 <p class="text-sm font-medium">
                     Setiap pencapaian kami merupakan bukti nyata dari komitmen untuk memberikan yang terbaik. Didukung
                     oleh tim profesional yang berdedikasi dan kepercayaan pelanggan yang terus bertumbuh bersama kami.
