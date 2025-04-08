@@ -8,6 +8,7 @@
         <div class="mt-8 w-full space-y-10">
             @livewire('tim-hero')
             @livewire('tim-achievement')
+            @livewire('tim-branches')
         </div>
     </div>
 @endsection
