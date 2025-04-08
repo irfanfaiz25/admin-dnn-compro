@@ -9,6 +9,7 @@
             @livewire('tim-hero')
             @livewire('tim-achievement')
             @livewire('tim-branches')
+            @livewire('tim-testimonial')
         </div>
     </div>
 @endsection

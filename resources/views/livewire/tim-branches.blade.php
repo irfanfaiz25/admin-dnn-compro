@@ -53,13 +53,18 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
             @foreach ($branches as $branch)
                 <div
-                    class="bg-white p-4 md:p-6 rounded-2xl shadow-lg hover:shadow-2xl group relative overflow-hidden border border-gray-100 hover:scale-105 hover:-translate-y-2 transition-transform duration-300">
+                    class="bg-white p-4 md:p-6 rounded-2xl shadow-lg hover:shadow-2xl group relative overflow-hidden border border-gray-100 transition-transform duration-300">
                     <div
                         class="absolute top-0 right-0 w-32 h-32 bg-primary-gold/5 rounded-full -translate-y-16 translate-x-16 group-hover:scale-150 transition-transform duration-500">
                     </div>
                     <div
                         class="absolute bottom-0 left-0 w-32 h-32 bg-tertiary-red/5 rounded-full translate-y-16 -translate-x-16 group-hover:scale-150 transition-transform duration-500">
                     </div>
+                    <button
+                        class="absolute top-3 right-3 px-3 py-1.5 border border-gray-600 hover:bg-gray-600 text-gray-600 hover:text-white text-xs rounded-sm z-50">
+                        <i class="fa fa-pencil text-[11px] pr-0.5"></i>
+                        Edit
+                    </button>
 
                     <div class="relative">
                         <div class="flex items-center mb-3">
