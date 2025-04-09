@@ -21,3 +21,7 @@ Route::get('/tentang/sejarah', function () {
 Route::get('/tentang/tim-manajemen', function () {
     return view('contents.tim-manajemen');
 })->name('tim-manajemen.index');
+
+Route::get('/produk', function () {
+    return view('contents.produk');
+})->name('produk.index');

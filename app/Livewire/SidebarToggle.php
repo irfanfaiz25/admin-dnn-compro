@@ -40,6 +40,12 @@ class SidebarToggle extends Component
                 ],
             ],
         ],
+        [
+            'name' => 'produk',
+            'route' => 'produk.index',
+            'icon' => 'fa-solid fa-layer-group',
+            'request' => 'produk*'
+        ],
     ];
 
     public function toggleSidebar()
