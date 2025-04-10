@@ -3,7 +3,7 @@
         <h3 class="text-lg font-semibold text-gray-600">
             Keunggulan Produk
         </h3>
-        <button type="submit"
+        <button type="button"
             class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center">Tambah</button>
     </div>
     {{-- headline --}}

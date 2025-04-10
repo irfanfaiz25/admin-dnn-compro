@@ -25,3 +25,7 @@ Route::get('/tentang/tim-manajemen', function () {
 Route::get('/produk', function () {
     return view('contents.produk');
 })->name('produk.index');
+
+Route::get('/kontak', function () {
+    return view('contents.kontak');
+})->name('kontak.index');

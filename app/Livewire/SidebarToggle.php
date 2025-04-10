@@ -46,6 +46,12 @@ class SidebarToggle extends Component
             'icon' => 'fa-solid fa-layer-group',
             'request' => 'produk*'
         ],
+        [
+            'name' => 'kontak',
+            'route' => 'kontak.index',
+            'icon' => 'fa-solid fa-layer-group',
+            'request' => 'kontak*'
+        ],
     ];
 
     public function toggleSidebar()
