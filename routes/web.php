@@ -29,3 +29,7 @@ Route::get('/produk', function () {
 Route::get('/kontak', function () {
     return view('contents.kontak');
 })->name('kontak.index');
+
+Route::get('/revolusi-rasa', function () {
+    return view('contents.revolusi-rasa');
+})->name('revolusi.index');

@@ -52,6 +52,12 @@ class SidebarToggle extends Component
             'icon' => 'fa-solid fa-layer-group',
             'request' => 'kontak*'
         ],
+        [
+            'name' => 'revolusi rasa',
+            'route' => 'revolusi.index',
+            'icon' => 'fa-solid fa-layer-group',
+            'request' => 'revolusi*'
+        ],
     ];
 
     public function toggleSidebar()
