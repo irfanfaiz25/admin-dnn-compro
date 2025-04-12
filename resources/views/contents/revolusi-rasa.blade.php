@@ -7,6 +7,7 @@
         </h1>
         <div class="mt-8 w-full space-y-10">
             @livewire(name: 'revolusi-hero')
+            @livewire(name: 'revolusi-posts')
         </div>
     </div>
 @endsection

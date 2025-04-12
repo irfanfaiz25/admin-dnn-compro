@@ -25,3 +25,35 @@
 .trix-button-group--file-tools {
     display: none !important;
 }
+
+.ck-content ul,
+.ck-content ol {
+    margin-left: 1.5em !important;
+    padding-left: 0 !important;
+}
+
+.ck-content h1 {
+    font-size: 2em;
+}
+
+.ck-content h2 {
+    font-size: 1.5em;
+}
+
+.ck-content h3 {
+    font-size: 1.17em;
+}
+
+.ck-content li {
+    margin-bottom: 0.5em;
+}
+
+/* Ensure editor has proper height */
+.ck-editor__editable {
+    min-height: 200px;
+}
+
+/* Fix heading styles */
+.ck-heading-dropdown .ck-list__item .ck-button {
+    width: 100%;
+}
