@@ -33,3 +33,7 @@ Route::get('/kontak', function () {
 Route::get('/revolusi-rasa', function () {
     return view('contents.revolusi-rasa');
 })->name('revolusi.index');
+
+Route::get('/informasi', function () {
+    return view('contents.informasi');
+})->name('informasi.index');
