@@ -6,13 +6,17 @@
         <p class="text-sm text-gray-500">
             Jumlah Konten: {{ $totalContent }} / {{ $maxContent }}
         </p>
-        <button wire:click='handleOpenForm' type="button"
-            class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
-            <span>Tambah</span>
-            <div wire:loading wire:target='handleOpenForm'
-                class="animate-spin rounded-full h-5 w-5 border-[2px] border-primary-gold border-t-transparent ml-2">
-            </div>
-        </button>
+        <div>
+            @if ($totalContent < $maxContent)
+                <button wire:click='handleOpenForm' type="button"
+                    class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
+                    <span>Tambah</span>
+                    <div wire:loading wire:target='handleOpenForm'
+                        class="animate-spin rounded-full h-5 w-5 border-[2px] border-primary-gold border-t-transparent ml-2">
+                    </div>
+                </button>
+            @endif
+        </div>
     </div>
 
     {{-- form --}}
@@ -21,7 +25,7 @@
         <form wire:submit.prevent='save'>
             <div class="px-4 py-3 flex justify-between items-center border-b border-gray-300">
                 <h3 class="text-lg font-semibold text-gray-600">
-                    Tambah Data
+                    {{ $isEditMode ? 'Edit Data' : 'Tambah Data' }}
                 </h3>
                 <div class="flex space-x-2 justify-end">
                     <button type="button" wire:click='handleCloseForm'

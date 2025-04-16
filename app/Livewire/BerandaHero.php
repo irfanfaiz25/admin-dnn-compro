@@ -80,8 +80,12 @@ class BerandaHero extends Component
         // Handle image URL
         $imageUrl = $this->existingImage;
         if ($this->image) {
-            // If new image is uploaded, store it and update URL
-            $imageUrl = 'storage/' . $this->image->store('img/sections', 'public');
+            // Generate timestamp for unique filename
+            $timestamp = time();
+            $filename = 'beranda-hero-' . $timestamp . '.' . $this->image->getClientOriginalExtension();
+
+            // If new image is uploaded, store it with timestamped name and update URL
+            $imageUrl = 'storage/' . $this->image->storeAs('img/sections', $filename, 'public');
 
             // Delete old image if exists
             if (
@@ -130,7 +134,7 @@ class BerandaHero extends Component
 
     public function render()
     {
-        $sections = Section::latest()->get();
+        $sections = Section::where('section_name', 'beranda-hero')->latest()->get();
         return view('livewire.beranda-hero', [
             'sections' => $sections
         ]);
