@@ -6,41 +6,15 @@
         <button wire:click='handleOpenForm' type="button"
             class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
             <span>Edit</span>
-            <div wire:loading wire:target='handleOpenForm'
+            <span wire:loading wire:target='handleOpenForm'
                 class="animate-spin rounded-full h-5 w-5 border-[2px] border-primary-gold border-t-transparent ml-2">
-            </div>
+            </span>
         </button>
-    </div>
-    {{-- content display --}}
-    <div class="w-full flex space-x-5">
-        {{-- text --}}
-        <div class="w-[60%] p-5 flex flex-col justify-center rounded-md relative">
-            <h1 class="text-3xl text-gray-800 font-bold font-display mb-3">
-                {{ $section->title }}
-            </h1>
-            <p class="text-base text-gray-600 max-w-lg">
-                {{ $section->description }}
-            </p>
-            <div class="mt-4">
-                <button class="px-4 py-2 bg-primary-gold text-white text-sm rounded-sm">
-                    Lebih Lanjut
-                </button>
-            </div>
-        </div>
-        {{-- image --}}
-        <div class="w-[40%] relative">
-            <img src="{{ asset($section->image_url) }}" alt="picture1" class="w-full h-full object-cover rounded-md">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-md"></div>
-            {{-- description --}}
-            <div class="absolute bottom-0 w-full p-3 bg-black/20 backdrop-blur-sm text-xs text-white rounded-b-md">
-                {{ $section->content }}
-            </div>
-        </div>
     </div>
 
     {{-- form --}}
-    <div wire:show='isShowForm'
-        class="mt-5 w-full bg-white backdrop-blur-md border border-gray-300 rounded-md shadow-md">
+    <div wire:show='isShowForm' wire:transition
+        class="mb-5 w-full bg-white backdrop-blur-md border border-gray-300 rounded-md shadow-md">
         <form wire:submit.prevent='handleSave'>
             <div class="px-4 py-3 flex justify-between items-center border-b border-gray-300">
                 <h3 class="text-lg font-semibold text-gray-600">
@@ -102,7 +76,7 @@
                             <div
                                 class="w-full px-4 py-3 text-sm font-medium text-center rounded-lg border-2 border-dashed border-secondary-green bg-white hover:bg-gray-50 transition-colors duration-200 flex items-center justify-center gap-2">
                                 <i class="fa fa-cloud-upload text-secondary-green"></i>
-                                <span class="text-gray-700">Pilih Gambar Background</span>
+                                <span class="text-gray-700">Pilih Gambar</span>
                             </div>
                             <p class="mt-2 text-xs text-gray-500 text-center">PNG, JPG or JPEG (MAX. 2MB)</p>
                         </div>
@@ -142,5 +116,32 @@
                 </div>
             </div>
         </form>
+    </div>
+
+    {{-- content display --}}
+    <div class="w-full flex space-x-5">
+        {{-- text --}}
+        <div class="w-[60%] p-5 flex flex-col justify-center rounded-md relative">
+            <h1 class="text-3xl text-gray-800 font-bold font-display mb-3">
+                {{ $section->title }}
+            </h1>
+            <p class="text-base text-gray-600 max-w-lg">
+                {{ $section->description }}
+            </p>
+            <div class="mt-4">
+                <button class="px-4 py-2 bg-primary-gold text-white text-sm rounded-sm">
+                    Lebih Lanjut
+                </button>
+            </div>
+        </div>
+        {{-- image --}}
+        <div class="w-[40%] relative">
+            <img src="{{ asset($section->image_url) }}" alt="picture1" class="w-full h-full object-cover rounded-md">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-md"></div>
+            {{-- description --}}
+            <div class="absolute bottom-0 w-full p-3 bg-black/20 backdrop-blur-sm text-xs text-white rounded-b-md">
+                {{ $section->content }}
+            </div>
+        </div>
     </div>
 </div>

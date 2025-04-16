@@ -11,9 +11,9 @@
                 <button wire:click='handleOpenForm' type="button"
                     class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
                     <span>Tambah</span>
-                    <div wire:loading wire:target='handleOpenForm'
+                    <span wire:loading wire:target='handleOpenForm'
                         class="animate-spin rounded-full h-5 w-5 border-[2px] border-primary-gold border-t-transparent ml-2">
-                    </div>
+                    </span>
                 </button>
             @endif
         </div>
@@ -117,7 +117,7 @@
                 </div>
                 <div class="absolute top-2 right-2 flex space-x-1">
                     <button type="button" wire:click="handleEdit({{ $section->id }})"
-                        class="px-3 py-1.5 group border border-white hover:bg-white text-white hover:text-gray-800 text-xs rounded-sm inline-flex items-center space-x-1">
+                        class="px-3 py-1.5 group bg-white/80 hover:bg-white border border-gray-200 text-gray-700 hover:text-gray-800 text-xs rounded-sm backdrop-blur-sm transition-colors duration-200 inline-flex items-center space-x-1">
                         <i wire:loading.remove wire:target="handleEdit({{ $section->id }})"
                             class="fa fa-pencil text-[11px] text-white group-hover:text-secondary-green"></i>
                         <span wire:loading wire:target="handleEdit({{ $section->id }})"

@@ -60,9 +60,9 @@ class BerandaAbout extends Component
         ];
 
         if ($this->existingImage) {
-            $validationRules['image'] = 'nullable|image|max:2048';
+            $validationRules['image'] = $this->image ? 'mimes:jpg,jpeg,png|max:2048' : '';
         } else {
-            $validationRules['image'] = 'required|image|max:2048';
+            $validationRules['image'] = 'required|mimes:jpg,jpeg,png|max:2048';
         }
 
         $this->validate($validationRules);
