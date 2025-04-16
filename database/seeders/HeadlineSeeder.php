@@ -20,32 +20,38 @@ class HeadlineSeeder extends Seeder
         ]);
 
         Headline::create([
+            'title' => 'Tentang Revolusi Rasa',
+            'subtitle' => 'Pengalaman Autentik dari Para Penikmat Nusantara',
+            'section_name' => 'beranda-testimonial'
+        ]);
+
+        Headline::create([
             'title' => 'Visi & Misi',
-            'subtitle' => 'Tujukan kami adalah memberikan solusi terbaik untuk memenuhi kebutuhan pelanggan dengan produk berkualitas tinggi dan layanan yang terjangkau',
+            'subtitle' => 'Memberikan solusi terbaik dengan produk berkualitas dan layanan terjangkau',
             'section_name' => 'sejarah-visi-misi'
         ]);
 
         Headline::create([
             'title' => 'Pencapaian Kami',
-            'subtitle' => 'Setiap pencapaian kami merupakan bukti nyata dari komitmen untuk memberikan yang terbaik. Didukung oleh tim profesional yang berdedikasi dan kepercayaan pelanggan yang terus bertumbuh bersama kami',
+            'subtitle' => 'Komitmen kami untuk memberikan yang terbaik didukung oleh tim profesional dan kepercayaan pelanggan',
             'section_name' => 'tim-achievement'
         ]);
 
         Headline::create([
             'title' => 'Jaringan Cabang Kami',
-            'subtitle' => 'Kami terus memperluas jangkauan untuk melayani pelanggan di berbagai wilayah dengan standar kualitas yang sama di setiap cabang',
+            'subtitle' => 'Melayani pelanggan di berbagai wilayah dengan standar kualitas terbaik',
             'section_name' => 'tim-branches'
         ]);
 
         Headline::create([
             'title' => 'Kami Bangga',
-            'subtitle' => 'Kisah inspiratif dan pengalaman berharga dari para talenta terbaik yang telah berkembang bersama dalam membangun kesuksesan perusahaan',
+            'subtitle' => 'Kisah inspiratif dari talenta terbaik yang berkembang bersama kami',
             'section_name' => 'tim-testimonial'
         ]);
 
         Headline::create([
             'title' => 'Produk Kami',
-            'subtitle' => 'Temukan koleksi produk premium kami yang dihadirkan dengan standar kualitas terbaik dan inovasi tanpa henti',
+            'subtitle' => 'Koleksi produk premium dengan kualitas terbaik',
             'section_name' => 'produk-display'
         ]);
 
