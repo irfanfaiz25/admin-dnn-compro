@@ -29,9 +29,23 @@
                 </h3>
                 <div class="flex space-x-2 justify-end">
                     <button type="button" wire:click='handleCloseForm'
-                        class="text-gray-600 bg-gray-200 hover:bg-gray-300 focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center">Batal</button>
+                        class="text-gray-600 bg-gray-200 hover:bg-gray-300 focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
+                        <span>
+                            Batal
+                        </span>
+                        <span wire:loading wire:target='handleCloseForm'
+                            class="animate-spin rounded-full h-5 w-5 border-[2px] border-primary-gold border-t-transparent ml-2">
+                        </span>
+                    </button>
                     <button type="submit"
-                        class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center">Simpan</button>
+                        class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
+                        <span>
+                            Simpan
+                        </span>
+                        <span wire:loading wire:target='save'
+                            class="animate-spin rounded-full h-5 w-5 border-[2px] border-primary-gold border-t-transparent ml-2">
+                        </span>
+                    </button>
                 </div>
             </div>
             <div class="p-4">

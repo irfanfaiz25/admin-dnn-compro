@@ -93,7 +93,7 @@ class BerandaAbout extends Component
         ]);
 
         $this->handleCloseForm();
-        Toaster::success('Data berhasil di ubah');
+        Toaster::success('Data berhasil di perbarui');
     }
 
     public function render()
