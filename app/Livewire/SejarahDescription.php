@@ -51,7 +51,7 @@ class SejarahDescription extends Component
         }
 
         $validationRules = [
-            'title' => 'required',
+            'title' => 'required|max:100',
             'description' => 'required',
         ];
 

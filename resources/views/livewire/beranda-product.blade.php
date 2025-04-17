@@ -73,7 +73,7 @@
     </div>
 
     {{-- form --}}
-    <div wire:show='isShowContentForm' wire:transition
+    <div wire:show='isShowContentForm' wire:cloak wire:transition
         class="mb-5 w-full bg-white backdrop-blur-md border border-gray-300 rounded-md shadow-md">
         <form wire:submit.prevent='handleSaveContent'>
             <div class="px-4 py-3 flex justify-between items-center border-b border-gray-300">

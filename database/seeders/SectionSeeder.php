@@ -56,7 +56,7 @@ class SectionSeeder extends Seeder
         // Sejarah
         Section::create([
             'title' => 'Sejarah Perusahaan',
-            'description' => 'Kami berawal dari ide dan pengalaman, dan telah berkembang menjadi perusahaan yang sukses',
+            'description' => '<p>Lorem ipsum dolor sit amet <strong>consectetur</strong> adipisicing elit. Iste ea provident ducimus eum enim eveniet, placeat natus tenetur, quod accusantium maxime adipisci amet accusamus sit ullam asperiores ab, assumenda sapiente? Facere ipsam fuga tempora! Cumque dolor, excepturi beatae quos veritatis mollitia corrupti! Aliquid illo sequi aperiam ex at repellendus repudiandae quasi, enim doloribus cum delectus neque voluptas. Officia, amet reprehenderit.</p><p>&nbsp;</p><p>Vero <strong>dolores fugit</strong> laboriosam quia ipsa quisquam, voluptate, quod natus exercitationem autem, at perferendis explicabo ut. Magnam cum tenetur incidunt. Ducimus repellendus commodi molestiae libero, vitae totam. Sed, minus dolore! Vero dolores fugit laboriosam quia ipsa quisquam, voluptate, quod natus exercitationem autem, at perferendis explicabo ut. Magnam cum tenetur incidunt. Ducimus repellendus commodi molestiae libero, vitae totam. Sed, minus dolore. <i>asdsa</i></p><p>&nbsp;</p><ol><li>sadas</li><li>asdsad</li></ol>',
             'section_name' => 'sejarah'
         ]);
     }
