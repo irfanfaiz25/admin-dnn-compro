@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
             UserTestimonialSeeder::class,
             VisiMisiSeeder::class,
             AchievementSeeder::class,
+            BranchSeeder::class,
         ]);
     }
 }

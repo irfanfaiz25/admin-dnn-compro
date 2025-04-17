@@ -4,7 +4,7 @@
             Kontak
         </h3>
         <button type="button"
-            class="text-white bg-gray-500 hover:bg-gray-600 focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center">
+            class="text-white bg-gray-500 hover:bg-gray-600 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center">
             <i class="fa fa-pencil text-white text-xs pr-1"></i>
             Edit
         </button>
@@ -97,9 +97,9 @@
             </h3>
             <div class="flex space-x-2 justify-end">
                 <button type="button"
-                    class="text-gray-600 bg-gray-200 hover:bg-gray-300 focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center">Batal</button>
+                    class="text-gray-600 bg-gray-200 hover:bg-gray-300 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center">Batal</button>
                 <button type="submit"
-                    class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center">Simpan</button>
+                    class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center">Simpan</button>
             </div>
         </div>
         <div class="p-4">

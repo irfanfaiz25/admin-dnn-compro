@@ -9,7 +9,7 @@
         <div>
             @if ($totalContent < $maxContent)
                 <button type="button" wire:click='handleOpenContentForm'
-                    class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
+                    class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
                     <span>
                         Tambah
                     </span>
@@ -38,11 +38,11 @@
                     </div>
                     <div class="mt-1 flex justify-end gap-1">
                         <button type="button" wire:click='handleCloseHeadlineForm'
-                            class="text-white bg-gray-500 hover:bg-gray-600 focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center">
+                            class="text-white bg-gray-500 hover:bg-gray-600 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center">
                             Batal
                         </button>
                         <button type="submit"
-                            class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center">
+                            class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center">
                             Simpan
                         </button>
                     </div>
@@ -82,11 +82,11 @@
                 </h3>
                 <div class="flex space-x-2 justify-end">
                     <button type="button" wire:click='handleCloseContentForm'
-                        class="text-gray-600 bg-gray-200 hover:bg-gray-300 focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center">
+                        class="text-gray-600 bg-gray-200 hover:bg-gray-300 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center">
                         Batal
                     </button>
                     <button type="submit"
-                        class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center">
+                        class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center">
                         Simpan
                     </button>
                 </div>

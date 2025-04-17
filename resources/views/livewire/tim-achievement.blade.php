@@ -22,11 +22,11 @@
                     </div>
                     <div class="mt-1 flex justify-end gap-1">
                         <button type="button" wire:click='handleCloseHeadlineForm'
-                            class="text-white bg-gray-500 hover:bg-gray-600 focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center">
+                            class="text-white bg-gray-500 hover:bg-gray-600 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center">
                             Batal
                         </button>
                         <button type="submit"
-                            class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center">
+                            class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center">
                             Simpan
                         </button>
                     </div>
@@ -82,7 +82,7 @@
                 </h3>
                 <div class="flex space-x-2 justify-end">
                     <button type="button" wire:click='handleCloseContentForm'
-                        class="text-gray-600 bg-gray-200 hover:bg-gray-300 focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
+                        class="text-gray-600 bg-gray-200 hover:bg-gray-300 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
                         <span>
                             Batal
                         </span>
@@ -91,7 +91,7 @@
                         </span>
                     </button>
                     <button type="submit"
-                        class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
+                        class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
                         <span>
                             Simpan
                         </span>
@@ -104,7 +104,8 @@
             <div class="p-4">
                 <div class="grid grid-cols-3 gap-3">
                     <div class="">
-                        <label for="branches" class="block mb-2 text-sm font-medium text-gray-900">Cabang</label>
+                        <label for="branches" class="block mb-2 text-sm font-medium text-gray-900">Cabang <span
+                                class="text-red-500">*</span></label>
                         <input type="number" id="branches" wire:model='branchCount'
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Masukkan jumlah cabang">
@@ -115,7 +116,8 @@
                         @enderror
                     </div>
                     <div class="">
-                        <label for="employees" class="block mb-2 text-sm font-medium text-gray-900">Karyawan</label>
+                        <label for="employees" class="block mb-2 text-sm font-medium text-gray-900">Karyawan <span
+                                class="text-red-500">*</span></label>
                         <input type="number" id="employees" wire:model='employeeCount'
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Masukkan jumlah karyawan">
@@ -126,7 +128,8 @@
                         @enderror
                     </div>
                     <div class="">
-                        <label for="customers" class="block mb-2 text-sm font-medium text-gray-900">Customer</label>
+                        <label for="customers" class="block mb-2 text-sm font-medium text-gray-900">Customer <span
+                                class="text-red-500">*</span></label>
                         <input type="number" id="customers" wire:model='customerCount'
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Masukkan jumlah customer">

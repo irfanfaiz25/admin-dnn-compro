@@ -63,11 +63,11 @@
                     </div>
                     <div class="mt-1 flex justify-end gap-1">
                         <button type="button" wire:click='handleCloseHeadlineForm'
-                            class="text-white bg-gray-500 hover:bg-gray-600 focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center">
+                            class="text-white bg-gray-500 hover:bg-gray-600 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center">
                             Batal
                         </button>
                         <button type="submit"
-                            class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center">
+                            class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center">
                             Simpan
                         </button>
                     </div>

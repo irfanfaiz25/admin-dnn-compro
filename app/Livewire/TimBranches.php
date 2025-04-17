@@ -2,58 +2,155 @@
 
 namespace App\Livewire;
 
+use App\Models\Branch;
+use App\Models\Headline;
 use Livewire\Component;
+use Masmerise\Toaster\Toaster;
 
 class TimBranches extends Component
 {
     public $isShowHeadlineForm = false;
-    public $branches = [
-        [
-            'city' => 'Boyolali',
-            'region' => 'Jawa Tengah',
-            'established' => 'November 2024',
-            'address' => 'Jl. Raya Boyolali No. 123'
-        ],
-        [
-            'city' => 'Sukoharjo',
-            'region' => 'Jawa Tengah',
-            'established' => 'Desember 2024',
-            'address' => 'Jl. Raya Boyolali No. 123'
-        ],
-        [
-            'city' => 'Karanganyar',
-            'region' => 'Jawa Tengah',
-            'established' => 'Januari 2025',
-            'address' => 'Jl. Raya Boyolali No. 123'
-        ],
-        [
-            'city' => 'Wonogiri',
-            'region' => 'Jawa Tengah',
-            'established' => 'Januari 2025',
-            'address' => 'Jl. Raya Boyolali No. 123'
-        ],
-        [
-            'city' => 'Ponorogo',
-            'region' => 'Jawa Timur',
-            'established' => 'Februari 2025',
-            'address' => 'Jl. Raya Boyolali No. 123'
-        ],
-        [
-            'city' => 'Cirebon',
-            'region' => 'Jawa Barat',
-            'established' => 'April 2025',
-            'address' => 'Jl. Raya Boyolali No. 123'
-        ],
-        [
-            'city' => 'Yogyakarta',
-            'region' => 'DIY',
-            'established' => 'April 2025',
-            'address' => 'Jl. Raya Boyolali No. 123'
-        ]
-    ];
+    public $headlineTitle = '';
+    public $headlineSubtitle = '';
+
+    public $isShowContentForm = false;
+    public $isEditMode = false;
+    public $branchId;
+    public $city = '';
+    public $region = '';
+    public $established = '';
+    public $address = '';
+
+
+    public function handleOpenHeadlineForm()
+    {
+        $this->isShowHeadlineForm = true;
+        $headline = Headline::where('section_name', 'tim-branches')->first();
+
+        if (!$headline) {
+            Toaster::error('Headline tidak ditemukan');
+            return;
+        }
+
+        $this->headlineTitle = $headline->title;
+        $this->headlineSubtitle = $headline->subtitle;
+    }
+
+    public function handleCloseHeadlineForm()
+    {
+        $this->isShowHeadlineForm = false;
+        $this->reset('headlineTitle', 'headlineSubtitle');
+    }
+
+    public function handleSaveHeadline()
+    {
+        $headline = Headline::where('section_name', 'tim-branches')->first();
+        if (!$headline) {
+            Toaster::error('Headline tidak ditemukan');
+            return;
+        }
+
+        $this->validate([
+            'headlineTitle' => 'required|string|max:50',
+            'headlineSubtitle' => 'required|string|max:100',
+        ]);
+
+        $headline->update([
+            'title' => $this->headlineTitle,
+            'subtitle' => $this->headlineSubtitle,
+        ]);
+
+        Toaster::success('Headline berhasil di perbarui');
+        $this->handleCloseHeadlineForm();
+    }
+
+    public function handleOpenContentForm()
+    {
+        $this->isShowContentForm = true;
+    }
+
+    public function handleCloseContentForm()
+    {
+        $this->isShowContentForm = false;
+        $this->isEditMode = false;
+        $this->reset('branchId', 'city', 'region', 'established', 'address');
+    }
+
+    public function handleEditBranch($branchId)
+    {
+        $this->isEditMode = true;
+        $this->isShowContentForm = true;
+        $this->branchId = $branchId;
+
+        $branch = Branch::find($branchId);
+        if (!$branch) {
+            Toaster::error('Cabang tidak ditemukan');
+            return;
+        }
+
+        $this->city = $branch->city;
+        $this->region = $branch->region;
+        $this->established = $branch->established;
+        $this->address = $branch->address;
+    }
+
+    public function handleSaveContent()
+    {
+        $this->validate([
+            'city' => 'required|string|max:30',
+            'region' => 'required|string|max:30',
+            'established' => 'required|string|max:30',
+            'address' => 'required|string|max:100',
+        ]);
+
+        if ($this->isEditMode) {
+            $branch = Branch::find($this->branchId);
+            if (!$branch) {
+                Toaster::error('Cabang tidak ditemukan');
+                return;
+            }
+
+            $branch->update([
+                'city' => $this->city,
+                'region' => $this->region,
+                'established' => $this->established,
+                'address' => $this->address,
+            ]);
+        } else {
+            Branch::create([
+                'city' => $this->city,
+                'region' => $this->region,
+                'established' => $this->established,
+                'address' => $this->address,
+            ]);
+        }
+
+        $message = $this->isEditMode ? 'Cabang berhasil di perbarui' : 'Cabang berhasil ditambahkan';
+        Toaster::success($message);
+        $this->handleCloseContentForm();
+    }
+
+    public function handleDeleteBranch()
+    {
+        $branch = Branch::find($this->branchId);
+        if (!$branch) {
+            Toaster::error('Cabang tidak ditemukan');
+            return;
+        }
+
+        $branch->delete();
+        Toaster::success('Cabang berhasil dihapus');
+        $this->handleCloseContentForm();
+    }
 
     public function render()
     {
-        return view('livewire.tim-branches');
+        $headline = Headline::where('section_name', 'tim-branches')->first();
+        $branches = Branch::orderBy('established', 'desc')->get();
+
+        return view('livewire.tim-branches', [
+            'headline' => $headline,
+            'branches' => $branches
+        ]);
     }
 }

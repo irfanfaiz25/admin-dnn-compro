@@ -4,7 +4,7 @@
             Revolusi Terkini
         </h3>
         <button type="button"
-            class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center">Tambah</button>
+            class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center">Tambah</button>
     </div>
 
     <div class="grid grid-cols-3 gap-3">
@@ -49,9 +49,9 @@
             </h3>
             <div class="flex space-x-2 justify-end">
                 <button type="button"
-                    class="text-gray-600 bg-gray-200 hover:bg-gray-300 focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center">Batal</button>
+                    class="text-gray-600 bg-gray-200 hover:bg-gray-300 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center">Batal</button>
                 <button type="submit"
-                    class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center">Simpan</button>
+                    class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center">Simpan</button>
             </div>
         </div>
         <div class="p-4">
@@ -180,9 +180,9 @@
 
                 <div class="flex space-x-2 justify-end mt-4">
                     <button type="button"
-                        class="text-gray-600 bg-gray-200 hover:bg-gray-300 focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center">Batal</button>
+                        class="text-gray-600 bg-gray-200 hover:bg-gray-300 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center">Batal</button>
                     <button type="submit"
-                        class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center">
+                        class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center">
                         Simpan
                     </button>
                 </div>
