@@ -26,6 +26,15 @@ class BerandaProduct extends Component
     public $productTitle = '';
     public $productDescription = '';
 
+    public $totalContent;
+    public $maxContent = 3;
+
+
+
+    public function mount()
+    {
+        $this->totalContent = Section::where('section_name', 'beranda-product')->count();
+    }
 
     public function handleOpenHeadlineForm()
     {
@@ -150,6 +159,7 @@ class BerandaProduct extends Component
         }
 
         $this->handleCloseContentForm();
+        $this->totalContent = Section::where('section_name', 'beranda-product')->count();
         Toaster::success($this->isEditMode ? 'Data berhasil di ubah' : 'Data berhasil di tambahkan');
     }
 
@@ -166,6 +176,7 @@ class BerandaProduct extends Component
         }
 
         $section->delete();
+        $this->totalContent = Section::where('section_name', 'beranda-product')->count();
         Toaster::success('Data berhasil dihapus');
     }
 

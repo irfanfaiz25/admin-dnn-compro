@@ -58,3 +58,53 @@
 .ck-heading-dropdown .ck-list__item .ck-button {
     width: 100%;
 }
+
+/* CK Editor Content Styles */
+.ck-content {
+    @apply text-gray-700 text-sm leading-6;
+}
+
+/* Headings */
+.ck-content h1 {
+    @apply text-2xl font-bold mb-2 mt-4;
+}
+
+.ck-content h2 {
+    @apply text-xl font-bold mb-2 mt-3;
+}
+
+.ck-content h3 {
+    @apply text-lg font-bold mb-1.5 mt-2.5;
+}
+
+/* Paragraphs - further reduced spacing */
+.ck-content p {
+    @apply mb-1.5 indent-6;
+}
+
+/* Lists */
+.ck-content ul {
+    @apply list-disc pl-5 mb-1.5;
+}
+
+.ck-content ol {
+    @apply list-decimal pl-5 mb-1.5;
+}
+
+.ck-content li {
+    @apply mb-0.5;
+}
+
+/* Text formatting */
+.ck-content strong {
+    @apply font-extrabold;
+}
+
+.ck-content em {
+    @apply italic;
+}
+
+/* Spacing between elements - further reduced */
+.ck-content > * + * {
+    @apply mt-1.5;
+}

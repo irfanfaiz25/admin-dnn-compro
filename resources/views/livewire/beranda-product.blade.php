@@ -3,15 +3,22 @@
         <h3 class="text-lg font-semibold text-gray-600">
             Keunggulan Produk
         </h3>
-        <button type="button" wire:click='handleOpenContentForm'
-            class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
-            <span>
-                Tambah
-            </span>
-            <span wire:loading wire:target='handleOpenContentForm'
-                class="animate-spin rounded-full h-5 w-5 border-[2px] border-primary-gold border-t-transparent ml-2">
-            </span>
-        </button>
+        <p class="text-sm text-gray-500">
+            Jumlah Konten: {{ $totalContent }} / {{ $maxContent }}
+        </p>
+        <div>
+            @if ($totalContent < $maxContent)
+                <button type="button" wire:click='handleOpenContentForm'
+                    class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
+                    <span>
+                        Tambah
+                    </span>
+                    <span wire:loading wire:target='handleOpenContentForm'
+                        class="animate-spin rounded-full h-5 w-5 border-[2px] border-primary-gold border-t-transparent ml-2">
+                    </span>
+                </button>
+            @endif
+        </div>
     </div>
 
     {{-- headline --}}
