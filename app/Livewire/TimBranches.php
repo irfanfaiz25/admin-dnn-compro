@@ -6,6 +6,7 @@ use Livewire\Component;
 
 class TimBranches extends Component
 {
+    public $isShowHeadlineForm = false;
     public $branches = [
         [
             'city' => 'Boyolali',

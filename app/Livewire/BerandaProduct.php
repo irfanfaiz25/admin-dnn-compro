@@ -74,7 +74,7 @@ class BerandaProduct extends Component
             'subtitle' => $this->headlineSubtitle,
         ]);
 
-        Toaster::success('Headline berhasil diupdate');
+        Toaster::success('Headline berhasil di perbarui');
         $this->handleCloseHeadlineForm();
     }
 

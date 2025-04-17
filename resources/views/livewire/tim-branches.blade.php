@@ -5,40 +5,54 @@
         </h3>
     </div>
 
-    <div class="flex justify-center mb-5">
-        <div class="border border-gray-300 min-w-1/2 max-w-2/3 rounded-md relative">
-            <div class="p-8 flex flex-col justify-center items-center text-center">
-                <h1 class="text-4xl font-bold font-display mb-1">
-                    Jaringan Cabang Kami
-                </h1>
-                <div class="w-24 h-1.5 bg-primary-gold mt-5 mb-8 rounded-full"></div>
-                <p class="text-sm font-medium">
-                    Kami terus memperluas jangkauan untuk melayani pelanggan di berbagai wilayah dengan standar kualitas
-                    yang sama di setiap cabang.
-                </p>
-                <button
-                    class="absolute top-1 right-1 px-3 py-1.5 group border border-gray-600 hover:bg-gray-600 text-gray-600 hover:text-white text-xs rounded-sm">
-                    <i class="fa fa-pencil text-[11px] pr-0.5 text-gray-600 group-hover:text-white"></i>
-                    Edit
-                </button>
-            </div>
-            {{-- edit title form --}}
-            {{-- <div class="p-4">
-            <div class="mb-2">
-                <input type="text" id="title" name="title"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-200 block w-full p-2.5"
-                    placeholder="Judul">
-            </div>
-            <div class="mb-2">
-                <textarea id="description" name="description" rows="2"
-                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-md border border-gray-300  focus:outline-gray-400"
-                    placeholder="Deskripsi"></textarea>
-            </div>
-            <div class="flex justify-end">
-                <button type="submit"
-                    class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center">Simpan</button>
-            </div>
-        </div> --}}
+    {{-- headline --}}
+    <div class="mb-5 flex justify-center">
+        <div class="border border-gray-300 min-w-1/2 rounded-md relative">
+            @if ($isShowHeadlineForm)
+                <form wire:submit.prevent='handleSaveHeadline' class="p-4">
+                    <div class="mb-2">
+                        <input type="text" id="productHeadlineTitle" wire:model='headlineTitle'
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-200 block w-full p-2.5"
+                            placeholder="Judul">
+                    </div>
+                    <div class="mb-2">
+                        <textarea id="productHeadlineSubtitle" rows="2" wire:model='headlineSubtitle'
+                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-md border border-gray-300  focus:outline-gray-400"
+                            placeholder="Deskripsi"></textarea>
+                    </div>
+                    <div class="mt-1 flex justify-end gap-1">
+                        <button type="button" wire:click='handleCloseHeadlineForm'
+                            class="text-white bg-gray-500 hover:bg-gray-600 focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center">
+                            Batal
+                        </button>
+                        <button type="submit"
+                            class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-4 font-medium rounded-md text-sm px-5 py-2.5 text-center">
+                            Simpan
+                        </button>
+                    </div>
+                </form>
+            @else
+                <div class="p-8 flex flex-col justify-center items-center text-center">
+                    <h1 class="text-4xl font-bold font-display mb-1">
+                        {{-- {{ $headline->title }} --}}
+                    </h1>
+                    <div class="w-24 h-1.5 bg-primary-gold mt-5 mb-8 rounded-full"></div>
+                    <p class="text-sm font-medium">
+                        {{-- {{ $headline->subtitle }} --}}
+                    </p>
+                    <button wire:click='handleOpenHeadlineForm' type="button"
+                        class="absolute top-1 right-1 px-3 py-1.5 group border border-gray-600 hover:bg-gray-600 text-gray-600 hover:text-white text-xs rounded-sm">
+                        <i wire:loading.remove wire:target="handleOpenHeadlineForm"
+                            class="fa fa-pencil text-[11px] pr-0.5 text-gray-600 group-hover:text-white"></i>
+                        <span wire:loading wire:target="handleOpenHeadlineForm"
+                            class="animate-spin rounded-full h-3 w-3 border-[1px] border-primary-gold border-t-transparent">
+                        </span>
+                        <span>
+                            Edit
+                        </span>
+                    </button>
+                </div>
+            @endif
         </div>
     </div>
 
