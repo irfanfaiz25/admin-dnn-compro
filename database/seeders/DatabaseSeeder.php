@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             VisiMisiSeeder::class,
             AchievementSeeder::class,
             BranchSeeder::class,
+            TeamTestimonialSeeder::class,
         ]);
     }
 }

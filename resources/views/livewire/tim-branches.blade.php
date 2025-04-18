@@ -95,7 +95,7 @@
                             <span>
                                 Hapus
                             </span>
-                            <span wire:loading wire:target='handleCloseContentForm'
+                            <span wire:loading wire:target='handleDeleteBranch'
                                 class="animate-spin rounded-full h-5 w-5 border-[2px] border-primary-gold border-t-transparent ml-2">
                             </span>
                         </button>
