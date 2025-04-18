@@ -66,5 +66,12 @@ class SectionSeeder extends Seeder
             'description' => 'Kami adalah tim yang berdedikasi untuk memberikan produk berkualitas tinggi dengan standar layanan terbaik untuk kepuasan pelanggan.',
             'section_name' => 'tim-hero'
         ]);
+
+        // Produk
+        Section::create([
+            'title' => 'Produk Kami',
+            'description' => 'Tembakau premium kami diperkaya dengan perpaduan rempah-rempah nusantara yang memikat. Setiap hisapan menghadirkan sensasi cengkeh pilihan yang menghangatkan, aroma kayu manis yang menenangkan, dan sentuhan kapulaga yang menyegarkan. Diproses dengan kearifan tradisional dan teknologi modern, menciptakan harmoni rasa yang memanjakan para penikmat rokok premium sejati.',
+            'section_name' => 'produk-hero'
+        ]);
     }
 }
