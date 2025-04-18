@@ -73,5 +73,11 @@ class SectionSeeder extends Seeder
             'description' => 'Tembakau premium kami diperkaya dengan perpaduan rempah-rempah nusantara yang memikat. Setiap hisapan menghadirkan sensasi cengkeh pilihan yang menghangatkan, aroma kayu manis yang menenangkan, dan sentuhan kapulaga yang menyegarkan. Diproses dengan kearifan tradisional dan teknologi modern, menciptakan harmoni rasa yang memanjakan para penikmat rokok premium sejati.',
             'section_name' => 'produk-hero'
         ]);
+
+        Section::create([
+            'title' => 'Revolusi Rasa',
+            'description' => 'Saksikan perjalanan transformatif kami dalam menghadirkan inovasi yang mengubah industri. Dari setiap langkah revolusioner, peluncuran produk breakthrough, hingga momen-momen bersejarah yang membentuk DNA perusahaan kami. Temukan kisah di balik setiap pencapaian dan jadilah bagian dari revolusi yang kami bangun untuk masa depan Indonesia.',
+            'section_name' => 'revolusi-hero'
+        ]);
     }
 }
