@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
             AchievementSeeder::class,
             BranchSeeder::class,
             TeamTestimonialSeeder::class,
+            ProductSeeder::class,
         ]);
     }
 }

@@ -97,6 +97,11 @@ class BerandaHero extends Component
         }
 
         if ($this->isEditMode) {
+            if (!$section) {
+                Toaster::error('Section tidak ditemukan');
+                return;
+            }
+
             $section->update([
                 'title' => $this->title,
                 'description' => $this->description,
