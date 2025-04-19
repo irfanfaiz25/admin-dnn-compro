@@ -2,12 +2,29 @@
 
 namespace App\Livewire;
 
+use App\Models\Post;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Livewire\WithPagination;
+use Masmerise\Toaster\Toaster;
 
 class RevolusiPosts extends Component
 {
-    use WithFileUploads;
+    use WithFileUploads, WithPagination;
+
+    public $search = '';
+    public $sortField = 'date';
+    public $sortDirection = 'desc';
+    public $perPage = 10;
+
+    public $isShowForm = false;
+    public $date;
+    public $postTitle;
+    public $content;
+
+    public $isEditMode = false;
+    public $postId;
 
     public $mediaFiles = [];
     public $mediaUpload;
@@ -17,17 +34,19 @@ class RevolusiPosts extends Component
     public $selectedPost = null;
     public $selectedMediaIndex = 0;
 
-    // Add these validation rules
-    protected $rules = [
-        'mediaFiles.*' => 'file|mimes:jpeg,jpg,png,mp4|max:5120', // 5MB max
-        'mediaUpload' => 'nullable|file|mimes:jpeg,jpg,png,mp4|max:5120',
-        'media1' => 'nullable|file|mimes:jpeg,jpg,png,mp4|max:5120',
-        'media2' => 'nullable|file|mimes:jpeg,jpg,png,mp4|max:5120',
-        'media3' => 'nullable|file|mimes:jpeg,jpg,png,mp4|max:5120',
-        'media4' => 'nullable|file|mimes:jpeg,jpg,png,mp4|max:5120',
-        'media5' => 'nullable|file|mimes:jpeg,jpg,png,mp4|max:5120',
-        'description' => 'nullable|string',
-    ];
+
+    public function handleOpenForm()
+    {
+        $this->isShowForm = true;
+    }
+
+    public function handleCloseForm()
+    {
+        $this->isShowForm = false;
+        $this->isEditMode = false;
+        $this->reset('date', 'postTitle', 'content', 'mediaFiles', 'mediaUpload', 'postId');
+        $this->resetValidation();
+    }
 
     public function updatedMediaUpload()
     {
@@ -49,35 +68,168 @@ class RevolusiPosts extends Component
         }
     }
 
-    public function handleOpenModal()
+    public function handleEdit($postId)
     {
-        // In a real application, you would fetch the post data from your database
-        // For now, we'll use dummy data
-        $this->selectedPost = [
-            'id' => 1,
-            'title' => 'Ini Judul',
-            'date' => 'Januari 23, 2025',
-            'description' => 'Dengan bangga kami memperkenalkan Kedathon Nusantara, sebuah produk rokok premium yang menggabungkan cita rasa tembakau pilihan dari berbagai penjuru Nusantara. Diproduksi dengan standar kualitas tinggi dan menggunakan teknologi modern, Kedathon Nusantara hadir untuk memberikan pengalaman merokok yang tak tertandingi.
+        $post = Post::with('media')->find($postId);
+        if (!$post) {
+            Toaster::error('Data tidak ditemukan');
+            return;
+        }
 
-Setiap batang Kedathon Nusantara merupakan hasil dari perpaduan sempurna antara tradisi dan inovasi. Kami memilih daun tembakau terbaik yang dipanen pada waktu yang tepat, kemudian diolah dengan metode khusus untuk menghasilkan cita rasa yang khas dan aroma yang menggoda.',
-            'media' => [
-                [
-                    'id' => 1,
-                    'type' => 'image',
-                    'url' => '/img/picture1.jpg',
-                ],
-                [
-                    'id' => 2,
-                    'type' => 'image',
-                    'url' => '/img/news-background.jpg',
-                ],
-                [
-                    'id' => 3,
-                    'type' => 'image',
-                    'url' => '/img/picture1.jpg',
-                ],
+        $this->isEditMode = true;
+        $this->postId = $post->id;
+        $this->date = $post->date;
+        $this->postTitle = $post->title;
+        $this->content = $post->content;
+        // Load existing media
+        $this->mediaFiles = $post->media->sortBy('order')->values()->toArray();
+
+        $this->isShowForm = true;
+        $this->dispatch('editorContentUpdated', content: $this->content);
+    }
+
+    public function handleSave()
+    {
+        // Validate basic fields with custom Indonesian messages
+        $this->validate(
+            [
+                'date' => 'required',
+                'postTitle' => 'required|max:50',
+                'content' => 'required',
+            ],
+            [
+                'date.required' => 'Tanggal harus diisi',
+                'postTitle.required' => 'Judul post harus diisi',
+                'postTitle.max' => 'Judul post tidak boleh lebih dari 50 karakter',
+                'content.required' => 'Konten post harus diisi',
             ]
-        ];
+        );
+
+        // Validate new media uploads only (not existing media)
+        foreach ($this->mediaFiles as $index => $media) {
+            if ($media instanceof \Illuminate\Http\UploadedFile) {
+                $this->validate(
+                    [
+                        "mediaFiles.{$index}" => 'file|mimes:jpeg,jpg,png,mp4|max:5120', // 5MB max
+                    ],
+                    [
+                        "mediaFiles.{$index}.file" => 'File harus berupa dokumen yang valid',
+                        "mediaFiles.{$index}.mimes" => 'File harus berupa jpeg, jpg, png, atau mp4',
+                        "mediaFiles.{$index}.max" => 'Ukuran file tidak boleh lebih dari 5MB',
+                    ]
+                );
+            }
+        }
+
+        $slug = strtolower(str_replace(' ', '-', $this->postTitle));
+
+        if ($this->isEditMode) {
+            $post = Post::find($this->postId);
+            if (!$post) {
+                Toaster::error('Data tidak ditemukan');
+                return;
+            }
+
+            $post->update([
+                'date' => $this->date,
+                'title' => $this->postTitle,
+                'slug' => $slug,
+                'content' => $this->content,
+            ]);
+
+            // Get existing media IDs
+            $existingMediaIds = $post->media->pluck('id')->toArray();
+
+            // Track which existing media to keep
+            $keepMediaIds = [];
+
+            // Handle media updates
+            foreach ($this->mediaFiles as $index => $media) {
+                if ($media instanceof \Illuminate\Http\UploadedFile) {
+                    // This is a new upload
+                    $timestamp = time();
+                    $mediaName = $slug . '-' . ($index + 1) . '-' . $timestamp . '.' . $media->getClientOriginalExtension();
+                    $mediaUrl = 'storage/' . $media->storeAs('post-media', $mediaName, 'public');
+
+                    // Get the media type
+                    $mediaType = strpos($media->getMimeType(), 'video') !== false ? 'video' : 'image';
+
+                    // Create new media record
+                    $post->media()->create([
+                        'type' => $mediaType,
+                        'url' => $mediaUrl,
+                        'order' => $index + 1,
+                    ]);
+                } elseif (is_array($media) && isset($media['id'])) {
+                    // This is an existing media item
+                    $keepMediaIds[] = $media['id'];
+
+                    // Update the order if needed
+                    $existingMedia = $post->media()->find($media['id']);
+                    if ($existingMedia && $existingMedia->order != $index + 1) {
+                        $existingMedia->update([
+                            'order' => $index + 1,
+                        ]);
+                    }
+                }
+            }
+
+            // Delete media items that weren't kept
+            foreach ($existingMediaIds as $mediaId) {
+                if (!in_array($mediaId, $keepMediaIds)) {
+                    $media = $post->media()->find($mediaId);
+                    if ($media) {
+                        // Delete file from storage
+                        if (Storage::disk('public')->exists(str_replace('storage/', '', $media->url))) {
+                            Storage::disk('public')->delete(str_replace('storage/', '', $media->url));
+                        }
+                        $media->delete();
+                    }
+                }
+            }
+
+            Toaster::success('Data berhasil diperbarui');
+        } else {
+            // Create new post
+            $post = Post::create([
+                'date' => $this->date,
+                'title' => $this->postTitle,
+                'slug' => $slug,
+                'content' => $this->content,
+            ]);
+
+            // Handle media uploads for new post
+            foreach ($this->mediaFiles as $index => $media) {
+                if ($media instanceof \Illuminate\Http\UploadedFile) {
+                    $timestamp = time();
+                    $mediaName = $slug . '-' . ($index + 1) . '-' . $timestamp . '.' . $media->getClientOriginalExtension();
+                    $mediaUrl = 'storage/' . $media->storeAs('post-media', $mediaName, 'public');
+
+                    // Get the media type
+                    $mediaType = strpos($media->getMimeType(), 'video') !== false ? 'video' : 'image';
+
+                    // Create new media record
+                    $post->media()->create([
+                        'type' => $mediaType,
+                        'url' => $mediaUrl,
+                        'order' => $index + 1,
+                    ]);
+                }
+            }
+
+            Toaster::success('Data berhasil ditambahkan');
+        }
+
+        $this->handleCloseForm();
+    }
+
+    public function handleOpenModal($postId)
+    {
+        $this->selectedPost = Post::with('media')->find($postId);
+        if (!$this->selectedPost) {
+            Toaster::error('Data tidak ditemukan');
+            return;
+        }
 
         $this->selectedMediaIndex = 0;
         $this->showModal = true;
@@ -95,25 +247,59 @@ Setiap batang Kedathon Nusantara merupakan hasil dari perpaduan sempurna antara 
         $this->selectedMediaIndex = $index;
     }
 
-    public function editPost()
+    public function sortBy($field)
     {
-        // Logic to handle editing the post
-        // This could populate the form below with the selected post data
-        $this->closeModal();
+        if ($this->sortField === $field) {
+            // If clicking the same field, toggle direction
+            $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
+        } else {
+            // If clicking a new field, set it and default to desc (newest first)
+            $this->sortField = $field;
+            $this->sortDirection = 'desc';
+        }
 
-        // Example: populate the form with the selected post data
-        // $this->date = $this->selectedPost['date'];
-        // $this->postTitle = $this->selectedPost['title'];
-        // $this->description = $this->selectedPost['description'];
+        // Reset pagination when sorting changes
+        $this->resetPage();
     }
 
-    public function save()
+    public function updatedSearch()
     {
-        dd($this->description);
+        $this->resetPage();
+    }
+
+    public function setPerPage($value)
+    {
+        $this->perPage = $value;
+        $this->resetPage();
+    }
+
+    public function handleDelete()
+    {
+        $post = Post::find($this->postId);
+        if (!$post) {
+            Toaster::error('Data tidak ditemukan');
+            return;
+        }
+
+        // Delete associated media
+        foreach ($post->media as $media) {
+            if (Storage::disk('public')->exists(str_replace('storage/', '', $media->url))) {
+                Storage::disk('public')->delete(str_replace('storage/', '', $media->url));
+            }
+            $media->delete();
+        }
+        $post->delete();
+
+        Toaster::success('Data berhasil dihapus');
+        $this->handleCloseForm();
     }
 
     public function render()
     {
-        return view('livewire.revolusi-posts');
+        $posts = Post::where('title', 'like', "%$this->search%")->with('media')->orderBy($this->sortField, $this->sortDirection)->paginate($this->perPage);
+
+        return view('livewire.revolusi-posts', [
+            'posts' => $posts,
+        ]);
     }
 }

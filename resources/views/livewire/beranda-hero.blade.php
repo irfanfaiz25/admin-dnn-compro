@@ -133,7 +133,7 @@
                     <button type="button" wire:click="handleEdit({{ $section->id }})"
                         class="px-3 py-1.5 group bg-white/80 hover:bg-white border border-gray-200 text-gray-700 hover:text-gray-800 text-xs rounded-sm backdrop-blur-sm transition-colors duration-200 inline-flex items-center space-x-1">
                         <i wire:loading.remove wire:target="handleEdit({{ $section->id }})"
-                            class="fa fa-pencil text-[11px] text-white group-hover:text-secondary-green"></i>
+                            class="fa fa-pencil text-[11px] text-secondary-green group-hover:text-secondary-green"></i>
                         <span wire:loading wire:target="handleEdit({{ $section->id }})"
                             class="animate-spin rounded-full h-3 w-3 border-[1px] border-primary-gold border-t-transparent">
                         </span>
@@ -143,9 +143,9 @@
                     </button>
                     <button wire:click="delete({{ $section->id }})"
                         wire:confirm='Apakah anda yakin ingin menghapus data ini?'
-                        class="px-3 py-1.5 group border border-white hover:bg-white text-white hover:text-gray-800 text-xs rounded-sm inline-flex items-center space-x-1">
+                        class="px-3 py-1.5 group bg-white/80 hover:bg-white border border-gray-200 text-gray-700 hover:text-gray-800 text-xs rounded-sm backdrop-blur-sm transition-colors duration-200 inline-flex items-center space-x-1">
                         <i wire:loading.remove wire:target="delete({{ $section->id }})"
-                            class="fa fa-trash text-[11px] pr-0.5 text-white group-hover:text-tertiary-red"></i>
+                            class="fa fa-trash text-[11px] pr-0.5 text-tertiary-red group-hover:text-tertiary-red"></i>
                         <span wire:loading wire:target="delete({{ $section->id }})"
                             class="animate-spin rounded-full h-3 w-3 border-[1px] border-primary-gold border-t-transparent">
                         </span>

@@ -36,7 +36,8 @@
                         </button>
                         <div x-show="isDropdownOpen" x-transition class="mt-1 pl-8 space-y-1">
                             @foreach ($menu['children'] as $child)
-                                <a href="{{ route($child['route']) }}" wire:navigate
+                                <a href="{{ route($child['route']) }}"
+                                    {{ $child['route'] != 'sejarah.index' ? 'wire:navigate' : '' }}
                                     class="group flex items-center text-sm h-9 gap-3.5 font-medium p-2 pl-5 hover:bg-[#f2f2f2] dark:hover:bg-[#252525] hover:text-primary-gold dark:hover:text-primary-gold rounded-md {{ request()->is($child['request']) ? 'bg-[#f2f2f2] dark:bg-[#252525] text-primary-gold' : 'text-gray-800 dark:text-gray-50' }}">
                                     <i class="{{ $child['icon'] }} text-lg"></i>
                                     <h2 class="whitespace-pre duration-300 capitalize">{{ $child['name'] }}</h2>
@@ -45,7 +46,8 @@
                         </div>
                     </div>
                 @else
-                    <a href="{{ route($menu['route']) }}" wire:navigate
+                    <a href="{{ route($menu['route']) }}"
+                        {{ $menu['route'] != 'revolusi.index' ? 'wire:navigate' : '' }}
                         class="group flex items-center text-sm h-11 gap-3.5 font-medium p-2 pl-5 hover:bg-[#f2f2f2] dark:hover:bg-[#252525] hover:text-primary-gold dark:hover:text-primary-gold rounded-md {{ request()->is($menu['request']) ? 'bg-[#f2f2f2] dark:bg-[#252525] text-primary-gold' : 'text-gray-800 dark:text-gray-50' }}">
                         <i class="{{ $menu['icon'] }} text-lg"></i>
                         <h2 class="whitespace-pre duration-300 capitalize">{{ $menu['name'] }}</h2>

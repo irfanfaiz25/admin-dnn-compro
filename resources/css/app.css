@@ -79,7 +79,7 @@
 
 /* Paragraphs - further reduced spacing */
 .ck-content p {
-    @apply mb-1.5 indent-6;
+    @apply mb-4;
 }
 
 /* Lists */
