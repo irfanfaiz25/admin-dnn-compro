@@ -1,44 +1,71 @@
-<div class="h-fit w-full p-4 bg-white backdrop-blur-md border border-gray-300 rounded-md shadow-md">
-    <div class="pb-4 flex justify-between">
-        <h3 class="text-lg font-semibold text-gray-600">
-            Form
-        </h3>
-        <div class="flex gap-1">
-            <button type="button"
-                class="text-white bg-gray-500 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center">
-                Batal
-            </button>
-            <button type="button"
-                class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center">
-                Simpan
-            </button>
+<div class="h-fit w-full bg-white backdrop-blur-md border border-gray-300 rounded-md shadow-md">
+    <form wire:submit.prevent='handleSave' class="px-6 py-4">
+        <div class="flex justify-between items-center">
+            <h3 class="text-lg font-semibold text-gray-600">
+                Form
+            </h3>
+            <div class="flex space-x-2 justify-end">
+                <button type="button" wire:click='handleResetForm'
+                    class="text-gray-600 bg-gray-200 hover:bg-gray-300 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
+                    <span>
+                        Batal
+                    </span>
+                    <span wire:loading wire:target='handleResetForm'
+                        class="animate-spin rounded-full h-5 w-5 border-[2px] border-primary-gold border-t-transparent ml-2">
+                    </span>
+                </button>
+                <button type="submit"
+                    class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
+                    <span>
+                        Simpan
+                    </span>
+                    <span wire:loading wire:target='handleSave'
+                        class="animate-spin rounded-full h-5 w-5 border-[2px] border-primary-gold border-t-transparent ml-2">
+                    </span>
+                </button>
+            </div>
         </div>
-    </div>
 
-    <form>
-        <div class="flex justify-center">
+        <div class="mt-4 flex justify-center">
             <div
                 class="flex flex-col items-center gap-4 p-6 border-2 border-dashed border-gray-300 rounded-lg hover:border-gray-400 transition-colors duration-300">
-                <div class="relative group">
-                    <img src="/img/logo.png" alt="logo"
-                        class="h-24 w-auto object-contain rounded-md group-hover:scale-105 transition-transform duration-300">
-                </div>
+                @if ($companyLogo)
+                    <div class="relative group">
+                        <img src="{{ $companyLogo->temporaryUrl() }}" alt="companyLogo"
+                            class="h-24 w-auto object-contain rounded-md group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                @elseif ($existingCompanyLogo)
+                    <div class="relative group">
+                        <img src="{{ asset($existingCompanyLogo) }}" alt="companyLogo"
+                            class="h-24 w-auto object-contain rounded-md group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                @else
+                    <div class="h-24 w-24 rounded-full bg-gray-200 shadow-md flex justify-center items-center">
+                        <i class="fa fa-camera text-lg text-gray-400"></i>
+                    </div>
+                @endif
                 <div class="w-full">
                     <label for="logo"
                         class="block mb-2 text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors duration-300">
                         Logo
                     </label>
-                    <input type="file" id="logo" name="logo" accept="image/*"
+                    <input type="file" id="logo" accept="image/*" wire:model='companyLogo'
                         class="block w-full px-4 py-3 text-sm text-gray-900 bg-white border border-gray-300 rounded-lg cursor-pointer focus:outline-none focus:border-gray-500 focus:ring-2 focus:ring-gray-200 transition-all duration-300 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-gray-50 file:text-gray-700 hover:file:bg-gray-100"
                         placeholder="Choose logo file">
+                    @error('companyLogo')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
                 <div class="w-full">
                     <label for="companyName" class="block mb-2 text-sm font-medium text-gray-900">
                         Nama Perusahaan
                     </label>
-                    <input type="text" id="companyName" name="companyName"
+                    <input type="text" id="companyName" wire:model='companyName'
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                         placeholder="Masukkan nama perusahaan">
+                    @error('companyName')
+                        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -65,8 +92,12 @@
                         <div class="flex-1">
                             <label for="email" class="block text-sm font-semibold text-gray-700 mb-1">Email
                                 Address</label>
-                            <input type="email" id="email" name="email" placeholder="Masukkan email"
+                            <input type="email" id="email" placeholder="Masukkan email" wire:model='email'
                                 class="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm outline-none transition-all duration-300">
+                            <p class="text-xs text-gray-500 mt-1">Format: example@domain.com</p>
+                            @error('email')
+                                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
                 </div>
@@ -87,8 +118,13 @@
                         <div class="flex-1">
                             <label for="phone" class="block text-sm font-semibold text-gray-700 mb-1">Phone
                                 Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="Masukkan nomor telepon"
+                            <input type="tel" id="phone" placeholder="Masukkan nomor telepon (gunakan +62)"
+                                wire:model='phone'
                                 class="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm outline-none transition-all duration-300">
+                            <p class="text-xs text-gray-500 mt-1">Format: +628xxxxxxxxxx</p>
+                            @error('phone')
+                                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
                 </div>
@@ -108,8 +144,13 @@
                         <div class="flex-1">
                             <label for="whatsapp"
                                 class="block text-sm font-semibold text-gray-700 mb-1">WhatsApp</label>
-                            <input type="tel" id="whatsapp" name="whatsapp" placeholder="Masukkan nomor whatsapp"
+                            <input type="tel" id="whatsapp" placeholder="Masukkan nomor whatsapp (gunakan +62)"
+                                wire:model='whatsapp'
                                 class="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm outline-none transition-all duration-300">
+                            <p class="text-xs text-gray-500 mt-1">Format: +628xxxxxxxxxx</p>
+                            @error('whatsapp')
+                                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
                 </div>
@@ -141,9 +182,12 @@
                         <div class="flex-1">
                             <label for="instagram"
                                 class="block text-sm font-semibold text-gray-700 mb-1">Instagram</label>
-                            <input type="text" id="instagram" name="instagram"
+                            <input type="text" id="instagram" wire:model='instagram'
                                 placeholder="Masukkan username Instagram"
                                 class="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-sm outline-none transition-all duration-300">
+                            @error('instagram')
+                                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
                 </div>
@@ -164,9 +208,12 @@
                         <div class="flex-1">
                             <label for="facebook"
                                 class="block text-sm font-semibold text-gray-700 mb-1">Facebook</label>
-                            <input type="text" id="facebook" name="facebook"
+                            <input type="text" id="facebook" wire:model='facebook'
                                 placeholder="Masukkan username Facebook"
                                 class="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-sm outline-none transition-all duration-300">
+                            @error('facebook')
+                                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
                 </div>
@@ -187,9 +234,12 @@
                         <div class="flex-1">
                             <label for="twitter"
                                 class="block text-sm font-semibold text-gray-700 mb-1">Twitter</label>
-                            <input type="text" id="twitter" name="twitter"
+                            <input type="text" id="twitter" wire:model='twitter'
                                 placeholder="Masukkan username Twitter"
                                 class="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent text-sm outline-none transition-all duration-300">
+                            @error('twitter')
+                                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
                 </div>
@@ -216,9 +266,12 @@
                         <div class="flex-1">
                             <label for="linkedin"
                                 class="block text-sm font-semibold text-gray-700 mb-1">LinkedIn</label>
-                            <input type="text" id="linkedin" name="linkedin"
+                            <input type="text" id="linkedin" wire:model='linkedin'
                                 placeholder="Masukkan username LinkedIn"
                                 class="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm outline-none transition-all duration-300">
+                            @error('linkedin')
+                                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
                 </div>
