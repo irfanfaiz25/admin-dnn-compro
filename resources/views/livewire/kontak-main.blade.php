@@ -1,6 +1,7 @@
-<div class="h-fit w-full p-4 bg-white backdrop-blur-md border border-gray-300 rounded-md shadow-md">
+<div
+    class="h-fit w-full p-4 bg-white dark:bg-[#252525] backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded-md shadow-md">
     <div class="pb-4 flex justify-between">
-        <h3 class="text-lg font-semibold text-gray-600">
+        <h3 class="text-lg font-semibold text-gray-600 dark:text-gray-300">
             Kontak
         </h3>
         @if (!$isShowForm)
@@ -16,15 +17,15 @@
 
     {{-- form --}}
     <div wire:show='isShowForm' wire:cloak wire:transition
-        class="mb-5 w-full bg-white backdrop-blur-md border border-gray-300 rounded-md shadow-md">
+        class="mb-5 w-full bg-white dark:bg-[#252525] backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded-md shadow-md">
         <form wire:submit.prevent='handleSave'>
-            <div class="px-4 py-3 flex justify-between items-center border-b border-gray-300">
-                <h3 class="text-lg font-semibold text-gray-600 capitalize">
+            <div class="px-4 py-3 flex justify-between items-center border-b border-gray-300 dark:border-gray-700">
+                <h3 class="text-lg font-semibold text-gray-600 dark:text-gray-300 capitalize">
                     Edit Konten
                 </h3>
                 <div class="flex space-x-2 justify-end">
                     <button type="button" wire:click='handleCloseForm'
-                        class="text-gray-600 bg-gray-200 hover:bg-gray-300 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
+                        class="text-gray-600 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
                         <span>
                             Batal
                         </span>
@@ -47,24 +48,26 @@
                 <!-- Address Information -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
-                        <label for="address" class="block mb-2 text-sm font-medium text-gray-900">Alamat
+                        <label for="address"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Alamat
                             Lengkap</label>
                         <textarea wire:model="address" id="address" rows="3"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Masukkan alamat lengkap"></textarea>
                     </div>
                     <div>
-                        <label for="operationalHours" class="block mb-2 text-sm font-medium text-gray-900">Jam
+                        <label for="operationalHours"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Jam
                             Operasional</label>
                         <div class="space-y-2">
                             <div class="flex items-center gap-2">
                                 <input type="text" wire:model="weekdayOpen" id="weekdayOpen"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                                    class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                                     placeholder="Senin - Jumat: 08.00 - 16.00">
                             </div>
                             <div class="flex items-center gap-2">
                                 <input type="text" wire:model="weekendOpen" id="weekendOpen"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                                    class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                                     placeholder="Sabtu: 08.00 - 12.00">
                             </div>
                         </div>
@@ -74,29 +77,33 @@
                 <!-- Contact Information -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <div>
-                        <label for="phone" class="block mb-2 text-sm font-medium text-gray-900">Nomor
+                        <label for="phone"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Nomor
                             Telepon</label>
                         <input type="tel" wire:model="phone" id="phone"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="+6298-3539-040">
-                        <!-- Note: Please use +62 format instead of leading 0 -->
-                        <p class="mt-1 text-sm text-gray-500">Format: Gunakan +62 di awal nomor (bukan 0)</p>
+                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Format: Gunakan +62 di awal nomor
+                            (bukan 0)</p>
                     </div>
                     <div>
-                        <label for="whatsapp" class="block mb-2 text-sm font-medium text-gray-900">Nomor
+                        <label for="whatsapp"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Nomor
                             WhatsApp</label>
                         <input type="tel" wire:model="whatsapp" id="whatsapp"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="+62851-1722-5313">
-                        <p class="mt-1 text-sm text-gray-500">Format: Gunakan +62 di awal nomor (bukan 0)</p>
+                        <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Format: Gunakan +62 di awal nomor
+                            (bukan 0)</p>
                     </div>
                 </div>
 
                 <!-- Email -->
                 <div class="mb-4">
-                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Alamat Email</label>
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Alamat
+                        Email</label>
                     <input type="email" wire:model="email" id="email"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                        class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                         placeholder="info@dwipanusantaraniaga.id">
                 </div>
             </div>
@@ -106,9 +113,11 @@
     {{-- Display --}}
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
         <!-- Location Card -->
-        <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow hover:scale-[1.02]">
+        <div
+            class="bg-white dark:bg-neutral-700 rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow hover:scale-[1.02]">
             <div class="flex justify-center mb-4">
-                <div class="p-3 bg-red-50 rounded-full hover:rotate-360 transition-transform duration-500">
+                <div
+                    class="p-3 bg-red-50 dark:bg-red-900/20 rounded-full hover:rotate-360 transition-transform duration-500">
                     <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
@@ -118,16 +127,18 @@
                     </svg>
                 </div>
             </div>
-            <h3 class="font-semibold text-gray-900 mb-1">Kunjungi Kami</h3>
-            <p class="text-gray-600 text-sm">
+            <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-1">Kunjungi Kami</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm">
                 {{ $contact->address }}
             </p>
         </div>
 
         <!-- Phone Card -->
-        <div class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow hover:scale-[1.02]">
+        <div
+            class="bg-white dark:bg-neutral-700 rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow hover:scale-[1.02]">
             <div class="flex justify-center mb-4">
-                <div class="p-3 bg-red-50 rounded-full hover:rotate-360 transition-transform duration-500">
+                <div
+                    class="p-3 bg-red-50 dark:bg-red-900/20 rounded-full hover:rotate-360 transition-transform duration-500">
                     <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
@@ -135,12 +146,12 @@
                     </svg>
                 </div>
             </div>
-            <h3 class="font-semibold text-gray-900 mb-1">Hubungi Kami</h3>
-            <a href="tel:{{ $contact->phone }}" class="text-gray-600 text-sm hover:text-red-500">
+            <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-1">Hubungi Kami</h3>
+            <a href="tel:{{ $contact->phone }}" class="text-gray-600 dark:text-gray-400 text-sm hover:text-red-500">
                 {{ $contact->phone }}
             </a>
             <a href="https://wa.me/{{ $contact->whatsapp }}"
-                class="text-gray-600 text-sm hover:text-red-500 mt-2 flex items-center justify-center gap-2"
+                class="text-gray-600 dark:text-gray-400 text-sm hover:text-red-500 mt-2 flex items-center justify-center gap-2"
                 target="_blank" rel="noopener noreferrer">
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                     <path
@@ -154,9 +165,10 @@
 
         <!-- Email Card -->
         <div
-            class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow hover:scale-[1.02]">
+            class="bg-white dark:bg-neutral-700 rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow hover:scale-[1.02]">
             <div class="flex justify-center mb-4">
-                <div class="p-3 bg-red-50 rounded-full hover:rotate-360 transition-transform duration-500">
+                <div
+                    class="p-3 bg-red-50 dark:bg-red-900/20 rounded-full hover:rotate-360 transition-transform duration-500">
                     <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
@@ -164,27 +176,29 @@
                     </svg>
                 </div>
             </div>
-            <h3 class="font-semibold text-gray-900 mb-1">Alamat Email</h3>
-            <a href="mailto:{{ $contact->email }}" class="text-gray-600 text-sm hover:text-red-500">
+            <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-1">Alamat Email</h3>
+            <a href="mailto:{{ $contact->email }}"
+                class="text-gray-600 dark:text-gray-400 text-sm hover:text-red-500">
                 {{ $contact->email }}
             </a>
         </div>
 
         <!-- Hours Card -->
         <div
-            class="bg-white rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow hover:scale-[1.02]">
+            class="bg-white dark:bg-neutral-700 rounded-lg shadow-md p-6 text-center hover:shadow-lg transition-shadow hover:scale-[1.02]">
             <div class="flex justify-center mb-4">
-                <div class="p-3 bg-red-50 rounded-full hover:rotate-360 transition-transform duration-500">
+                <div
+                    class="p-3 bg-red-50 dark:bg-red-900/20 rounded-full hover:rotate-360 transition-transform duration-500">
                     <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                 </div>
             </div>
-            <h3 class="font-semibold text-gray-900 mb-1">
+            <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-1">
                 Jam Operasional
             </h3>
-            <p class="text-gray-600 text-sm">
+            <p class="text-gray-600 dark:text-gray-400 text-sm">
                 {{ $contact->weekday_open }}<br>
                 {{ $contact->weekend_open }}
             </p>
