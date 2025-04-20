@@ -1,28 +1,31 @@
-<div class="h-fit w-full p-4 bg-white backdrop-blur-md border border-gray-300 rounded-md shadow-md">
+<div
+    class="h-fit w-full p-4 bg-white dark:bg-[#252525] backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded-md shadow-md">
     <div class="pb-4 flex justify-between">
-        <h3 class="text-lg font-semibold text-gray-600">
+        <h3 class="text-lg font-semibold text-gray-600 dark:text-gray-300">
             Tentang
         </h3>
-        <button wire:click='handleOpenForm' type="button"
-            class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
-            <span>Edit</span>
-            <span wire:loading wire:target='handleOpenForm'
-                class="animate-spin rounded-full h-5 w-5 border-[2px] border-primary-gold border-t-transparent ml-2">
-            </span>
-        </button>
+        @if (!$isShowForm)
+            <button wire:click='handleOpenForm' type="button"
+                class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
+                <span>Edit</span>
+                <span wire:loading wire:target='handleOpenForm'
+                    class="animate-spin rounded-full h-5 w-5 border-[2px] border-primary-gold border-t-transparent ml-2">
+                </span>
+            </button>
+        @endif
     </div>
 
     {{-- form --}}
     <div wire:show='isShowForm' wire:cloak wire:transition
-        class="mb-5 w-full bg-white backdrop-blur-md border border-gray-300 rounded-md shadow-md">
+        class="mb-5 w-full bg-white dark:bg-[#252525] backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded-md shadow-md">
         <form wire:submit.prevent='handleSave'>
-            <div class="px-4 py-3 flex justify-between items-center border-b border-gray-300">
-                <h3 class="text-lg font-semibold text-gray-600">
+            <div class="px-4 py-3 flex justify-between items-center border-b border-gray-300 dark:border-gray-700">
+                <h3 class="text-lg font-semibold text-gray-600 dark:text-gray-300">
                     Edit Data
                 </h3>
                 <div class="flex space-x-2 justify-end">
                     <button type="button" wire:click='handleCloseForm'
-                        class="text-gray-600 bg-gray-200 hover:bg-gray-300 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
+                        class="text-gray-600 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
                         <span>
                             Batal
                         </span>
@@ -44,7 +47,7 @@
             <div class="p-4">
                 <div class="flex space-x-5">
                     <div
-                        class="w-[35%] space-y-4 bg-gray-50 p-4 rounded-lg border-2 border-dashed border-gray-300 hover:border-secondary-green transition-colors duration-300">
+                        class="w-[35%] space-y-4 bg-gray-50 dark:bg-gray-700 p-4 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-600 hover:border-secondary-green transition-colors duration-300">
                         <div class="relative group">
                             @if ($image)
                                 <img src="{{ $image->temporaryUrl() }}" alt="preview image"
@@ -62,8 +65,8 @@
                                 </div>
                             @else
                                 <div
-                                    class="w-full h-60 rounded-lg shadow-md bg-gray-200 flex justify-center items-center">
-                                    <i class="fa fa-image text-gray-400"></i>
+                                    class="w-full h-60 rounded-lg shadow-md bg-gray-200 dark:bg-gray-600 flex justify-center items-center">
+                                    <i class="fa fa-image text-gray-400 dark:text-gray-300"></i>
                                 </div>
                             @endif
                         </div>
@@ -74,29 +77,31 @@
                             <input type="file" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                                 accept="image/*" wire:model="image">
                             <div
-                                class="w-full px-4 py-3 text-sm font-medium text-center rounded-lg border-2 border-dashed border-secondary-green bg-white hover:bg-gray-50 transition-colors duration-200 flex items-center justify-center gap-2">
+                                class="w-full px-4 py-3 text-sm font-medium text-center rounded-lg border-2 border-dashed border-secondary-green bg-white dark:bg-[#252525] hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200 flex items-center justify-center gap-2">
                                 <i class="fa fa-cloud-upload text-secondary-green"></i>
-                                <span class="text-gray-700">Pilih Gambar</span>
+                                <span class="text-gray-700 dark:text-gray-300">Pilih Gambar</span>
                             </div>
-                            <p class="mt-2 text-xs text-gray-500 text-center">PNG, JPG or JPEG (MAX. 2MB)</p>
+                            <p class="mt-2 text-xs text-gray-500 dark:text-gray-400 text-center">PNG, JPG or JPEG (MAX.
+                                2MB)</p>
                         </div>
                     </div>
                     <div class="w-[65%] space-y-4">
                         <div class="space-y-2">
-                            <label for="aboutImage" class="block text-sm font-medium text-gray-900">
+                            <label for="aboutImage" class="block text-sm font-medium text-gray-900 dark:text-gray-100">
                                 Deskripsi Gambar
                             </label>
                             <textarea id="aboutImage" rows="4" wire:model='aboutContent'
-                                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-md border border-gray-300 focus:outline-gray-400"
+                                class="block p-2.5 w-full text-sm text-gray-900 dark:text-gray-100 bg-gray-50 dark:bg-gray-700 rounded-md border border-gray-300 dark:border-gray-600 focus:outline-gray-400 dark:focus:outline-gray-500"
                                 placeholder="Masukkan deskripsi gambar"></textarea>
                             @error('aboutContent')
                                 <p class="text-red-500 text-xs my-1">{{ $message }}</p>
                             @enderror
                         </div>
                         <div class="space-y-2">
-                            <label for="aboutTitle" class="block text-sm font-medium text-gray-900">Judul</label>
+                            <label for="aboutTitle"
+                                class="block text-sm font-medium text-gray-900 dark:text-gray-100">Judul</label>
                             <input type="text" id="aboutTitle" wire:model='aboutTitle'
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                                class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 dark:focus:outline-gray-500 block w-full p-2.5"
                                 placeholder="Judul">
                             @error('aboutTitle')
                                 <p class="text-red-500 text-xs my-1">{{ $message }}</p>
@@ -104,9 +109,9 @@
                         </div>
                         <div class="space-y-2">
                             <label for="aboutDescription"
-                                class="block text-sm font-medium text-gray-900">Deskripsi</label>
+                                class="block text-sm font-medium text-gray-900 dark:text-gray-100">Deskripsi</label>
                             <textarea id="aboutDescription" rows="4" wire:model='aboutDescription'
-                                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-md border border-gray-300 focus:outline-gray-400"
+                                class="block p-2.5 w-full text-sm text-gray-900 dark:text-gray-100 bg-gray-50 dark:bg-gray-700 rounded-md border border-gray-300 dark:border-gray-600 focus:outline-gray-400 dark:focus:outline-gray-500"
                                 placeholder="Deskripsi"></textarea>
                             @error('aboutDescription')
                                 <p class="text-red-500 text-xs my-1">{{ $message }}</p>
@@ -122,10 +127,10 @@
     <div class="w-full flex space-x-5">
         {{-- text --}}
         <div class="w-[60%] p-5 flex flex-col justify-center rounded-md relative">
-            <h1 class="text-3xl text-gray-800 font-bold font-display mb-3">
+            <h1 class="text-3xl text-gray-800 dark:text-gray-100 font-bold font-display mb-3">
                 {{ $section->title }}
             </h1>
-            <p class="text-base text-gray-600 max-w-lg">
+            <p class="text-base text-gray-600 dark:text-gray-300 max-w-lg">
                 {{ $section->description }}
             </p>
             <div class="mt-4">

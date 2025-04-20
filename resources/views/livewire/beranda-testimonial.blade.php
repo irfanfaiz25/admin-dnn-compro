@@ -1,11 +1,12 @@
-<div class="h-fit w-full p-4 bg-white backdrop-blur-md border border-gray-300 rounded-md shadow-md">
+<div id="paginated-testimonials"
+    class="h-fit w-full p-4 bg-white dark:bg-[#252525] backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded-md shadow-md">
     <div class="pb-4 flex justify-between items-center">
-        <h3 class="text-lg font-semibold text-gray-600">
+        <h3 class="text-lg font-semibold text-gray-600 dark:text-gray-300">
             Testimoni
         </h3>
         <div class="relative" x-data="{ open: false }">
             <button @click="open = !open"
-                class="flex items-center space-x-2 px-3 py-2.5 bg-white border border-gray-300 rounded-md text-sm text-gray-600 hover:bg-gray-50">
+                class="flex items-center space-x-2 px-3 py-2.5 bg-white dark:bg-[#252525] border border-gray-300 dark:border-gray-700 rounded-md text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
                 <span>Urutkan</span>
                 <i class="fas fa-chevron-down text-xs"></i>
             </button>
@@ -15,10 +16,10 @@
                 x-transition:leave="transition ease-in duration-75"
                 x-transition:leave-start="transform opacity-100 scale-100"
                 x-transition:leave-end="transform opacity-0 scale-95"
-                class="absolute right-0 mt-1 w-48 bg-white border border-gray-300 rounded-md shadow-lg z-10">
+                class="absolute right-0 mt-1 w-48 bg-white dark:bg-[#252525] border border-gray-300 dark:border-gray-700 rounded-md shadow-lg z-10">
                 <div class="py-1">
                     <button wire:click="sortBy('created_at')"
-                        class="w-full px-4 py-2 text-sm text-left text-gray-700 hover:bg-gray-100 flex justify-between items-center">
+                        class="w-full px-4 py-2 text-sm text-left text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex justify-between items-center">
                         <span>Tanggal</span>
                         @if ($sortField === 'created_at')
                             <i
@@ -26,7 +27,7 @@
                         @endif
                     </button>
                     <button wire:click="sortBy('name')"
-                        class="w-full px-4 py-2 text-sm text-left text-gray-700 hover:bg-gray-100 flex justify-between items-center">
+                        class="w-full px-4 py-2 text-sm text-left text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex justify-between items-center">
                         <span>Nama</span>
                         @if ($sortField === 'name')
                             <i
@@ -34,7 +35,7 @@
                         @endif
                     </button>
                     <button wire:click="sortBy('city')"
-                        class="w-full px-4 py-2 text-sm text-left text-gray-700 hover:bg-gray-100 flex justify-between items-center">
+                        class="w-full px-4 py-2 text-sm text-left text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex justify-between items-center">
                         <span>Kota</span>
                         @if ($sortField === 'city')
                             <i
@@ -48,17 +49,17 @@
 
     {{-- headline --}}
     <div class="mb-5 flex justify-center">
-        <div class="border border-gray-300 min-w-1/2 rounded-md relative">
+        <div class="border border-gray-300 dark:border-gray-700 min-w-1/2 rounded-md relative">
             @if ($isShowHeadlineForm)
                 <form wire:submit.prevent='handleSaveHeadline' class="p-4">
                     <div class="mb-2">
                         <input type="text" id="productHeadlineTitle" wire:model='headlineTitle'
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-200 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-300 text-sm rounded-md focus:outline-gray-200 block w-full p-2.5"
                             placeholder="Judul">
                     </div>
                     <div class="mb-2">
                         <textarea id="productHeadlineSubtitle" rows="2" wire:model='headlineSubtitle'
-                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-md border border-gray-300  focus:outline-gray-400"
+                            class="block p-2.5 w-full text-sm text-gray-900 dark:text-gray-300 bg-gray-50 dark:bg-gray-700 rounded-md border border-gray-300 dark:border-gray-700 focus:outline-gray-400"
                             placeholder="Deskripsi"></textarea>
                     </div>
                     <div class="mt-1 flex justify-end gap-1">
@@ -74,17 +75,17 @@
                 </form>
             @else
                 <div class="p-8 flex flex-col justify-center items-center text-center">
-                    <h1 class="text-4xl font-bold font-display mb-1">
+                    <h1 class="text-4xl font-bold font-display mb-1 dark:text-gray-300">
                         {{ $headline->title }}
                     </h1>
                     <div class="w-24 h-1.5 bg-primary-gold mt-5 mb-8 rounded-full"></div>
-                    <p class="text-sm font-medium">
+                    <p class="text-sm font-medium dark:text-gray-300">
                         {{ $headline->subtitle }}
                     </p>
                     <button wire:click='handleOpenHeadlineForm' type="button"
-                        class="absolute top-1 right-1 px-3 py-1.5 group border border-gray-600 hover:bg-gray-600 text-gray-600 hover:text-white text-xs rounded-sm">
+                        class="absolute top-1 right-1 px-3 py-1.5 group border border-gray-600 hover:bg-gray-600 text-gray-600 dark:text-gray-300 hover:text-white text-xs rounded-sm">
                         <i wire:loading.remove wire:target="handleOpenHeadlineForm"
-                            class="fa fa-pencil text-[11px] pr-0.5 text-gray-600 group-hover:text-white"></i>
+                            class="fa fa-pencil text-[11px] pr-0.5 text-gray-600 dark:text-gray-300 group-hover:text-white"></i>
                         <span wire:loading wire:target="handleOpenHeadlineForm"
                             class="animate-spin rounded-full h-3 w-3 border-[1px] border-primary-gold border-t-transparent">
                         </span>
@@ -100,7 +101,8 @@
     <div class="grid grid-cols-3 gap-3">
         {{-- content display --}}
         @foreach ($testimonials as $testimonial)
-            <div class="w-full min-h-40 p-4 border border-gray-300 rounded-md relative">
+            <div
+                class="w-full min-h-40 p-4 border border-gray-300 dark:border-gray-700 rounded-md relative dark:bg-[#252525]">
                 <div class="flex justify-between space-x-2">
                     <div class="flex space-x-2 mb-3">
                         <div class="w-10 h-10 flex justify-center items-center bg-primary-gold/10 rounded-full">
@@ -109,10 +111,10 @@
                             </span>
                         </div>
                         <div>
-                            <h4 class="text-sm font-semibold">
+                            <h4 class="text-sm font-semibold dark:text-gray-300">
                                 {{ $testimonial->name }}
                             </h4>
-                            <p class="text-sm text-gray-500">
+                            <p class="text-sm text-gray-500 dark:text-gray-400">
                                 {{ $testimonial->city }}
                             </p>
                         </div>
@@ -127,13 +129,18 @@
                         </span>
                     </div>
                 </div>
-                <p class="text-xs text-gray-500 mb-2">
+                <p class="text-xs text-gray-500 dark:text-gray-400 mb-2">
                     {{ $testimonial->created_at->format('F d, Y') }}
                 </p>
-                <p class="text-sm">
+                <p class="text-sm dark:text-gray-300">
                     {{ $testimonial->testimonial }}f
                 </p>
             </div>
         @endforeach
     </div>
+
+    <div class="mt-5">
+        {{ $testimonials->links(data: ['scrollTo' => '#paginated-testimonials']) }}
+    </div>
+
 </div>
