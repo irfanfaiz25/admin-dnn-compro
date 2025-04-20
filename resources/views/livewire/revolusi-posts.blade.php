@@ -1,7 +1,7 @@
 <div id="paginated-posts"
-    class="min-h-screen w-full p-4 bg-white backdrop-blur-md border border-gray-300 rounded-md shadow-md">
+    class="min-h-screen w-full p-4 bg-white dark:bg-[#252525] backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded-md shadow-md">
     <div class="pb-4 flex justify-between">
-        <h3 class="text-lg font-semibold text-gray-600">
+        <h3 class="text-lg font-semibold text-gray-600 dark:text-gray-300">
             Revolusi Terkini
         </h3>
         @if (!$isShowForm)
@@ -17,15 +17,15 @@
 
     {{-- form --}}
     <div wire:show='isShowForm' wire:cloak wire:transition
-        class="mb-5 w-full bg-white backdrop-blur-md border border-gray-300 rounded-md shadow-md">
+        class="mb-5 w-full bg-white dark:bg-[#252525] backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded-md shadow-md">
         <form wire:submit.prevent="handleSave">
-            <div class="px-4 py-3 flex justify-between items-center border-b border-gray-300">
-                <h3 class="text-lg font-semibold text-gray-600">
+            <div class="px-4 py-3 flex justify-between items-center border-b border-gray-300 dark:border-gray-700">
+                <h3 class="text-lg font-semibold text-gray-600 dark:text-gray-300">
                     Edit Konten
                 </h3>
                 <div class="flex space-x-2 justify-end">
                     <button type="button" wire:click='handleCloseForm'
-                        class="text-gray-600 bg-gray-200 hover:bg-gray-300 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
+                        class="text-gray-600 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
                         Batal
                         <span wire:loading wire:target='handleCloseForm'
                             class="animate-spin rounded-full h-5 w-5 border-[2px] border-primary-gold border-t-transparent ml-2">
@@ -34,7 +34,7 @@
                     @if ($isEditMode)
                         <button type="button" wire:click='handleDelete'
                             wire:confirm='Apakah anda yakin akan menghapus data ini?'
-                            class="text-red-600 bg-red-100 hover:bg-red-200 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
+                            class="text-red-600 bg-red-100 dark:bg-red-900 hover:bg-red-200 dark:hover:bg-red-800 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
                             <span>
                                 Hapus
                             </span>
@@ -56,9 +56,9 @@
             </div>
             <div class="p-4">
                 <div class="relative mb-7 group">
-                    <label class="block mb-2 text-sm font-medium text-gray-900">
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">
                         Media
-                        <span class="text-xs text-gray-500">
+                        <span class="text-xs text-gray-500 dark:text-gray-400">
                             ({{ count($mediaFiles) }}/{{ $maxMediaFiles }}
                             files)
                         </span>
@@ -66,7 +66,7 @@
 
                     <div class="w-full mb-4">
                         <label for="media-upload"
-                            class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100 transition-all duration-300 relative {{ count($mediaFiles) >= $maxMediaFiles ? 'opacity-50 cursor-not-allowed' : '' }}">
+                            class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 dark:border-gray-600 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition-all duration-300 relative {{ count($mediaFiles) >= $maxMediaFiles ? 'opacity-50 cursor-not-allowed' : '' }}">
                             <div wire:loading wire:target='mediaUpload'
                                 class="absolute top-0 w-full h-full bg-black/50 flex justify-center items-center rounded-md">
                                 <div class="absolute inset-0 flex items-center justify-center">
@@ -77,16 +77,16 @@
                                 </div>
                             </div>
                             <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                                <svg class="w-8 h-8 mb-3 text-gray-500" aria-hidden="true"
+                                <svg class="w-8 h-8 mb-3 text-gray-500 dark:text-gray-400" aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                         stroke-width="2"
                                         d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                 </svg>
-                                <p class="mb-1 text-sm text-gray-500">
+                                <p class="mb-1 text-sm text-gray-500 dark:text-gray-400">
                                     <span class="font-semibold">Click to upload</span>
                                 </p>
-                                <p class="text-xs text-gray-500">
+                                <p class="text-xs text-gray-500 dark:text-gray-400">
                                     PNG, JPG, JPEG, MP4 (MAX. 5MB)
                                 </p>
                             </div>
@@ -95,7 +95,7 @@
                                 {{ count($mediaFiles) >= $maxMediaFiles ? 'disabled' : '' }} />
                         </label>
                         @error('mediaUpload')
-                            <p class="mt-1 text-sm text-red-600">
+                            <p class="mt-1 text-sm text-red-600 dark:text-red-400">
                                 {{ $message }}
                             </p>
                         @enderror
@@ -107,7 +107,7 @@
                                 <div class="relative group">
                                     @if (is_object($media) && method_exists($media, 'getMimeType') && strpos($media->getMimeType(), 'video') !== false)
                                         <div
-                                            class="w-full h-32 bg-gray-800 rounded-md flex items-center justify-center">
+                                            class="w-full h-32 bg-gray-800 dark:bg-gray-900 rounded-md flex items-center justify-center">
                                             <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor"
                                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -119,7 +119,7 @@
                                         </div>
                                     @elseif (is_array($media) && isset($media['type']) && $media['type'] === 'video')
                                         <div
-                                            class="w-full h-32 bg-gray-800 rounded-md flex items-center justify-center">
+                                            class="w-full h-32 bg-gray-800 dark:bg-gray-900 rounded-md flex items-center justify-center">
                                             <svg class="w-10 h-10 text-gray-400" fill="none" stroke="currentColor"
                                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -160,7 +160,7 @@
                                                 d="M6 18L18 6M6 6l12 12"></path>
                                         </svg>
                                     </button>
-                                    <p class="text-xs text-gray-500 mt-1 truncate">
+                                    <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 truncate">
                                         @if (is_object($media) && method_exists($media, 'getClientOriginalName'))
                                             {{ $media->getClientOriginalName() }}
                                         @elseif (is_array($media) && isset($media['name']))
@@ -179,24 +179,26 @@
 
                 <div class="mb-4 flex gap-3">
                     <div class="w-[20%]">
-                        <label for="date" class="block mb-2 text-sm font-medium text-gray-900">Tanggal</label>
+                        <label for="date"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Tanggal</label>
                         <input type="date" id="date" wire:model="date"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5">
+                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5">
                         @error('date')
-                            <p class="mt-1 text-sm text-red-600">
+                            <p class="mt-1 text-sm text-red-600 dark:text-red-400">
                                 {{ $message }}
                             </p>
                         @enderror
                     </div>
                     <div class="w-[80%]">
-                        <label for="postTitle" class="block mb-2 text-sm font-medium text-gray-900">
+                        <label for="postTitle"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">
                             Judul
                         </label>
                         <input type="text" id="postTitle" wire:model="postTitle"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Masukkan judul postingan">
                         @error('postTitle')
-                            <p class="mt-1 text-sm text-red-600">
+                            <p class="mt-1 text-sm text-red-600 dark:text-red-400">
                                 {{ $message }}
                             </p>
                         @enderror
@@ -205,15 +207,16 @@
 
                 <div class="mb-4">
                     <label for="description-content"
-                        class="block mb-2 text-sm font-medium text-gray-900">Konten</label>
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Konten</label>
                     <div wire:ignore>
                         <input id="description-content" type="hidden" wire:model="content">
-                        <div id="editor-container" class="bg-gray-50 border border-gray-300 rounded-md">
+                        <div id="editor-container"
+                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md">
                             <div id="editor"></div>
                         </div>
                     </div>
                     @error('content')
-                        <p class="mt-1 text-sm text-red-600">
+                        <p class="mt-1 text-sm text-red-600 dark:text-red-400">
                             {{ $message }}
                         </p>
                     @enderror
@@ -233,7 +236,7 @@
                 </svg>
             </div>
             <input type="search" wire:model.live.debounce.300ms="search"
-                class="w-full pl-10 pr-4 py-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary-gold/50"
+                class="w-full pl-10 pr-4 py-2.5 text-sm text-gray-900 dark:text-gray-100 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary-gold/50"
                 placeholder="Pencarian ...">
             <div wire:loading wire:target='search'
                 class="animate-spin rounded-full h-6 w-6 border-[3px] border-primary-gold border-t-transparent ml-2">
@@ -244,7 +247,7 @@
             <!-- Per Page Dropdown -->
             <div class="relative" x-data="{ open: false }">
                 <button @click="open = !open"
-                    class="flex items-center space-x-2 px-3 py-2.5 bg-white border border-gray-300 rounded-md text-sm text-gray-600 hover:bg-gray-50">
+                    class="flex items-center space-x-2 px-3 py-2.5 bg-white dark:bg-[#252525] border border-gray-300 dark:border-gray-700 rounded-md text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
                     <span>{{ $perPage }} Items</span>
                     <i class="fas fa-chevron-down text-xs"></i>
                 </button>
@@ -254,11 +257,11 @@
                     x-transition:leave="transition ease-in duration-75"
                     x-transition:leave-start="transform opacity-100 scale-100"
                     x-transition:leave-end="transform opacity-0 scale-95"
-                    class="absolute right-0 mt-1 w-48 bg-white border border-gray-300 rounded-md shadow-lg z-10">
+                    class="absolute right-0 mt-1 w-48 bg-white dark:bg-[#252525] border border-gray-300 dark:border-gray-700 rounded-md shadow-lg z-10">
                     <div class="py-1">
                         @foreach ([10, 20, 50, 100] as $value)
                             <button wire:click="setPerPage({{ $value }})"
-                                class="w-full px-4 py-2 text-sm text-left text-gray-700 hover:bg-gray-100 flex justify-between items-center">
+                                class="w-full px-4 py-2 text-sm text-left text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex justify-between items-center">
                                 <span>{{ $value }} Items</span>
                                 @if ($perPage === $value)
                                     <i class="fas fa-check text-xs text-primary-gold"></i>
@@ -272,7 +275,7 @@
             <!-- Sort Dropdown -->
             <div class="relative" x-data="{ open: false }">
                 <button @click="open = !open"
-                    class="flex items-center space-x-2 px-3 py-2.5 bg-white border border-gray-300 rounded-md text-sm text-gray-600 hover:bg-gray-50">
+                    class="flex items-center space-x-2 px-3 py-2.5 bg-white dark:bg-[#252525] border border-gray-300 dark:border-gray-700 rounded-md text-sm text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">
                     <span>Urutkan</span>
                     <i class="fas fa-chevron-down text-xs"></i>
                 </button>
@@ -282,10 +285,10 @@
                     x-transition:leave="transition ease-in duration-75"
                     x-transition:leave-start="transform opacity-100 scale-100"
                     x-transition:leave-end="transform opacity-0 scale-95"
-                    class="absolute right-0 mt-1 w-48 bg-white border border-gray-300 rounded-md shadow-lg z-10">
+                    class="absolute right-0 mt-1 w-48 bg-white dark:bg-[#252525] border border-gray-300 dark:border-gray-700 rounded-md shadow-lg z-10">
                     <div class="py-1">
                         <button wire:click="sortBy('date')"
-                            class="w-full px-4 py-2 text-sm text-left text-gray-700 hover:bg-gray-100 flex justify-between items-center">
+                            class="w-full px-4 py-2 text-sm text-left text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 flex justify-between items-center">
                             <span>Tanggal</span>
                             @if ($sortField === 'date')
                                 <i
@@ -301,13 +304,14 @@
     {{-- Display posts --}}
     <div class="grid grid-cols-3 gap-3">
         @foreach ($posts as $post)
-            <div class="w-full bg-white flex flex-col p-5 rounded-xl shadow-lg h-[500px]">
+            <div
+                class="w-full bg-white dark:bg-neutral-700 flex flex-col p-5 rounded-xl shadow-lg h-[500px] border dark:border-gray-700">
                 <div class="relative">
                     @if (isset($post->media) && count($post->media) > 0)
                         @if ($post->media[0]->type === 'video')
                             <div class="w-full h-52 relative rounded-md shadow-lg group">
                                 <button type="button" wire:click="handleEdit({{ $post->id }})"
-                                    class="absolute top-1 right-1 z-10 px-3 py-1.5 group bg-white/80 hover:bg-white border border-gray-200 text-gray-700 hover:text-gray-800 text-xs rounded-sm backdrop-blur-sm transition-colors duration-200 inline-flex items-center space-x-1">
+                                    class="absolute top-1 right-1 z-10 px-3 py-1.5 group bg-white/80 dark:bg-[#252525]/80 hover:bg-white dark:hover:bg-[#252525] border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-200 text-xs rounded-sm backdrop-blur-sm transition-colors duration-200 inline-flex items-center space-x-1">
                                     <i wire:loading.remove wire:target="handleEdit({{ $post->id }})"
                                         class="fa fa-pencil text-[11px] text-secondary-green group-hover:text-secondary-green"></i>
                                     <span wire:loading wire:target="handleEdit({{ $post->id }})"
@@ -318,7 +322,6 @@
                                     </span>
                                 </button>
                                 <div class="w-full h-full bg-gray-700 rounded-md flex items-center justify-center">
-                                    <!-- Video icon or placeholder -->
                                     <svg class="w-16 h-16 text-gray-400 group-hover:text-primary-gold transition-colors duration-300"
                                         fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -339,7 +342,7 @@
                             </div>
                         @else
                             <button type="button" wire:click="handleEdit({{ $post->id }})"
-                                class="absolute top-1 right-1 px-3 py-1.5 group bg-white/80 hover:bg-white border border-gray-200 text-gray-700 hover:text-gray-800 text-xs rounded-sm backdrop-blur-sm transition-colors duration-200 inline-flex items-center space-x-1">
+                                class="absolute top-1 right-1 px-3 py-1.5 group bg-white/80 dark:bg-[#252525]/80 hover:bg-white dark:hover:bg-[#252525] border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-200 text-xs rounded-sm backdrop-blur-sm transition-colors duration-200 inline-flex items-center space-x-1">
                                 <i wire:loading.remove wire:target="handleEdit({{ $post->id }})"
                                     class="fa fa-pencil text-[11px] text-secondary-green group-hover:text-secondary-green"></i>
                                 <span wire:loading wire:target="handleEdit({{ $post->id }})"
@@ -354,7 +357,7 @@
                         @endif
                     @else
                         <button type="button" wire:click="handleEdit({{ $post->id }})"
-                            class="absolute top-1 right-1 px-3 py-1.5 group bg-white/80 hover:bg-white border border-gray-200 text-gray-700 hover:text-gray-800 text-xs rounded-sm backdrop-blur-sm transition-colors duration-200 inline-flex items-center space-x-1">
+                            class="absolute top-1 right-1 px-3 py-1.5 group bg-white/80 dark:bg-[#252525]/80 hover:bg-white dark:hover:bg-[#252525] border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:text-gray-800 dark:hover:text-gray-200 text-xs rounded-sm backdrop-blur-sm transition-colors duration-200 inline-flex items-center space-x-1">
                             <i wire:loading.remove wire:target="handleEdit({{ $post->id }})"
                                 class="fa fa-pencil text-[11px] text-secondary-green group-hover:text-secondary-green"></i>
                             <span wire:loading wire:target="handleEdit({{ $post->id }})"
@@ -364,7 +367,8 @@
                                 Edit
                             </span>
                         </button>
-                        <div class="w-full h-52 bg-gray-100 rounded-md shadow-lg flex items-center justify-center">
+                        <div
+                            class="w-full h-52 bg-gray-100 dark:bg-gray-700 rounded-md shadow-lg flex items-center justify-center">
                             <div class="text-center">
                                 <svg class="w-12 h-12 text-gray-400 mx-auto mb-2" fill="none"
                                     stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -372,25 +376,25 @@
                                         d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
                                     </path>
                                 </svg>
-                                <p class="text-gray-500 text-sm">No media available</p>
+                                <p class="text-gray-500 dark:text-gray-400 text-sm">No media available</p>
                             </div>
                         </div>
                     @endif
                 </div>
                 <div class="flex-1">
-                    <p class="mt-3 mb-1 text-sm text-gray-500 font-light">
+                    <p class="mt-3 mb-1 text-sm text-gray-500 dark:text-gray-400 font-light">
                         {{ \Carbon\Carbon::parse($post->date)->format('F, d Y') }}
                     </p>
-                    <h3 class="mb-2 text-xl text-gray-800 font-bold font-display">
+                    <h3 class="mb-2 text-xl text-gray-800 dark:text-gray-200 font-bold font-display">
                         {{ $post->title }}
                     </h3>
-                    <p class="mb-4 text-base font-normal text-gray-600">
+                    <p class="mb-4 text-base font-normal text-gray-600 dark:text-gray-400">
                         {{ Str::limit(strip_tags($post->content), 250) }}
                     </p>
                 </div>
                 <div class="flex w-full justify-start mt-auto">
                     <button type="button" wire:click='handleOpenModal({{ $post->id }})'
-                        class="text-base text-gray-500 font-semibold hover:text-primary-gold transition-colors duration-300 flex items-center gap-2">
+                        class="text-base text-gray-500 dark:text-gray-400 font-semibold hover:text-primary-gold transition-colors duration-300 flex items-center gap-2">
                         <span>
                             Lihat Detail
                         </span>
@@ -418,11 +422,10 @@
         <!-- Modal Container -->
         <div class="relative flex min-h-screen items-center justify-center px-4 pt-4 pb-20 text-center">
             <!-- Modal Content -->
-
             <div x-show="$wire.showModal" x-transition.scale.origin.center
-                class="inline-block align-middle bg-white dark:bg-bg-dark-primary rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:w-full">
+                class="inline-block align-middle bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:w-full">
                 <!-- Modal Header -->
-                <div class="bg-white dark:bg-bg-dark-primary px-6 pt-6 pb-4 relative">
+                <div class="bg-white px-6 pt-6 pb-4 relative">
                     <button type="button" wire:click='closeModal'
                         class="absolute top-4 right-4 text-gray-400 hover:text-gray-500">
                         <i wire:loading.remove wire:target="closeModal" class="fa-solid fa-xmark text-lg"></i>
@@ -430,7 +433,7 @@
                             class="animate-spin rounded-full h-5 w-5 border-[2px] border-primary-gold border-t-transparent">
                         </span>
                     </button>
-                    <h3 class="text-lg font-semibold leading-6 text-gray-900 dark:text-text-dark-primary">
+                    <h3 class="text-lg font-semibold leading-6 text-gray-900">
                         Detail Post
                     </h3>
                 </div>
