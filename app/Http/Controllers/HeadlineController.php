@@ -20,7 +20,7 @@ class HeadlineController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'Headline data retrieved successfully',
-            'headline' => $headline,
+            'data' => $headline,
         ], 200);
     }
 }

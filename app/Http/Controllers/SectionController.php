@@ -20,7 +20,7 @@ class SectionController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'Section data retrieved successfully',
-            'sections' => $sections,
+            'data' => $sections,
         ], 200);
     }
 }
