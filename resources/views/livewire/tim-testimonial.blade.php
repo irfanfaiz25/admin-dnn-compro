@@ -1,23 +1,24 @@
-<div class="h-fit w-full p-4 bg-white backdrop-blur-md border border-gray-300 rounded-md shadow-md">
+<div
+    class="h-fit w-full p-4 bg-white dark:bg-[#252525] backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded-md shadow-md">
     <div class="pb-4 flex justify-between">
-        <h3 class="text-lg font-semibold text-gray-600">
+        <h3 class="text-lg font-semibold text-gray-600 dark:text-gray-300">
             Testimonial Karyawan
         </h3>
     </div>
 
     {{-- headline --}}
     <div class="mb-5 flex justify-center">
-        <div class="border border-gray-300 min-w-1/2 rounded-md relative">
+        <div class="border border-gray-300 dark:border-gray-700 min-w-1/2 rounded-md relative">
             @if ($isShowHeadlineForm)
                 <form wire:submit.prevent='handleSaveHeadline' class="p-4">
                     <div class="mb-2">
                         <input type="text" id="productHeadlineTitle" wire:model='headlineTitle'
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-200 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-200 block w-full p-2.5"
                             placeholder="Judul">
                     </div>
                     <div class="mb-2">
                         <textarea id="productHeadlineSubtitle" rows="2" wire:model='headlineSubtitle'
-                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-md border border-gray-300  focus:outline-gray-400"
+                            class="block p-2.5 w-full text-sm text-gray-900 dark:text-gray-100 bg-gray-50 dark:bg-[#252525] rounded-md border border-gray-300 dark:border-gray-700 focus:outline-gray-400"
                             placeholder="Deskripsi"></textarea>
                     </div>
                     <div class="mt-1 flex justify-end gap-1">
@@ -38,17 +39,17 @@
                 </form>
             @else
                 <div class="p-8 flex flex-col justify-center items-center text-center">
-                    <h1 class="text-4xl font-bold font-display mb-1">
+                    <h1 class="text-4xl font-bold font-display mb-1 dark:text-white">
                         {{ $headline->title }}
                     </h1>
                     <div class="w-24 h-1.5 bg-primary-gold mt-5 mb-8 rounded-full"></div>
-                    <p class="text-sm font-medium">
+                    <p class="text-sm font-medium dark:text-gray-300">
                         {{ $headline->subtitle }}
                     </p>
                     <button wire:click='handleOpenHeadlineForm' type="button"
-                        class="absolute top-1 right-1 px-3 py-1.5 group border border-gray-600 hover:bg-gray-600 text-gray-600 hover:text-white text-xs rounded-sm">
+                        class="absolute top-1 right-1 px-3 py-1.5 group border border-gray-600 hover:bg-gray-600 text-gray-600 dark:text-gray-300 hover:text-white text-xs rounded-sm">
                         <i wire:loading.remove wire:target="handleOpenHeadlineForm"
-                            class="fa fa-pencil text-[11px] pr-0.5 text-gray-600 group-hover:text-white"></i>
+                            class="fa fa-pencil text-[11px] pr-0.5 text-gray-600 dark:text-gray-300 group-hover:text-white"></i>
                         <span wire:loading wire:target="handleOpenHeadlineForm"
                             class="animate-spin rounded-full h-3 w-3 border-[1px] border-primary-gold border-t-transparent">
                         </span>
@@ -75,15 +76,15 @@
 
     {{-- form --}}
     <div wire:show='isShowContentForm' wire:cloak wire:transition
-        class="mb-5 w-full bg-white backdrop-blur-md border border-gray-300 rounded-md shadow-md">
+        class="mb-5 w-full bg-white dark:bg-[#252525] backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded-md shadow-md">
         <form wire:submit.prevent='handleSaveContent'>
-            <div class="px-4 py-3 flex justify-between items-center border-b border-gray-300">
-                <h3 class="text-lg font-semibold text-gray-600 capitalize">
+            <div class="px-4 py-3 flex justify-between items-center border-b border-gray-300 dark:border-gray-700">
+                <h3 class="text-lg font-semibold text-gray-600 dark:text-gray-300 capitalize">
                     Edit Konten
                 </h3>
                 <div class="flex space-x-2 justify-end">
                     <button type="button" wire:click='handleCloseContentForm'
-                        class="text-gray-600 bg-gray-200 hover:bg-gray-300 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
+                        class="text-gray-600 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
                         <span>
                             Batal
                         </span>
@@ -94,7 +95,7 @@
                     @if ($isEditMode)
                         <button type="button" wire:click='handleDelete'
                             wire:confirm='Apakah anda yakin akan menghapus data ini?'
-                            class="text-red-600 bg-red-100 hover:bg-red-200 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
+                            class="text-red-600 dark:text-red-100 bg-red-100 dark:bg-red-900 hover:bg-red-200 dark:hover:bg-red-800 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
                             <span>
                                 Hapus
                             </span>
@@ -117,22 +118,23 @@
             <div class="p-4">
                 <div class="mb-4 flex justify-between gap-3">
                     <div class="w-2/3">
-                        <label for="employeeName" class="block mb-2 text-sm font-medium text-gray-900">
+                        <label for="employeeName"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">
                             Nama <span class="text-sm text-red-500">*</span>
                         </label>
                         <input type="text" id="employeeName" wire:model="employeeName"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Masukkan nama karyawan">
                         @error('employeeName')
                             <span class="text-red-500 text-xs mt-1">{{ $message }}</span>
                         @enderror
                     </div>
                     <div class="w-1/3">
-                        <label for="position" class="block mb-2 text-sm font-medium text-gray-900">
+                        <label for="position" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">
                             Tahun Mulai Bekerja <span class="text-sm text-red-500">*</span>
                         </label>
                         <input type="month" id="position" wire:model="position"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Masukkan tahun mulai bekerja">
                         @error('position')
                             <span class="text-red-500 text-xs mt-1">{{ $message }}</span>
@@ -141,7 +143,7 @@
                 </div>
                 <div class="mb-4 flex justify-between">
                     <div class="w-1/3">
-                        <label class="block mb-2 text-sm font-medium text-gray-900">
+                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">
                             Foto
                         </label>
                         <div class="flex items-center space-x-4">
@@ -151,12 +153,12 @@
                                         class="w-24 h-24 rounded-full object-cover border-2 border-primary-gold">
                                 @else
                                     <div
-                                        class="w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center border-2 border-dashed border-gray-400">
-                                        <i class="fas fa-user text-gray-400 text-3xl"></i>
+                                        class="w-24 h-24 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center border-2 border-dashed border-gray-400 dark:border-gray-600">
+                                        <i class="fas fa-user text-gray-400 dark:text-gray-500 text-3xl"></i>
                                     </div>
                                 @endif
                             </div>
-                            <div class="text-sm text-gray-500">
+                            <div class="text-sm text-gray-500 dark:text-gray-400">
                                 <p>Upload foto profil</p>
                                 <p class="text-xs">Format: JPG, PNG (Max. 2MB)</p>
                                 <label for="image-upload"
@@ -173,11 +175,11 @@
                         @enderror
                     </div>
                     <div class="w-2/3">
-                        <label for="message" class="block mb-2 text-sm font-medium text-gray-900">
+                        <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">
                             Testimoni <span class="text-sm text-red-500">*</span>
                         </label>
                         <textarea id="message" wire:model="message" rows="3"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Masukkan testimoni"></textarea>
                         @error('message')
                             <span class="text-red-500 text-xs mt-1">{{ $message }}</span>
@@ -192,9 +194,9 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 relative z-10">
         @foreach ($testimonials as $testimonial)
             <div
-                class="bg-white p-6 md:p-8 flex flex-col justify-between rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 group relative">
+                class="bg-white dark:bg-neutral-700 p-6 md:p-8 flex flex-col justify-between rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 group relative">
                 <button type="button" wire:click='handleEdit({{ $testimonial->id }})'
-                    class="absolute top-6 right-3 px-3 py-1.5 group border border-gray-600 hover:bg-gray-600 text-gray-600 hover:text-white text-xs rounded-sm inline-flex items-center">
+                    class="absolute top-6 right-3 px-3 py-1.5 group border border-gray-600 hover:bg-gray-600 text-gray-600 dark:text-gray-300 hover:text-white text-xs rounded-sm inline-flex items-center">
                     <i wire:loading.remove wire:target="handleEdit({{ $testimonial->id }})"
                         class="fa fa-pencil text-[11px] pr-1"></i>
                     <span wire:loading wire:target="handleEdit({{ $testimonial->id }})"
@@ -216,7 +218,7 @@
                                         class="w-full h-full object-cover" />
                                 @else
                                     <div
-                                        class="w-full h-full flex items-center justify-center bg-gray-200 text-gray-600 font-semibold text-lg">
+                                        class="w-full h-full flex items-center justify-center bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 font-semibold text-lg">
                                         {{ implode('',array_map(function ($word) {return strtoupper($word[0]);}, explode(' ', $testimonial->name))) }}
                                     </div>
                                 @endif
@@ -231,10 +233,10 @@
                         </div>
                         <div class="ml-4">
                             <h3
-                                class="text-lg font-semibold text-gray-800 group-hover:text-primary-gold transition-colors hover:scale-[1.05]">
+                                class="text-lg font-semibold text-gray-800 dark:text-gray-100 group-hover:text-primary-gold transition-colors hover:scale-[1.05]">
                                 {{ $testimonial->name }}
                             </h3>
-                            <p class="text-sm text-gray-600">
+                            <p class="text-sm text-gray-600 dark:text-gray-400">
                                 Bekerja sejak
                                 {{ \Carbon\Carbon::parse($testimonial->position)->locale('id')->isoFormat('MMMM Y') }}
                             </p>
@@ -242,14 +244,14 @@
                     </div>
 
                     <!-- Testimonial message -->
-                    <p class="text-gray-700 leading-relaxed text-sm md:text-base">
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-sm md:text-base">
                         {{ $testimonial->message }}
                     </p>
                 </div>
 
                 <!-- Testimonial footer -->
                 <div class="mt-6 flex items-center justify-end">
-                    <p class="text-xs md:text-sm text-gray-500">
+                    <p class="text-xs md:text-sm text-gray-500 dark:text-gray-400">
                         {{ \Carbon\Carbon::parse($testimonial->created_at)->format('d F Y') }}
                     </p>
                 </div>
