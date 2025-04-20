@@ -21,6 +21,6 @@ class SectionController extends Controller
             'success' => true,
             'message' => 'Section data retrieved successfully',
             'sections' => $sections,
-        ]);
+        ], 200);
     }
 }
