@@ -66,7 +66,7 @@
 
                     <div class="w-full mb-4">
                         <label for="media-upload"
-                            class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 dark:border-gray-600 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition-all duration-300 relative {{ count($mediaFiles) >= $maxMediaFiles ? 'opacity-50 cursor-not-allowed' : '' }}">
+                            class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 dark:border-gray-600 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:bg-neutral-700 hover:bg-gray-100 dark:hover:bg-neutral-600 transition-all duration-300 relative {{ count($mediaFiles) >= $maxMediaFiles ? 'opacity-50 cursor-not-allowed' : '' }}">
                             <div wire:loading wire:target='mediaUpload'
                                 class="absolute top-0 w-full h-full bg-black/50 flex justify-center items-center rounded-md">
                                 <div class="absolute inset-0 flex items-center justify-center">
@@ -182,7 +182,7 @@
                         <label for="date"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Tanggal</label>
                         <input type="date" id="date" wire:model="date"
-                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5">
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5">
                         @error('date')
                             <p class="mt-1 text-sm text-red-600 dark:text-red-400">
                                 {{ $message }}
@@ -195,7 +195,7 @@
                             Judul
                         </label>
                         <input type="text" id="postTitle" wire:model="postTitle"
-                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Masukkan judul postingan">
                         @error('postTitle')
                             <p class="mt-1 text-sm text-red-600 dark:text-red-400">
@@ -211,7 +211,7 @@
                     <div wire:ignore>
                         <input id="description-content" type="hidden" wire:model="content">
                         <div id="editor-container"
-                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md">
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-600 rounded-md">
                             <div id="editor"></div>
                         </div>
                     </div>
@@ -236,7 +236,7 @@
                 </svg>
             </div>
             <input type="search" wire:model.live.debounce.300ms="search"
-                class="w-full pl-10 pr-4 py-2.5 text-sm text-gray-900 dark:text-gray-100 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary-gold/50"
+                class="w-full pl-10 pr-4 py-2.5 text-sm text-gray-900 dark:text-gray-100 bg-gray-50 dark:bg-[#252525] rounded-lg border border-gray-300 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-primary-gold/50"
                 placeholder="Pencarian ...">
             <div wire:loading wire:target='search'
                 class="animate-spin rounded-full h-6 w-6 border-[3px] border-primary-gold border-t-transparent ml-2">

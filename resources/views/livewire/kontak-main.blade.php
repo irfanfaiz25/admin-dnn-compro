@@ -52,7 +52,7 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Alamat
                             Lengkap</label>
                         <textarea wire:model="address" id="address" rows="3"
-                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Masukkan alamat lengkap"></textarea>
                     </div>
                     <div>
@@ -62,12 +62,12 @@
                         <div class="space-y-2">
                             <div class="flex items-center gap-2">
                                 <input type="text" wire:model="weekdayOpen" id="weekdayOpen"
-                                    class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                                    class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                                     placeholder="Senin - Jumat: 08.00 - 16.00">
                             </div>
                             <div class="flex items-center gap-2">
                                 <input type="text" wire:model="weekendOpen" id="weekendOpen"
-                                    class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                                    class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                                     placeholder="Sabtu: 08.00 - 12.00">
                             </div>
                         </div>
@@ -81,7 +81,7 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Nomor
                             Telepon</label>
                         <input type="tel" wire:model="phone" id="phone"
-                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="+6298-3539-040">
                         <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Format: Gunakan +62 di awal nomor
                             (bukan 0)</p>
@@ -91,7 +91,7 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Nomor
                             WhatsApp</label>
                         <input type="tel" wire:model="whatsapp" id="whatsapp"
-                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="+62851-1722-5313">
                         <p class="mt-1 text-sm text-gray-500 dark:text-gray-400">Format: Gunakan +62 di awal nomor
                             (bukan 0)</p>
@@ -103,7 +103,7 @@
                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Alamat
                         Email</label>
                     <input type="email" wire:model="email" id="email"
-                        class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                        class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                         placeholder="info@dwipanusantaraniaga.id">
                 </div>
             </div>

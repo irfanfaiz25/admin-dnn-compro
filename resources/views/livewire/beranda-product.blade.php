@@ -29,12 +29,12 @@
                 <form wire:submit.prevent='handleSaveHeadline' class="p-4">
                     <div class="mb-2">
                         <input type="text" id="productHeadlineTitle" wire:model='headlineTitle'
-                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-200 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-200 block w-full p-2.5"
                             placeholder="Judul">
                     </div>
                     <div class="mb-2">
                         <textarea id="productHeadlineSubtitle" rows="2" wire:model='headlineSubtitle'
-                            class="block p-2.5 w-full text-sm text-gray-900 dark:text-gray-100 bg-gray-50 dark:bg-gray-700 rounded-md border border-gray-300 dark:border-gray-700 focus:outline-gray-400"
+                            class="block p-2.5 w-full text-sm text-gray-900 dark:text-gray-100 bg-gray-50 dark:bg-[#252525] rounded-md border border-gray-300 dark:border-gray-700 focus:outline-gray-400"
                             placeholder="Deskripsi"></textarea>
                     </div>
                     <div class="mt-1 flex justify-end gap-1">
@@ -83,7 +83,7 @@
                 </h3>
                 <div class="flex space-x-2 justify-end">
                     <button type="button" wire:click='handleCloseContentForm'
-                        class="text-gray-600 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
+                        class="text-gray-600 dark:text-gray-300 bg-gray-200 dark:bg-[#252525] hover:bg-gray-300 dark:hover:bg-gray-600 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
                         <span>
                             Batal
                         </span>
@@ -105,7 +105,7 @@
             <div class="p-4">
                 <div class="flex space-x-5">
                     <div
-                        class="w-[35%] space-y-4 bg-gray-50 dark:bg-gray-700 p-4 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-700 hover:border-secondary-green transition-colors duration-300">
+                        class="w-[35%] space-y-4 bg-gray-50 dark:bg-[#252525] p-4 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-700 hover:border-secondary-green transition-colors duration-300">
                         <div class="relative group">
                             @if ($image)
                                 <img src="{{ $image->temporaryUrl() }}" alt="preview image"
@@ -123,7 +123,7 @@
                                 </div>
                             @else
                                 <div
-                                    class="w-full h-60 rounded-lg shadow-md bg-gray-200 dark:bg-gray-600 flex justify-center items-center">
+                                    class="w-full h-60 rounded-lg shadow-md bg-gray-200 dark:bg-[#252525] flex justify-center items-center">
                                     <i class="fa fa-image text-gray-400 dark:text-gray-300"></i>
                                 </div>
                             @endif
@@ -135,7 +135,7 @@
                             <input type="file" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                                 accept="image/*" wire:model="image">
                             <div
-                                class="w-full px-4 py-3 text-sm font-medium text-center rounded-lg border-2 border-dashed border-secondary-green bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors duration-200 flex items-center justify-center gap-2">
+                                class="w-full px-4 py-3 text-sm font-medium text-center rounded-lg border-2 border-dashed border-secondary-green bg-white dark:bg-[#252525] hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors duration-200 flex items-center justify-center gap-2">
                                 <i class="fa fa-cloud-upload text-secondary-green"></i>
                                 <span class="text-gray-700 dark:text-gray-300">Pilih Gambar</span>
                             </div>
@@ -148,7 +148,7 @@
                             <label for="productTitle"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Judul</label>
                             <input type="text" id="productTitle" wire:model='productTitle'
-                                class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                                class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                                 placeholder="Judul">
                             @error('productTitle')
                                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -158,7 +158,7 @@
                             <label for="productDescription"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Deskripsi</label>
                             <textarea id="productDescription" rows="4" wire:model='productDescription'
-                                class="block p-2.5 w-full text-sm text-gray-900 dark:text-gray-100 bg-gray-50 dark:bg-gray-700 rounded-md border border-gray-300 dark:border-gray-700 focus:outline-gray-400"
+                                class="block p-2.5 w-full text-sm text-gray-900 dark:text-gray-100 bg-gray-50 dark:bg-[#252525] rounded-md border border-gray-300 dark:border-gray-700 focus:outline-gray-400"
                                 placeholder="Deskripsi"></textarea>
                             @error('productDescription')
                                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>

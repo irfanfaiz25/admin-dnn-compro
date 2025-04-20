@@ -42,7 +42,7 @@
                             <label for="description"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Visi</label>
                             <textarea id="description" rows="4" wire:model='visi'
-                                class="block p-2.5 w-full text-sm text-gray-900 dark:text-gray-300 bg-gray-50 dark:bg-gray-700 rounded-md border border-gray-300 dark:border-gray-600 focus:outline-gray-400"
+                                class="block p-2.5 w-full text-sm text-gray-900 dark:text-gray-300 bg-gray-50 dark:bg-[#252525] rounded-md border border-gray-300 dark:border-gray-600 focus:outline-gray-400"
                                 placeholder="Masukkan visi"></textarea>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                                     </span>
                                     <div class="w-full">
                                         <input wire:model="misi.{{ $index }}" type="text" id="misi"
-                                            class="shadow-xs bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-300 text-sm rounded-lg block w-full p-2.5 font-normal"
+                                            class="shadow-xs bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-300 text-sm rounded-lg block w-full p-2.5 font-normal"
                                             placeholder="Masukkan misi {{ $index + 1 }}" />
                                     </div>
                                     @if (count($misi) > 1)

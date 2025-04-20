@@ -13,12 +13,12 @@
                 <form wire:submit.prevent='handleSaveHeadline' class="p-4">
                     <div class="mb-2">
                         <input type="text" id="productHeadlineTitle" wire:model='headlineTitle'
-                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-200 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-200 block w-full p-2.5"
                             placeholder="Judul">
                     </div>
                     <div class="mb-2">
                         <textarea id="productHeadlineSubtitle" rows="2" wire:model='headlineSubtitle'
-                            class="block p-2.5 w-full text-sm text-gray-900 dark:text-gray-100 bg-gray-50 dark:bg-gray-700 rounded-md border border-gray-300 dark:border-gray-600 focus:outline-gray-400"
+                            class="block p-2.5 w-full text-sm text-gray-900 dark:text-gray-100 bg-gray-50 dark:bg-[#252525] rounded-md border border-gray-300 dark:border-gray-600 focus:outline-gray-400"
                             placeholder="Deskripsi"></textarea>
                     </div>
                     <div class="mt-1 flex justify-end gap-1">
@@ -119,7 +119,7 @@
                             Lokasi Cabang <span class="text-red-500">*</span>
                         </label>
                         <input type="text" id="location" wire:model='city'
-                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Boyolali">
                         @error('city')
                             <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -130,7 +130,7 @@
                             Alamat Cabang <span class="text-red-500">*</span>
                         </label>
                         <input type="text" id="address" wire:model='address'
-                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Jl. Singoprono raya, no.10">
                         @error('address')
                             <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -143,7 +143,7 @@
                             Provinsi Cabang <span class="text-red-500">*</span>
                         </label>
                         <input type="text" id="province" wire:model='region'
-                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Jawa Tengah">
                         @error('region')
                             <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -155,7 +155,7 @@
                             Tahun Berdiri <span class="text-red-500">*</span>
                         </label>
                         <input type="month" id="established" wire:model='established'
-                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5">
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5">
                         @error('established')
                             <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                         @enderror

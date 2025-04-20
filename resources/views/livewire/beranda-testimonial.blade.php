@@ -54,12 +54,12 @@
                 <form wire:submit.prevent='handleSaveHeadline' class="p-4">
                     <div class="mb-2">
                         <input type="text" id="productHeadlineTitle" wire:model='headlineTitle'
-                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-300 text-sm rounded-md focus:outline-gray-200 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-300 text-sm rounded-md focus:outline-gray-200 block w-full p-2.5"
                             placeholder="Judul">
                     </div>
                     <div class="mb-2">
                         <textarea id="productHeadlineSubtitle" rows="2" wire:model='headlineSubtitle'
-                            class="block p-2.5 w-full text-sm text-gray-900 dark:text-gray-300 bg-gray-50 dark:bg-gray-700 rounded-md border border-gray-300 dark:border-gray-700 focus:outline-gray-400"
+                            class="block p-2.5 w-full text-sm text-gray-900 dark:text-gray-300 bg-gray-50 dark:bg-[#252525] rounded-md border border-gray-300 dark:border-gray-700 focus:outline-gray-400"
                             placeholder="Deskripsi"></textarea>
                     </div>
                     <div class="mt-1 flex justify-end gap-1">

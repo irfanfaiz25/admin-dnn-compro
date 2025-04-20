@@ -44,7 +44,7 @@
             </div>
             <div class="p-4 space-y-6">
                 <div
-                    class="w-full space-y-4 bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-700 hover:border-secondary-green transition-colors duration-300">
+                    class="w-full space-y-4 bg-gray-50 dark:bg-[#252525] p-4 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-700 hover:border-secondary-green transition-colors duration-300">
                     <div class="relative group">
                         @if ($image)
                             <img src="{{ $image->temporaryUrl() }}" alt="preview image"
@@ -62,7 +62,7 @@
                             </div>
                         @else
                             <div
-                                class="w-full h-[600px] rounded-lg shadow-md bg-gray-200 dark:bg-gray-700 flex justify-center items-center">
+                                class="w-full h-[600px] rounded-lg shadow-md bg-gray-200 dark:bg-neutral-700 flex justify-center items-center">
                                 <i class="fa fa-image text-gray-400 dark:text-gray-500"></i>
                             </div>
                         @endif
@@ -74,7 +74,7 @@
                         <input type="file" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                             accept="image/*" wire:model="image">
                         <div
-                            class="w-full px-4 py-3 text-sm font-medium text-center rounded-lg border-2 border-dashed border-secondary-green bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200 flex items-center justify-center gap-2">
+                            class="w-full px-4 py-3 text-sm font-medium text-center rounded-lg border-2 border-dashed border-secondary-green bg-white dark:bg-neutral-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200 flex items-center justify-center gap-2">
                             <i class="fa fa-cloud-upload text-secondary-green"></i>
                             <span class="text-gray-700 dark:text-gray-300">Pilih Gambar Background</span>
                         </div>
@@ -90,7 +90,7 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Judul <span
                                 class="text-sm text-red-500">*</span></label>
                         <input type="text" id="title" wire:model="heroTitle"
-                            class="bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Judul">
                         @error('heroTitle')
                             <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -101,7 +101,7 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Deksripsi <span
                                 class="text-sm text-red-500">*</span></label>
                         <textarea id="description" rows="3" wire:model="heroDescription"
-                            class="bg-gray-50 dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-700 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Masukkan deskripsi produk"></textarea>
                         @error('heroDescription')
                             <p class="text-red-500 text-xs mt-1">{{ $message }}</p>

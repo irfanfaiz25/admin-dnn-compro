@@ -45,7 +45,7 @@
             <div class="p-4">
                 <div class="mb-8 flex space-x-6">
                     <div
-                        class="w-1/2 space-y-4 bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-700 hover:border-secondary-green transition-colors duration-300">
+                        class="w-1/2 space-y-4 bg-gray-50 dark:bg-[#252525] p-4 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-700 hover:border-secondary-green transition-colors duration-300">
                         <label class="block">
                             <span class="text-base font-semibold text-gray-900 dark:text-gray-100 block mb-1">
                                 Gambar Detail
@@ -76,7 +76,7 @@
                                 </div>
                             @else
                                 <div
-                                    class="w-full h-80 rounded-lg shadow-md bg-gray-200 dark:bg-gray-700 flex justify-center items-center">
+                                    class="w-full h-80 rounded-lg shadow-md bg-gray-200 dark:bg-[#252525] flex justify-center items-center">
                                     <i class="fa fa-image text-gray-400"></i>
                                 </div>
                             @endif
@@ -88,7 +88,7 @@
                             <input type="file" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                                 accept="image/*" wire:model="detailImage">
                             <div
-                                class="w-full px-4 py-3 text-sm font-medium text-center rounded-lg border-2 border-dashed border-secondary-green bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors duration-200 flex items-center justify-center gap-2">
+                                class="w-full px-4 py-3 text-sm font-medium text-center rounded-lg border-2 border-dashed border-secondary-green bg-white dark:bg-[#252525] hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors duration-200 flex items-center justify-center gap-2">
                                 <i class="fa fa-cloud-upload text-secondary-green"></i>
                                 <span class="text-gray-700 dark:text-gray-300">Pilih Gambar</span>
                             </div>
@@ -100,7 +100,7 @@
                     </div>
 
                     <div
-                        class="w-1/2 space-y-4 bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-700 hover:border-secondary-green transition-colors duration-300">
+                        class="w-1/2 space-y-4 bg-gray-50 dark:bg-[#252525] p-4 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-700 hover:border-secondary-green transition-colors duration-300">
                         <label class="block">
                             <span class="text-base font-semibold text-gray-900 dark:text-gray-100 block mb-1">
                                 Gambar Kemasan
@@ -149,7 +149,7 @@
                             <input type="file" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                                 accept="image/*" wire:model="packImage">
                             <div
-                                class="w-full px-4 py-3 text-sm font-medium text-center rounded-lg border-2 border-dashed border-secondary-green bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors duration-200 flex items-center justify-center gap-2">
+                                class="w-full px-4 py-3 text-sm font-medium text-center rounded-lg border-2 border-dashed border-secondary-green bg-white dark:bg-[#252525] hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors duration-200 flex items-center justify-center gap-2">
                                 <i class="fa fa-cloud-upload text-secondary-green"></i>
                                 <span class="text-gray-700 dark:text-gray-300">Pilih Gambar</span>
                             </div>
@@ -166,7 +166,7 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Nama
                             Produk <span class="text-sm text-red-500">*</span></label>
                         <input type="text" id="productName" wire:model="productName"
-                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Masukkan nama produk">
                         @error('productName')
                             <p class="text-red-500 text-xs my-1">{{ $message }}</p>
@@ -177,7 +177,7 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Seri <span
                                 class="text-sm text-red-500">*</span></label>
                         <input type="text" id="series" wire:model="series"
-                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Masukkan seri produk">
                         @error('series')
                             <p class="text-red-500 text-xs my-1">{{ $message }}</p>
@@ -188,7 +188,7 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Status <span
                                 class="text-sm text-red-500">*</span></label>
                         <select id="stock" wire:model.live="stock"
-                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5">
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5">
                             <option value="">Pilih Status</option>
                             <option value="1">Dalam Stok</option>
                             <option value="0">Habis</option>
@@ -203,7 +203,7 @@
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Deksripsi
                         <span class="text-sm text-red-500">*</span></label>
                     <textarea id="productDescription" rows="3" wire:model="productDescription"
-                        class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                        class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                         placeholder="Masukkan deskripsi produk"></textarea>
                     @error('productDescription')
                         <p class="text-red-500 text-xs my-1">{{ $message }}</p>
@@ -215,7 +215,7 @@
                             Racikan <span class="text-sm text-red-500">*</span>
                         </label>
                         <input type="text" id="racikan" wire:model="racikan"
-                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Masukkan racikan">
                         @error('racikan')
                             <p class="text-red-500 text-xs my-1">{{ $message }}</p>
@@ -227,7 +227,7 @@
                             Karakter <span class="text-sm text-red-500">*</span>
                         </label>
                         <input type="text" id="character" wire:model="karakter"
-                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Masukkan karakter produk">
                         @error('karakter')
                             <p class="text-red-500 text-xs my-1">{{ $message }}</p>
@@ -240,7 +240,7 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Rempah <span
                                 class="text-sm text-red-500">*</span></label>
                         <input type="text" id="rempah" wire:model="rempah"
-                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Masukkan kandungan rempah produk">
                         @error('rempah')
                             <p class="text-red-500 text-xs my-1">{{ $message }}</p>
@@ -251,7 +251,7 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Kemasan <span
                                 class="text-sm text-red-500">*</span></label>
                         <input type="number" id="packing" wire:model="kemasan"
-                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Masukkan jumlah produk dalam kemasan">
                         @error('kemasan')
                             <p class="text-red-500 text-xs my-1">{{ $message }}</p>

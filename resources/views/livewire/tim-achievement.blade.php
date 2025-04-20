@@ -13,12 +13,12 @@
                 <form wire:submit.prevent='handleSaveHeadline' class="p-4">
                     <div class="mb-2">
                         <input type="text" id="productHeadlineTitle" wire:model='headlineTitle'
-                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-200 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-200 block w-full p-2.5"
                             placeholder="Judul">
                     </div>
                     <div class="mb-2">
                         <textarea id="productHeadlineSubtitle" rows="2" wire:model='headlineSubtitle'
-                            class="block p-2.5 w-full text-sm text-gray-900 dark:text-gray-100 bg-gray-50 dark:bg-gray-700 rounded-md border border-gray-300 dark:border-gray-600 focus:outline-gray-400"
+                            class="block p-2.5 w-full text-sm text-gray-900 dark:text-gray-100 bg-gray-50 dark:bg-[#252525] rounded-md border border-gray-300 dark:border-gray-600 focus:outline-gray-400"
                             placeholder="Deskripsi"></textarea>
                     </div>
                     <div class="mt-1 flex justify-end gap-1">
@@ -109,7 +109,7 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Cabang <span
                                 class="text-red-500">*</span></label>
                         <input type="number" id="branches" wire:model='branchCount'
-                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Masukkan jumlah cabang">
                         @error('branchCount')
                             <p class="text-red-500 text-xs mt-1">
@@ -122,7 +122,7 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Karyawan <span
                                 class="text-red-500">*</span></label>
                         <input type="number" id="employees" wire:model='employeeCount'
-                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Masukkan jumlah karyawan">
                         @error('employeeCount')
                             <p class="text-red-500 text-xs mt-1">
@@ -135,7 +135,7 @@
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Customer <span
                                 class="text-red-500">*</span></label>
                         <input type="number" id="customers" wire:model='customerCount'
-                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-[#252525] border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Masukkan jumlah customer">
                         @error('customerCount')
                             <p class="text-red-500 text-xs mt-1">
@@ -154,7 +154,7 @@
         @foreach ($stats as $stat)
             <div class="group hover:-translate-y-2 transition-all duration-300">
                 <div
-                    class="h-auto py-10 bg-white dark:bg-[#252525] rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 px-4 md:px-6 flex flex-col justify-center items-center relative overflow-hidden">
+                    class="h-auto py-10 bg-white dark:bg-neutral-700 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 px-4 md:px-6 flex flex-col justify-center items-center relative overflow-hidden">
                     <div
                         class="{{ $stat['color'] }} h-16 w-16 rounded-full flex justify-center items-center transform group-hover:scale-110 transition-transform duration-300 mb-4">
                         <div
@@ -171,7 +171,7 @@
                         </p>
                     </div>
                     <div
-                        class="absolute -right-12 -bottom-12 w-48 h-48 bg-gray-100/50 dark:bg-gray-700/50 rounded-full transform group-hover:scale-150 transition-transform duration-500">
+                        class="absolute -right-12 -bottom-12 w-48 h-48 bg-gray-100/50 dark:bg-neutral-800/50 rounded-full transform group-hover:scale-150 transition-transform duration-500">
                     </div>
                 </div>
             </div>
