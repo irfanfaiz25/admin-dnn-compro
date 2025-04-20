@@ -1,6 +1,7 @@
-<div class="h-fit w-full p-4 bg-white backdrop-blur-md border border-gray-300 rounded-md shadow-md">
+<div
+    class="h-fit w-full p-4 bg-white dark:bg-[#252525] backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded-md shadow-md">
     <div class="pb-4 flex justify-between">
-        <h3 class="text-lg font-semibold text-gray-600">
+        <h3 class="text-lg font-semibold text-gray-600 dark:text-gray-300">
             Daftar Produk
         </h3>
         @if (!$isShowForm)
@@ -16,15 +17,15 @@
 
     {{-- form --}}
     <div wire:show='isShowForm' wire:cloak wire:transition
-        class="mb-5 w-full bg-white backdrop-blur-md border border-gray-300 rounded-md shadow-md">
+        class="mb-5 w-full bg-white dark:bg-[#252525] backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded-md shadow-md">
         <form wire:submit.prevent="handleSave">
-            <div class="px-4 py-3 flex justify-between items-center border-b border-gray-300">
-                <h3 class="text-lg font-semibold text-gray-600">
+            <div class="px-4 py-3 flex justify-between items-center border-b border-gray-300 dark:border-gray-700">
+                <h3 class="text-lg font-semibold text-gray-600 dark:text-gray-300">
                     Edit Konten
                 </h3>
                 <div class="flex space-x-2 justify-end">
                     <button type="button" wire:click='handleCloseForm'
-                        class="text-gray-600 bg-gray-200 hover:bg-gray-300 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
+                        class="text-gray-600 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
                         Batal
                         <span wire:loading wire:target='handleCloseForm'
                             class="animate-spin rounded-full h-5 w-5 border-[2px] border-primary-gold border-t-transparent ml-2">
@@ -44,9 +45,9 @@
             <div class="p-4">
                 <div class="mb-8 flex space-x-6">
                     <div
-                        class="w-1/2 space-y-4 bg-gray-50 p-4 rounded-lg border-2 border-dashed border-gray-300 hover:border-secondary-green transition-colors duration-300">
+                        class="w-1/2 space-y-4 bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-700 hover:border-secondary-green transition-colors duration-300">
                         <label class="block">
-                            <span class="text-base font-semibold text-gray-900 block mb-1">
+                            <span class="text-base font-semibold text-gray-900 dark:text-gray-100 block mb-1">
                                 Gambar Detail
                             </span>
                             <span class="text-sm text-red-500 italic flex items-center">
@@ -75,7 +76,7 @@
                                 </div>
                             @else
                                 <div
-                                    class="w-full h-80 rounded-lg shadow-md bg-gray-200 flex justify-center items-center">
+                                    class="w-full h-80 rounded-lg shadow-md bg-gray-200 dark:bg-gray-700 flex justify-center items-center">
                                     <i class="fa fa-image text-gray-400"></i>
                                 </div>
                             @endif
@@ -87,11 +88,11 @@
                             <input type="file" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                                 accept="image/*" wire:model="detailImage">
                             <div
-                                class="w-full px-4 py-3 text-sm font-medium text-center rounded-lg border-2 border-dashed border-secondary-green bg-white hover:bg-gray-50 transition-colors duration-200 flex items-center justify-center gap-2">
+                                class="w-full px-4 py-3 text-sm font-medium text-center rounded-lg border-2 border-dashed border-secondary-green bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors duration-200 flex items-center justify-center gap-2">
                                 <i class="fa fa-cloud-upload text-secondary-green"></i>
-                                <span class="text-gray-700">Pilih Gambar</span>
+                                <span class="text-gray-700 dark:text-gray-300">Pilih Gambar</span>
                             </div>
-                            <p class="mt-2 text-xs text-gray-500 text-center">
+                            <p class="mt-2 text-xs text-gray-500 dark:text-gray-400 text-center">
                                 PNG, JPG or JPEG (MAX. 2MB)
                                 <span class="text-sm text-red-500">*</span>
                             </p>
@@ -99,9 +100,9 @@
                     </div>
 
                     <div
-                        class="w-1/2 space-y-4 bg-gray-50 p-4 rounded-lg border-2 border-dashed border-gray-300 hover:border-secondary-green transition-colors duration-300">
+                        class="w-1/2 space-y-4 bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border-2 border-dashed border-gray-300 dark:border-gray-700 hover:border-secondary-green transition-colors duration-300">
                         <label class="block">
-                            <span class="text-base font-semibold text-gray-900 block mb-1">
+                            <span class="text-base font-semibold text-gray-900 dark:text-gray-100 block mb-1">
                                 Gambar Kemasan
                             </span>
                             <span class="text-sm text-red-500 italic flex items-center">
@@ -116,7 +117,7 @@
                         <div class="relative group">
                             @if ($packImage)
                                 <div
-                                    class="w-full h-80 bg-[#f0f0f0] bg-[linear-gradient(45deg,#ccc_25%,transparent_25%),linear-gradient(-45deg,#ccc_25%,transparent_25%),linear-gradient(45deg,transparent_75%,#ccc_75%),linear-gradient(-45deg,transparent_75%,#ccc_75%)] bg-[length:20px_20px] bg-[position:0_0,0_10px,10px_-10px,-10px_0] rounded-md flex items-center justify-center">
+                                    class="w-full h-80 bg-[#f0f0f0] dark:bg-gray-700 bg-[linear-gradient(45deg,#ccc_25%,transparent_25%),linear-gradient(-45deg,#ccc_25%,transparent_25%),linear-gradient(45deg,transparent_75%,#ccc_75%),linear-gradient(-45deg,transparent_75%,#ccc_75%)] bg-[length:20px_20px] bg-[position:0_0,0_10px,10px_-10px,-10px_0] rounded-md flex items-center justify-center">
                                     <img src="{{ $packImage->temporaryUrl() }}" alt="preview image"
                                         class="w-full h-80 object-contain transition-transform duration-300 group-hover:scale-[1.02]">
                                     <div
@@ -126,7 +127,7 @@
                                 </div>
                             @elseif ($existingPackImage)
                                 <div
-                                    class="w-full h-80 bg-[#f0f0f0] bg-[linear-gradient(45deg,#ccc_25%,transparent_25%),linear-gradient(-45deg,#ccc_25%,transparent_25%),linear-gradient(45deg,transparent_75%,#ccc_75%),linear-gradient(-45deg,transparent_75%,#ccc_75%)] bg-[length:20px_20px] bg-[position:0_0,0_10px,10px_-10px,-10px_0] rounded-md flex items-center justify-center">
+                                    class="w-full h-80 bg-[#f0f0f0] dark:bg-gray-700 bg-[linear-gradient(45deg,#ccc_25%,transparent_25%),linear-gradient(-45deg,#ccc_25%,transparent_25%),linear-gradient(45deg,transparent_75%,#ccc_75%),linear-gradient(-45deg,transparent_75%,#ccc_75%)] bg-[length:20px_20px] bg-[position:0_0,0_10px,10px_-10px,-10px_0] rounded-md flex items-center justify-center">
                                     <img src="{{ asset($existingPackImage) }}" alt="preview image"
                                         class="w-full h-80 object-contain transition-transform duration-300 group-hover:scale-[1.02]">
                                     <div
@@ -136,7 +137,7 @@
                                 </div>
                             @else
                                 <div
-                                    class="w-full h-80 bg-[#f0f0f0] bg-[linear-gradient(45deg,#ccc_25%,transparent_25%),linear-gradient(-45deg,#ccc_25%,transparent_25%),linear-gradient(45deg,transparent_75%,#ccc_75%),linear-gradient(-45deg,transparent_75%,#ccc_75%)] bg-[length:20px_20px] bg-[position:0_0,0_10px,10px_-10px,-10px_0] rounded-md flex items-center justify-center">
+                                    class="w-full h-80 bg-[#f0f0f0] dark:bg-gray-700 bg-[linear-gradient(45deg,#ccc_25%,transparent_25%),linear-gradient(-45deg,#ccc_25%,transparent_25%),linear-gradient(45deg,transparent_75%,#ccc_75%),linear-gradient(-45deg,transparent_75%,#ccc_75%)] bg-[length:20px_20px] bg-[position:0_0,0_10px,10px_-10px,-10px_0] rounded-md flex items-center justify-center">
                                     <i class="fa fa-image text-gray-400"></i>
                                 </div>
                             @endif
@@ -148,11 +149,11 @@
                             <input type="file" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                                 accept="image/*" wire:model="packImage">
                             <div
-                                class="w-full px-4 py-3 text-sm font-medium text-center rounded-lg border-2 border-dashed border-secondary-green bg-white hover:bg-gray-50 transition-colors duration-200 flex items-center justify-center gap-2">
+                                class="w-full px-4 py-3 text-sm font-medium text-center rounded-lg border-2 border-dashed border-secondary-green bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors duration-200 flex items-center justify-center gap-2">
                                 <i class="fa fa-cloud-upload text-secondary-green"></i>
-                                <span class="text-gray-700">Pilih Gambar</span>
+                                <span class="text-gray-700 dark:text-gray-300">Pilih Gambar</span>
                             </div>
-                            <p class="mt-2 text-xs text-gray-500 text-center">
+                            <p class="mt-2 text-xs text-gray-500 dark:text-gray-400 text-center">
                                 PNG (MAX. 2MB)
                                 <span class="text-sm text-red-500">*</span>
                             </p>
@@ -161,30 +162,33 @@
                 </div>
                 <div class="mb-4 flex justify-between gap-3">
                     <div class="w-[40%]">
-                        <label for="productName" class="block mb-2 text-sm font-medium text-gray-900">Nama
+                        <label for="productName"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Nama
                             Produk <span class="text-sm text-red-500">*</span></label>
                         <input type="text" id="productName" wire:model="productName"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Masukkan nama produk">
                         @error('productName')
                             <p class="text-red-500 text-xs my-1">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="w-[30%]">
-                        <label for="series" class="block mb-2 text-sm font-medium text-gray-900">Seri <span
+                        <label for="series"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Seri <span
                                 class="text-sm text-red-500">*</span></label>
                         <input type="text" id="series" wire:model="series"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Masukkan seri produk">
                         @error('series')
                             <p class="text-red-500 text-xs my-1">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="w-[30%]">
-                        <label for="stock" class="block mb-2 text-sm font-medium text-gray-900">Status <span
+                        <label for="stock"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Status <span
                                 class="text-sm text-red-500">*</span></label>
                         <select id="stock" wire:model.live="stock"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5">
+                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5">
                             <option value="">Pilih Status</option>
                             <option value="1">Dalam Stok</option>
                             <option value="0">Habis</option>
@@ -195,10 +199,11 @@
                     </div>
                 </div>
                 <div class="mb-4">
-                    <label for="productDescription" class="block mb-2 text-sm font-medium text-gray-900">Deksripsi
+                    <label for="productDescription"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Deksripsi
                         <span class="text-sm text-red-500">*</span></label>
                     <textarea id="productDescription" rows="3" wire:model="productDescription"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                        class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                         placeholder="Masukkan deskripsi produk"></textarea>
                     @error('productDescription')
                         <p class="text-red-500 text-xs my-1">{{ $message }}</p>
@@ -206,22 +211,23 @@
                 </div>
                 <div class="mb-4 flex justify-between gap-3">
                     <div class="w-1/2">
-                        <label for="racikan" class="block mb-2 text-sm font-medium text-gray-900">
+                        <label for="racikan" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">
                             Racikan <span class="text-sm text-red-500">*</span>
                         </label>
                         <input type="text" id="racikan" wire:model="racikan"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Masukkan racikan">
                         @error('racikan')
                             <p class="text-red-500 text-xs my-1">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="w-1/2">
-                        <label for="character" class="block mb-2 text-sm font-medium text-gray-900">
+                        <label for="character"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">
                             Karakter <span class="text-sm text-red-500">*</span>
                         </label>
                         <input type="text" id="character" wire:model="karakter"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Masukkan karakter produk">
                         @error('karakter')
                             <p class="text-red-500 text-xs my-1">{{ $message }}</p>
@@ -230,20 +236,22 @@
                 </div>
                 <div class="mb-4 flex justify-between gap-3">
                     <div class="w-1/2">
-                        <label for="rempah" class="block mb-2 text-sm font-medium text-gray-900">Rempah <span
+                        <label for="rempah"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Rempah <span
                                 class="text-sm text-red-500">*</span></label>
                         <input type="text" id="rempah" wire:model="rempah"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Masukkan kandungan rempah produk">
                         @error('rempah')
                             <p class="text-red-500 text-xs my-1">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="w-1/2">
-                        <label for="packing" class="block mb-2 text-sm font-medium text-gray-900">Kemasan <span
+                        <label for="packing"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-100">Kemasan <span
                                 class="text-sm text-red-500">*</span></label>
                         <input type="number" id="packing" wire:model="kemasan"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                            class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                             placeholder="Masukkan jumlah produk dalam kemasan">
                         @error('kemasan')
                             <p class="text-red-500 text-xs my-1">{{ $message }}</p>
@@ -257,7 +265,7 @@
     {{-- Display Product List --}}
     <div class="space-y-3">
         @foreach ($products as $product)
-            <div class="p-4 flex space-x-5 border border-gray-300 rounded-md">
+            <div class="p-4 flex space-x-5 border border-gray-300 dark:border-gray-700 rounded-md">
                 <div class="w-[40%]">
                     <img src="{{ asset($product->detailImage) }}" alt="picture1"
                         class="w-full h-full object-cover rounded-md">
@@ -265,7 +273,7 @@
                 <div class="w-[60%] relative">
                     <div class="flex space-x-1 absolute top-0 right-0">
                         <button type="button" wire:click='handleEdit({{ $product->id }})'
-                            class="px-3 py-1.5 border border-gray-600 hover:bg-gray-600 text-gray-600 hover:text-white text-sm rounded-sm z-50 inline-flex items-center">
+                            class="px-3 py-1.5 border border-gray-600 dark:border-gray-400 hover:bg-gray-600 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-400 hover:text-white text-sm rounded-sm z-50 inline-flex items-center">
                             <i wire:loading.remove wire:target="handleEdit({{ $product->id }})"
                                 class="fa fa-pencil text-[12px] pr-1"></i>
                             <span wire:loading wire:target="handleEdit({{ $product->id }})"
@@ -288,54 +296,55 @@
                             </span>
                         </button>
                     </div>
-                    <h1 class="text-4xl font-extrabold font-display">
+                    <h1 class="text-4xl font-extrabold font-display text-gray-900 dark:text-gray-100">
                         {{ $product->name }}
                     </h1>
                     <div class="mt-3 flex space-x-2">
                         <div
-                            class="px-4 py-1.5 text-sm bg-amber-600/50 text-amber-700 rounded-full font-medium shadow-md">
+                            class="px-4 py-1.5 text-sm bg-amber-600/50 text-amber-700 dark:bg-amber-900/50 dark:text-amber-300 rounded-full font-medium shadow-md">
                             {{ $product->series }}
                         </div>
-                        <div class="px-4 py-1.5 text-sm bg-gray-100 text-gray-600 rounded-full font-medium shadow-md">
+                        <div
+                            class="px-4 py-1.5 text-sm bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 rounded-full font-medium shadow-md">
                             {{ $product->stock ? 'In Stock' : 'Out of Stock' }}
                         </div>
                     </div>
-                    <p class="mt-6 text-base text-gray-600">
+                    <p class="mt-6 text-base text-gray-600 dark:text-gray-300">
                         {{ $product->description }}
                     </p>
                     <div class="mt-6 space-y-3">
                         <div class="flex space-x-4">
                             <div class="w-1/2">
-                                <h4 class="text-sm text-gray-500">
+                                <h4 class="text-sm text-gray-500 dark:text-gray-400">
                                     RACIKAN
                                 </h4>
-                                <p class="text-sm text-gray-800">
+                                <p class="text-sm text-gray-800 dark:text-gray-200">
                                     {{ $product->racikan }}
                                 </p>
                             </div>
                             <div class="w-1/2">
-                                <h4 class="text-sm text-gray-500">
+                                <h4 class="text-sm text-gray-500 dark:text-gray-400">
                                     KARAKTER
                                 </h4>
-                                <p class="text-sm text-gray-800">
+                                <p class="text-sm text-gray-800 dark:text-gray-200">
                                     {{ $product->karakter }}
                                 </p>
                             </div>
                         </div>
                         <div class="flex space-x-4">
                             <div class="w-1/2">
-                                <h4 class="text-sm text-gray-500">
+                                <h4 class="text-sm text-gray-500 dark:text-gray-400">
                                     REMPAH
                                 </h4>
-                                <p class="text-sm text-gray-800">
+                                <p class="text-sm text-gray-800 dark:text-gray-200">
                                     {{ $product->rempah }}
                                 </p>
                             </div>
                             <div class="w-1/2">
-                                <h4 class="text-sm text-gray-500">
+                                <h4 class="text-sm text-gray-500 dark:text-gray-400">
                                     KEMASAN
                                 </h4>
-                                <p class="text-sm text-gray-800">
+                                <p class="text-sm text-gray-800 dark:text-gray-200">
                                     {{ $product->kemasan }} Batang Premium
                                 </p>
                             </div>
