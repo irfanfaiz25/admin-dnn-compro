@@ -423,17 +423,17 @@
         <div class="relative flex min-h-screen items-center justify-center px-4 pt-4 pb-20 text-center">
             <!-- Modal Content -->
             <div x-show="$wire.showModal" x-transition.scale.origin.center
-                class="inline-block align-middle bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:w-full">
+                class="inline-block align-middle bg-white dark:bg-[#252525] border dark:border-gray-700 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:w-full">
                 <!-- Modal Header -->
-                <div class="bg-white px-6 pt-6 pb-4 relative">
+                <div class="bg-white dark:bg-[#252525] px-6 pt-6 pb-4 relative">
                     <button type="button" wire:click='closeModal'
-                        class="absolute top-4 right-4 text-gray-400 hover:text-gray-500">
+                        class="absolute top-4 right-4 text-gray-400 hover:text-gray-500 dark:hover:text-gray-300">
                         <i wire:loading.remove wire:target="closeModal" class="fa-solid fa-xmark text-lg"></i>
                         <span wire:loading wire:target="closeModal"
                             class="animate-spin rounded-full h-5 w-5 border-[2px] border-primary-gold border-t-transparent">
                         </span>
                     </button>
-                    <h3 class="text-lg font-semibold leading-6 text-gray-900">
+                    <h3 class="text-lg font-semibold leading-6 text-gray-900 dark:text-gray-100">
                         Detail Post
                     </h3>
                 </div>
@@ -441,7 +441,7 @@
                 <!-- Modal Body -->
                 <div class="p-6">
                     @if ($selectedPost)
-                        <div class="w-full h-full bg-white rounded-xl">
+                        <div class="w-full h-full bg-white dark:bg-[#252525] rounded-xl">
                             <!-- Media Display -->
                             <div class="flex flex-col md:flex-row md:space-x-2 xl:space-x-3">
                                 <!-- Main Media Display -->
@@ -457,8 +457,8 @@
                                         @endif
                                     @else
                                         <div
-                                            class="w-full h-full rounded-lg bg-gray-100 flex items-center justify-center">
-                                            <p class="text-gray-500">No media available</p>
+                                            class="w-full h-full rounded-lg bg-gray-100 dark:bg-gray-700 flex items-center justify-center">
+                                            <p class="text-gray-500 dark:text-gray-400">No media available</p>
                                         </div>
                                     @endif
                                 </div>
@@ -514,20 +514,21 @@
 
                             <!-- Post Content -->
                             <div class="mt-2 md:mt-3 xl:mt-5 mb-6 space-y-4">
-                                <p class="text-sm md:text-base text-gray-500 font-light">
+                                <p class="text-sm md:text-base text-gray-500 dark:text-gray-400 font-light">
                                     {{ \Carbon\Carbon::parse($selectedPost->date)->format('F, d Y') }}
                                 </p>
-                                <h1 class="mb-8 text-xl md:text-4xl text-gray-800 font-bold font-display text-center">
+                                <h1
+                                    class="mb-8 text-xl md:text-4xl text-gray-800 dark:text-gray-100 font-bold font-display text-center">
                                     {{ $selectedPost->title }}
                                 </h1>
-                                <div class="space-y-4 ck-content">
+                                <div class="space-y-4 ck-content dark:text-gray-300">
                                     {!! $selectedPost->content !!}
                                 </div>
                             </div>
                         </div>
                     @else
                         <div class="flex items-center justify-center h-64">
-                            <p class="text-gray-500">Loading post details...</p>
+                            <p class="text-gray-500 dark:text-gray-400">Loading post details...</p>
                         </div>
                     @endif
                 </div>
