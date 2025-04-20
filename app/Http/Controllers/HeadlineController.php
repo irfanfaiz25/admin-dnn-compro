@@ -12,12 +12,14 @@ class HeadlineController extends Controller
         $headline = Headline::where('section_name', $sectionName)->first();
         if (!$headline) {
             return response()->json([
+                'success' => false,
                 'message' => 'Headline not found',
             ], 404);
         }
 
         return response()->json([
             'success' => true,
+            'message' => 'Headline data retrieved successfully',
             'headline' => $headline,
         ], 200);
     }
