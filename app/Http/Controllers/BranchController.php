@@ -21,6 +21,6 @@ class BranchController extends Controller
             'success' => true,
             'message' => 'Branches data retrieved successfully',
             'data' => $branches,
-        ]);
+        ], 200);
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HeadlineController;
 use App\Http\Controllers\InformationController;
 use App\Http\Controllers\SectionController;
+use App\Http\Controllers\VisiMisiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +21,5 @@ Route::get('/branches', [BranchController::class, 'getBranches']);
 Route::get('/contact', [ContactController::class, 'getContact']);
 
 Route::get('/information/{name}', [InformationController::class, 'getInformation']);
+
+Route::get('/visi-misi/{name}', [VisiMisiController::class, 'getVisiMisi']);

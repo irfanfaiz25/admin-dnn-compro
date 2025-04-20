@@ -21,6 +21,6 @@ class ContactController extends Controller
             'success' => true,
             'message' => 'Contact data retrieved successfully',
             'data' => $contact,
-        ]);
+        ], 200);
     }
 }

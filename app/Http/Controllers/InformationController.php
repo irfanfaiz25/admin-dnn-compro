@@ -21,6 +21,6 @@ class InformationController extends Controller
             'success' => true,
             'message' => 'Information data retrieved successfully',
             'data' => $information,
-        ]);
+        ], 200);
     }
 }
