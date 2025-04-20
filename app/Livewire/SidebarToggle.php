@@ -9,12 +9,6 @@ class SidebarToggle extends Component
     public $isSidebarVisible = false;
     public $sidebarMenu = [
         [
-            'name' => 'dashboard',
-            'route' => 'dashboard.index',
-            'icon' => 'fa-solid fa-house',
-            'request' => 'dashboard*'
-        ],
-        [
             'name' => 'beranda',
             'route' => 'beranda.index',
             'icon' => 'fa-solid fa-layer-group',
@@ -35,7 +29,7 @@ class SidebarToggle extends Component
                 [
                     'name' => 'tim manajemen',
                     'route' => 'tim-manajemen.index',
-                    'icon' => 'fa-solid fa-stopwatch-20',
+                    'icon' => 'fa-solid fa-users-between-lines',
                     'request' => 'tentang/tim-manajemen*',
                 ],
             ],

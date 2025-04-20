@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class HeaderLayout extends Component
@@ -20,12 +21,14 @@ class HeaderLayout extends Component
         $this->isProfileButtonVisible = !$this->isProfileButtonVisible;
     }
 
-    // public function logout()
-    // {
-    //     Auth::logout();
+    public function logout()
+    {
+        Auth::logout();
+        session()->invalidate();
+        session()->regenerateToken();
 
-    //     return redirect(route('login'));
-    // }
+        return redirect(route('login'));
+    }
 
     public function render()
     {

@@ -25,10 +25,6 @@
 
     @livewireStyles
 
-    <!-- Include Trix CSS/JS -->
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.8/dist/trix.css">
-    <script type="text/javascript" src="https://unpkg.com/trix@2.0.8/dist/trix.umd.min.js"></script>
-
     <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/45.0.0/ckeditor5.css" />
 
     {{-- icon --}}
