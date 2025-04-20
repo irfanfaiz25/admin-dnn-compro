@@ -1,12 +1,13 @@
-<div class="h-fit w-full bg-white backdrop-blur-md border border-gray-300 rounded-md shadow-md">
+<div
+    class="h-fit w-full bg-white dark:bg-[#252525] backdrop-blur-md border border-gray-300 dark:border-gray-700 rounded-md shadow-md">
     <form wire:submit.prevent='handleSave' class="px-6 py-4">
         <div class="flex justify-between items-center">
-            <h3 class="text-lg font-semibold text-gray-600">
+            <h3 class="text-lg font-semibold text-gray-600 dark:text-gray-300">
                 Form
             </h3>
             <div class="flex space-x-2 justify-end">
                 <button type="button" wire:click='handleResetForm'
-                    class="text-gray-600 bg-gray-200 hover:bg-gray-300 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
+                    class="text-gray-600 dark:text-gray-300 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
                     <span>
                         Batal
                     </span>
@@ -28,7 +29,7 @@
 
         <div class="mt-4 flex justify-center">
             <div
-                class="flex flex-col items-center gap-4 p-6 border-2 border-dashed border-gray-300 rounded-lg hover:border-gray-400 transition-colors duration-300">
+                class="flex flex-col items-center gap-4 p-6 border-2 border-dashed border-gray-300 dark:border-gray-700 rounded-lg hover:border-gray-400 dark:hover:border-gray-600 transition-colors duration-300">
                 @if ($companyLogo)
                     <div class="relative group">
                         <img src="{{ $companyLogo->temporaryUrl() }}" alt="companyLogo"
@@ -40,28 +41,29 @@
                             class="h-24 w-auto object-contain rounded-md group-hover:scale-105 transition-transform duration-300">
                     </div>
                 @else
-                    <div class="h-24 w-24 rounded-full bg-gray-200 shadow-md flex justify-center items-center">
+                    <div
+                        class="h-24 w-24 rounded-full bg-gray-200 dark:bg-gray-700 shadow-md flex justify-center items-center">
                         <i class="fa fa-camera text-lg text-gray-400"></i>
                     </div>
                 @endif
                 <div class="w-full">
                     <label for="logo"
-                        class="block mb-2 text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors duration-300">
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300 hover:text-gray-600 dark:hover:text-gray-400 transition-colors duration-300">
                         Logo
                     </label>
                     <input type="file" id="logo" accept="image/*" wire:model='companyLogo'
-                        class="block w-full px-4 py-3 text-sm text-gray-900 bg-white border border-gray-300 rounded-lg cursor-pointer focus:outline-none focus:border-gray-500 focus:ring-2 focus:ring-gray-200 transition-all duration-300 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-gray-50 file:text-gray-700 hover:file:bg-gray-100"
+                        class="block w-full px-4 py-3 text-sm text-gray-900 dark:text-gray-300 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg cursor-pointer focus:outline-none focus:border-gray-500 focus:ring-2 focus:ring-gray-200 transition-all duration-300 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-gray-50 dark:file:bg-gray-600 file:text-gray-700 dark:file:text-gray-300 hover:file:bg-gray-100 dark:hover:file:bg-gray-500"
                         placeholder="Choose logo file">
                     @error('companyLogo')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                     @enderror
                 </div>
                 <div class="w-full">
-                    <label for="companyName" class="block mb-2 text-sm font-medium text-gray-900">
+                    <label for="companyName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                         Nama Perusahaan
                     </label>
                     <input type="text" id="companyName" wire:model='companyName'
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
+                        class="bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-300 text-sm rounded-md focus:outline-gray-400 block w-full p-2.5"
                         placeholder="Masukkan nama perusahaan">
                     @error('companyName')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
@@ -71,14 +73,14 @@
         </div>
 
         <div class="mt-8">
-            <h3 class="text-lg font-bold text-gray-800 mb-6 flex items-center">
+            <h3 class="text-lg font-bold text-gray-800 dark:text-gray-300 mb-6 flex items-center">
                 <span class="bg-gray-500 w-2 h-8 rounded mr-3"></span>
                 Kontak
             </h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="group">
                     <div
-                        class="flex items-center bg-blue-50 p-4 rounded-lg transition-all duration-300 group-hover:bg-blue-100">
+                        class="flex items-center bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg transition-all duration-300 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/30">
                         <div
                             class="w-12 h-12 flex items-center justify-center bg-blue-500 rounded-full mr-4 group-hover:bg-blue-600">
                             <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none"
@@ -90,11 +92,12 @@
                             </svg>
                         </div>
                         <div class="flex-1">
-                            <label for="email" class="block text-sm font-semibold text-gray-700 mb-1">Email
+                            <label for="email"
+                                class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Email
                                 Address</label>
                             <input type="email" id="email" placeholder="Masukkan email" wire:model='email'
-                                class="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm outline-none transition-all duration-300">
-                            <p class="text-xs text-gray-500 mt-1">Format: example@domain.com</p>
+                                class="w-full px-4 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm outline-none transition-all duration-300">
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Format: example@domain.com</p>
                             @error('email')
                                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                             @enderror
@@ -104,7 +107,7 @@
 
                 <div class="group">
                     <div
-                        class="flex items-center bg-indigo-50 p-4 rounded-lg transition-all duration-300 group-hover:bg-indigo-100">
+                        class="flex items-center bg-indigo-50 dark:bg-indigo-900/20 p-4 rounded-lg transition-all duration-300 group-hover:bg-indigo-100 dark:group-hover:bg-indigo-900/30">
                         <div
                             class="w-12 h-12 flex items-center justify-center bg-indigo-500 rounded-full mr-4 group-hover:bg-indigo-600">
                             <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none"
@@ -116,12 +119,13 @@
                             </svg>
                         </div>
                         <div class="flex-1">
-                            <label for="phone" class="block text-sm font-semibold text-gray-700 mb-1">Phone
+                            <label for="phone"
+                                class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Phone
                                 Number</label>
                             <input type="tel" id="phone" placeholder="Masukkan nomor telepon (gunakan +62)"
                                 wire:model='phone'
-                                class="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm outline-none transition-all duration-300">
-                            <p class="text-xs text-gray-500 mt-1">Format: +628xxxxxxxxxx</p>
+                                class="w-full px-4 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-sm outline-none transition-all duration-300">
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Format: +628xxxxxxxxxx</p>
                             @error('phone')
                                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                             @enderror
@@ -131,7 +135,7 @@
 
                 <div class="group">
                     <div
-                        class="flex items-center bg-green-50 p-4 rounded-lg transition-all duration-300 group-hover:bg-green-100">
+                        class="flex items-center bg-green-50 dark:bg-green-900/20 p-4 rounded-lg transition-all duration-300 group-hover:bg-green-100 dark:group-hover:bg-green-900/30">
                         <div
                             class="w-12 h-12 flex items-center justify-center bg-green-500 rounded-full mr-4 group-hover:bg-green-600">
                             <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none"
@@ -143,11 +147,11 @@
                         </div>
                         <div class="flex-1">
                             <label for="whatsapp"
-                                class="block text-sm font-semibold text-gray-700 mb-1">WhatsApp</label>
+                                class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">WhatsApp</label>
                             <input type="tel" id="whatsapp" placeholder="Masukkan nomor whatsapp (gunakan +62)"
                                 wire:model='whatsapp'
-                                class="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm outline-none transition-all duration-300">
-                            <p class="text-xs text-gray-500 mt-1">Format: +628xxxxxxxxxx</p>
+                                class="w-full px-4 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent text-sm outline-none transition-all duration-300">
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Format: +628xxxxxxxxxx</p>
                             @error('whatsapp')
                                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                             @enderror
@@ -158,14 +162,14 @@
         </div>
 
         <div class="mt-8">
-            <h3 class="text-lg font-bold text-gray-800 mb-6 flex items-center">
+            <h3 class="text-lg font-bold text-gray-800 dark:text-gray-300 mb-6 flex items-center">
                 <span class="bg-gray-500 w-2 h-8 rounded mr-3"></span>
                 Social Media
             </h3>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="group">
                     <div
-                        class="flex items-center bg-pink-50 p-4 rounded-lg transition-all duration-300 group-hover:bg-pink-100">
+                        class="flex items-center bg-pink-50 dark:bg-pink-900/20 p-4 rounded-lg transition-all duration-300 group-hover:bg-pink-100 dark:group-hover:bg-pink-900/30">
                         <div
                             class="w-12 h-12 flex items-center justify-center bg-pink-500 rounded-full mr-4 group-hover:bg-pink-600">
                             <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none"
@@ -181,10 +185,10 @@
                         </div>
                         <div class="flex-1">
                             <label for="instagram"
-                                class="block text-sm font-semibold text-gray-700 mb-1">Instagram</label>
+                                class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Instagram</label>
                             <input type="text" id="instagram" wire:model='instagram'
                                 placeholder="Masukkan username Instagram"
-                                class="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-sm outline-none transition-all duration-300">
+                                class="w-full px-4 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent text-sm outline-none transition-all duration-300">
                             @error('instagram')
                                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                             @enderror
@@ -194,7 +198,7 @@
 
                 <div class="group">
                     <div
-                        class="flex items-center bg-blue-50 p-4 rounded-lg transition-all duration-300 group-hover:bg-blue-100">
+                        class="flex items-center bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg transition-all duration-300 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/30">
                         <div
                             class="w-12 h-12 flex items-center justify-center bg-blue-600 rounded-full mr-4 group-hover:bg-blue-700">
                             <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none"
@@ -207,10 +211,10 @@
                         </div>
                         <div class="flex-1">
                             <label for="facebook"
-                                class="block text-sm font-semibold text-gray-700 mb-1">Facebook</label>
+                                class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Facebook</label>
                             <input type="text" id="facebook" wire:model='facebook'
                                 placeholder="Masukkan username Facebook"
-                                class="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-sm outline-none transition-all duration-300">
+                                class="w-full px-4 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent text-sm outline-none transition-all duration-300">
                             @error('facebook')
                                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                             @enderror
@@ -220,7 +224,7 @@
 
                 <div class="group">
                     <div
-                        class="flex items-center bg-sky-50 p-4 rounded-lg transition-all duration-300 group-hover:bg-sky-100">
+                        class="flex items-center bg-sky-50 dark:bg-sky-900/20 p-4 rounded-lg transition-all duration-300 group-hover:bg-sky-100 dark:group-hover:bg-sky-900/30">
                         <div
                             class="w-12 h-12 flex items-center justify-center bg-sky-500 rounded-full mr-4 group-hover:bg-sky-600">
                             <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none"
@@ -233,10 +237,10 @@
                         </div>
                         <div class="flex-1">
                             <label for="twitter"
-                                class="block text-sm font-semibold text-gray-700 mb-1">Twitter</label>
+                                class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Twitter</label>
                             <input type="text" id="twitter" wire:model='twitter'
                                 placeholder="Masukkan username Twitter"
-                                class="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent text-sm outline-none transition-all duration-300">
+                                class="w-full px-4 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent text-sm outline-none transition-all duration-300">
                             @error('twitter')
                                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                             @enderror
@@ -246,7 +250,7 @@
 
                 <div class="group">
                     <div
-                        class="flex items-center bg-blue-50 p-4 rounded-lg transition-all duration-300 group-hover:bg-blue-100">
+                        class="flex items-center bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg transition-all duration-300 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/30">
                         <div
                             class="w-12 h-12 flex items-center justify-center bg-blue-500 rounded-full mr-4 group-hover:bg-blue-600">
                             <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none"
@@ -265,10 +269,10 @@
                         </div>
                         <div class="flex-1">
                             <label for="linkedin"
-                                class="block text-sm font-semibold text-gray-700 mb-1">LinkedIn</label>
+                                class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">LinkedIn</label>
                             <input type="text" id="linkedin" wire:model='linkedin'
                                 placeholder="Masukkan username LinkedIn"
-                                class="w-full px-4 py-2 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm outline-none transition-all duration-300">
+                                class="w-full px-4 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm outline-none transition-all duration-300">
                             @error('linkedin')
                                 <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                             @enderror
