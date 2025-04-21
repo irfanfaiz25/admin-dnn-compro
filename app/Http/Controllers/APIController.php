@@ -251,4 +251,21 @@ class APIController extends Controller
             'data' => $post,
         ]);
     }
+
+    public function getBerandaPosts()
+    {
+        $posts = Post::with('media')->latest()->take(3)->get();
+        if (!$posts) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Posts not found',
+            ], 404);
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Posts data retrieved successfully',
+            'data' => $posts,
+        ], 200);
+    }
 }

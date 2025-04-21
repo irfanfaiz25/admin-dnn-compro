@@ -26,3 +26,5 @@ Route::post('/testimonials', [APIController::class, 'createTestimonial']);
 Route::get('/posts', [APIController::class, 'getPosts']);
 
 Route::get('/posts/{slug}', [APIController::class, 'getPost']);
+
+Route::get('/beranda-posts', [APIController::class, 'getBerandaPosts']);
