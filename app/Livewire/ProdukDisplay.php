@@ -69,6 +69,30 @@ class ProdukDisplay extends Component
     {
         $product = Product::find($this->productId);
 
+        $customMessages = [
+            'productName.required' => 'Nama produk harus diisi',
+            'productName.max' => 'Nama produk tidak boleh lebih dari 50 karakter',
+            'series.required' => 'Series harus diisi',
+            'series.max' => 'Series tidak boleh lebih dari 20 karakter',
+            'stock.required' => 'Status stok harus diisi',
+            'stock.boolean' => 'Status stok harus berupa true/false',
+            'productDescription.required' => 'Deskripsi produk harus diisi',
+            'racikan.required' => 'Racikan harus diisi',
+            'racikan.max' => 'Racikan tidak boleh lebih dari 50 karakter',
+            'karakter.required' => 'Karakter harus diisi',
+            'karakter.max' => 'Karakter tidak boleh lebih dari 50 karakter',
+            'rempah.required' => 'Rempah harus diisi',
+            'rempah.max' => 'Rempah tidak boleh lebih dari 50 karakter',
+            'kemasan.required' => 'Kemasan harus diisi',
+            'kemasan.integer' => 'Kemasan harus berupa angka',
+            'detailImage.required' => 'Gambar detail produk harus diupload',
+            'detailImage.mimes' => 'Gambar detail harus berformat PNG, JPG, atau JPEG',
+            'detailImage.max' => 'Ukuran gambar detail maksimal 2MB',
+            'packImage.required' => 'Gambar kemasan harus diupload',
+            'packImage.mimes' => 'Gambar kemasan harus berformat PNG',
+            'packImage.max' => 'Ukuran gambar kemasan maksimal 2MB'
+        ];
+
         $validationRules = [
             'productName' => 'required|max:50',
             'series' => 'required|max:20',
@@ -90,7 +114,7 @@ class ProdukDisplay extends Component
             $validationRules['packImage'] = $this->packImage ? 'mimes:png|max:2048' : '';
         }
 
-        $this->validate($validationRules);
+        $this->validate($validationRules, $customMessages);
 
         $detailImage = $this->existingDetailImage;
         $packImage = $this->existingPackImage;

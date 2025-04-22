@@ -18,6 +18,11 @@ class LoginForm extends Component
         $this->validate([
             'email' => 'required|email',
             'password' => 'required|min:8',
+        ], [
+            'email.required' => 'Email wajib diisi',
+            'email.email' => 'Format email tidak valid',
+            'password.required' => 'Password wajib diisi',
+            'password.min' => 'Password minimal 8 karakter'
         ]);
 
         $user = User::where('email', $this->email)->first();

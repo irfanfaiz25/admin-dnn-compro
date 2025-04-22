@@ -64,10 +64,19 @@ class BerandaProduct extends Component
             return;
         }
 
+        $customMessages = [
+            'headlineTitle.required' => 'Judul headline wajib diisi',
+            'headlineTitle.string' => 'Judul headline harus berupa teks',
+            'headlineTitle.max' => 'Judul headline maksimal 50 karakter',
+            'headlineSubtitle.required' => 'Subjudul headline wajib diisi',
+            'headlineSubtitle.string' => 'Subjudul headline harus berupa teks',
+            'headlineSubtitle.max' => 'Subjudul headline maksimal 100 karakter'
+        ];
+
         $this->validate([
             'headlineTitle' => 'required|string|max:50',
             'headlineSubtitle' => 'required|string|max:100',
-        ]);
+        ], $customMessages);
 
         $headline->update([
             'title' => $this->headlineTitle,
@@ -110,20 +119,30 @@ class BerandaProduct extends Component
     {
         $section = Section::find($this->sectionId);
 
+        $customMessages = [
+            'productTitle.required' => 'Judul produk wajib diisi',
+            'productTitle.string' => 'Judul produk harus berupa teks',
+            'productTitle.max' => 'Judul produk maksimal 100 karakter',
+            'productDescription.required' => 'Deskripsi produk wajib diisi',
+            'productDescription.string' => 'Deskripsi produk harus berupa teks',
+            'productDescription.max' => 'Deskripsi produk maksimal 255 karakter',
+            'image.required' => 'Gambar produk wajib diunggah',
+            'image.mimes' => 'Format gambar harus PNG, JPG, atau JPEG',
+            'image.max' => 'Ukuran gambar maksimal 2MB'
+        ];
+
         $validationRules = [
             'productTitle' => 'required|string|max:100',
             'productDescription' => 'required|string|max:255',
         ];
 
-        // Add image validation rules based on edit mode
         if (!$this->isEditMode) {
             $validationRules['image'] = 'required|mimes:png,jpg,jpeg|max:2048';
         } else {
-            // In edit mode, image is optional but must be valid if provided
             $validationRules['image'] = $this->image ? 'mimes:png,jpg,jpeg|max:2048' : '';
         }
 
-        $this->validate($validationRules);
+        $this->validate($validationRules, $customMessages);
 
         $imageUrl = $this->existingImage;
         if ($this->image) {

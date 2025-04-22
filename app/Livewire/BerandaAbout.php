@@ -54,16 +54,40 @@ class BerandaAbout extends Component
         }
 
         $validationRules = [
-            'aboutContent' => 'required|string|max:255',
-            'aboutTitle' => 'required|string|max:100',
-            'aboutDescription' => 'required|string|max:255',
+            'aboutContent' => [
+                'required' => 'Konten harus diisi',
+                'string' => 'Konten harus berupa teks',
+                'max:255' => 'Konten tidak boleh lebih dari 255 karakter'
+            ],
+            'aboutTitle' => [
+                'required' => 'Judul harus diisi',
+                'string' => 'Judul harus berupa teks',
+                'max:100' => 'Judul tidak boleh lebih dari 100 karakter'
+            ],
+            'aboutDescription' => [
+                'required' => 'Deskripsi harus diisi',
+                'string' => 'Deskripsi harus berupa teks',
+                'max:255' => 'Deskripsi tidak boleh lebih dari 255 karakter'
+            ]
         ];
 
+        $imageRules = [];
         if ($this->existingImage) {
-            $validationRules['image'] = $this->image ? 'mimes:jpg,jpeg,png|max:2048' : '';
+            if ($this->image) {
+                $imageRules['image'] = [
+                    'mimes:jpg,jpeg,png' => 'Format gambar harus jpg, jpeg, atau png',
+                    'max:2048' => 'Ukuran gambar tidak boleh lebih dari 2MB'
+                ];
+            }
         } else {
-            $validationRules['image'] = 'required|mimes:jpg,jpeg,png|max:2048';
+            $imageRules['image'] = [
+                'required' => 'Gambar harus diisi',
+                'mimes:jpg,jpeg,png' => 'Format gambar harus jpg, jpeg, atau png',
+                'max:2048' => 'Ukuran gambar tidak boleh lebih dari 2MB'
+            ];
         }
+
+        $validationRules = array_merge($validationRules, $imageRules);
 
         $this->validate($validationRules);
 

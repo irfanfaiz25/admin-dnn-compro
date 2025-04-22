@@ -44,6 +44,17 @@ class RevolusiHero extends Component
             return;
         }
 
+        $customMessages = [
+            'heroTitle.required' => 'Judul hero wajib diisi',
+            'heroTitle.string' => 'Judul hero harus berupa teks',
+            'heroTitle.max' => 'Judul hero maksimal 50 karakter',
+            'heroDescription.required' => 'Deskripsi hero wajib diisi',
+            'heroDescription.string' => 'Deskripsi hero harus berupa teks',
+            'image.required' => 'Gambar hero wajib diupload',
+            'image.mimes' => 'Format gambar harus jpg, jpeg, atau png',
+            'image.max' => 'Ukuran gambar maksimal 2MB'
+        ];
+
         $validationRules = [
             'heroTitle' => 'required|string|max:50',
             'heroDescription' => 'required|string',
@@ -55,7 +66,7 @@ class RevolusiHero extends Component
             $validationRules['image'] = 'required|mimes:jpg,jpeg,png|max:2048';
         }
 
-        $this->validate($validationRules);
+        $this->validate($validationRules, $customMessages);
 
         $imageUrl = $this->existingImage;
         if ($this->image) {

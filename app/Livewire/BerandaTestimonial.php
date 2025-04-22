@@ -52,6 +52,13 @@ class BerandaTestimonial extends Component
         $this->validate([
             'headlineTitle' => 'required|string|max:50',
             'headlineSubtitle' => 'required|string|max:100',
+        ], [
+            'headlineTitle.required' => 'Judul headline harus diisi',
+            'headlineTitle.string' => 'Judul headline harus berupa teks',
+            'headlineTitle.max' => 'Judul headline maksimal 50 karakter',
+            'headlineSubtitle.required' => 'Subjudul headline harus diisi',
+            'headlineSubtitle.string' => 'Subjudul headline harus berupa teks',
+            'headlineSubtitle.max' => 'Subjudul headline maksimal 100 karakter'
         ]);
 
         $headline->update([

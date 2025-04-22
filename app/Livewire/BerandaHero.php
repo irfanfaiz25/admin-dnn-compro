@@ -62,6 +62,15 @@ class BerandaHero extends Component
         $section = Section::find($this->sectionId);
 
         // Base validation rules
+        $customMessages = [
+            'title.required' => 'Judul harus diisi',
+            'title.max' => 'Judul tidak boleh lebih dari 100 karakter',
+            'description.required' => 'Deskripsi harus diisi',
+            'image.required' => 'Gambar harus diupload',
+            'image.mimes' => 'Format gambar harus PNG, JPG, atau JPEG',
+            'image.max' => 'Ukuran gambar tidak boleh lebih dari 2MB'
+        ];
+
         $validationRules = [
             'title' => 'required|max:100',
             'description' => 'required',
@@ -75,7 +84,7 @@ class BerandaHero extends Component
             $validationRules['image'] = $this->image ? 'mimes:png,jpg,jpeg|max:2048' : '';
         }
 
-        $this->validate($validationRules);
+        $this->validate($validationRules, $customMessages);
 
         // Handle image URL
         $imageUrl = $this->existingImage;

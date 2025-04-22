@@ -59,6 +59,13 @@ class TimTestimonial extends Component
         $this->validate([
             'headlineTitle' => 'required|string|max:50',
             'headlineSubtitle' => 'required|string|max:100',
+        ], [
+            'headlineTitle.required' => 'Judul headline harus diisi',
+            'headlineTitle.string' => 'Judul headline harus berupa teks',
+            'headlineTitle.max' => 'Judul headline tidak boleh lebih dari 50 karakter',
+            'headlineSubtitle.required' => 'Subjudul headline harus diisi',
+            'headlineSubtitle.string' => 'Subjudul headline harus berupa teks',
+            'headlineSubtitle.max' => 'Subjudul headline tidak boleh lebih dari 100 karakter'
         ]);
 
         $headline->update([
@@ -109,6 +116,18 @@ class TimTestimonial extends Component
             'position' => 'required|string|max:50',
             'message' => 'required|string|max:255',
             'image' => 'nullable|mimes:jpeg,png,jpg|max:2048',
+        ], [
+            'employeeName.required' => 'Nama karyawan harus diisi',
+            'employeeName.string' => 'Nama karyawan harus berupa teks',
+            'employeeName.max' => 'Nama karyawan tidak boleh lebih dari 50 karakter',
+            'position.required' => 'Posisi harus diisi',
+            'position.string' => 'Posisi harus berupa teks',
+            'position.max' => 'Posisi tidak boleh lebih dari 50 karakter',
+            'message.required' => 'Pesan testimonial harus diisi',
+            'message.string' => 'Pesan testimonial harus berupa teks',
+            'message.max' => 'Pesan testimonial tidak boleh lebih dari 255 karakter',
+            'image.mimes' => 'Format gambar harus jpeg, png, atau jpg',
+            'image.max' => 'Ukuran gambar tidak boleh lebih dari 2MB'
         ]);
 
         $image = $this->isEditMode ? $this->existingImage : null;

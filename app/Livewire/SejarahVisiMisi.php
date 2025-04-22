@@ -50,6 +50,9 @@ class SejarahVisiMisi extends Component
         if ($this->formType === 'visi') {
             $this->validate([
                 'visi' => 'required|string',
+            ], [
+                'visi.required' => 'Visi tidak boleh kosong',
+                'visi.string' => 'Visi harus berupa teks'
             ]);
 
             $visi = Visi::first();
@@ -67,6 +70,12 @@ class SejarahVisiMisi extends Component
             $this->validate([
                 'misi' => 'required|array|min:1',
                 'misi.*' => 'required|string',
+            ], [
+                'misi.required' => 'Misi tidak boleh kosong',
+                'misi.array' => 'Format misi tidak valid',
+                'misi.min' => 'Minimal harus ada 1 misi',
+                'misi.*.required' => 'Setiap misi tidak boleh kosong',
+                'misi.*.string' => 'Setiap misi harus berupa teks'
             ]);
 
             Misi::truncate();

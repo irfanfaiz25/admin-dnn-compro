@@ -46,6 +46,20 @@ class KontakMain extends Component
             'email' => 'required|string|email|max:50',
             'weekdayOpen' => 'required|string|max:50',
             'weekendOpen' => 'required|string|max:50',
+        ], [
+            'address.required' => 'Alamat harus diisi',
+            'address.max' => 'Alamat maksimal 150 karakter',
+            'phone.required' => 'Nomor telepon harus diisi',
+            'phone.max' => 'Nomor telepon maksimal 20 karakter',
+            'whatsapp.required' => 'Nomor WhatsApp harus diisi',
+            'whatsapp.max' => 'Nomor WhatsApp maksimal 20 karakter',
+            'email.required' => 'Email harus diisi',
+            'email.email' => 'Format email tidak valid',
+            'email.max' => 'Email maksimal 50 karakter',
+            'weekdayOpen.required' => 'Jam buka hari kerja harus diisi',
+            'weekdayOpen.max' => 'Jam buka hari kerja maksimal 50 karakter',
+            'weekendOpen.required' => 'Jam buka akhir pekan harus diisi',
+            'weekendOpen.max' => 'Jam buka akhir pekan maksimal 50 karakter'
         ]);
 
         $contact = Contact::firstOrCreate();

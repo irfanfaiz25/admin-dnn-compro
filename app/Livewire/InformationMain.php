@@ -59,6 +59,19 @@ class InformationMain extends Component
             'twitter' => 'nullable|url',
             'linkedin' => 'nullable|url',
             'companyLogo' => 'nullable|image|max:2048', // Max 2MB
+        ], [
+            'companyName.required' => 'Nama perusahaan wajib diisi',
+            'companyName.max' => 'Nama perusahaan maksimal 255 karakter',
+            'email.required' => 'Email wajib diisi',
+            'email.email' => 'Format email tidak valid',
+            'phone.required' => 'Nomor telepon wajib diisi',
+            'whatsapp.required' => 'Nomor WhatsApp wajib diisi',
+            'facebook.url' => 'URL Facebook tidak valid',
+            'instagram.url' => 'URL Instagram tidak valid',
+            'twitter.url' => 'URL Twitter tidak valid',
+            'linkedin.url' => 'URL LinkedIn tidak valid',
+            'companyLogo.image' => 'File harus berupa gambar',
+            'companyLogo.max' => 'Ukuran logo maksimal 2MB'
         ]);
 
         // Update or create company information

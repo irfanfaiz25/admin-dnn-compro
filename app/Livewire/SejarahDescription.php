@@ -51,6 +51,15 @@ class SejarahDescription extends Component
             return;
         }
 
+        $customMessages = [
+            'title.required' => 'Judul harus diisi',
+            'title.max' => 'Judul tidak boleh lebih dari 100 karakter',
+            'description.required' => 'Deskripsi harus diisi',
+            'image.required' => 'Gambar harus diupload',
+            'image.mimes' => 'Format gambar harus jpg, jpeg, atau png',
+            'image.max' => 'Ukuran gambar tidak boleh lebih dari 2MB'
+        ];
+
         $validationRules = [
             'title' => 'required|max:100',
             'description' => 'required',
@@ -62,7 +71,7 @@ class SejarahDescription extends Component
             $validationRules['image'] = 'required|mimes:jpg,jpeg,png|max:2048';
         }
 
-        $this->validate($validationRules);
+        $this->validate($validationRules, $customMessages);
 
         $imageUrl = $this->existingImage;
         if ($this->image) {

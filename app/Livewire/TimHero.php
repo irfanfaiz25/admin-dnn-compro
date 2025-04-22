@@ -47,8 +47,16 @@ class TimHero extends Component
         }
 
         $validationRules = [
-            'heroTitle' => 'required|string|max:100',
-            'heroDescription' => 'required|string|max:255',
+            'heroTitle' => [
+                'required' => 'Judul hero harus diisi',
+                'string' => 'Judul hero harus berupa teks',
+                'max:100' => 'Judul hero tidak boleh lebih dari 100 karakter'
+            ],
+            'heroDescription' => [
+                'required' => 'Deskripsi hero harus diisi',
+                'string' => 'Deskripsi hero harus berupa teks',
+                'max:255' => 'Deskripsi hero tidak boleh lebih dari 255 karakter'
+            ],
         ];
 
         if ($this->existingImage) {

@@ -49,8 +49,16 @@ class TimAchievement extends Component
         }
 
         $this->validate([
-            'headlineTitle' => 'required|string|max:50',
-            'headlineSubtitle' => 'required|string|max:100',
+            'headlineTitle' => [
+                'required' => 'Judul headline harus diisi',
+                'string' => 'Judul headline harus berupa teks',
+                'max:50' => 'Judul headline tidak boleh lebih dari 50 karakter'
+            ],
+            'headlineSubtitle' => [
+                'required' => 'Subjudul headline harus diisi',
+                'string' => 'Subjudul headline harus berupa teks',
+                'max:100' => 'Subjudul headline tidak boleh lebih dari 100 karakter'
+            ],
         ]);
 
         $headline->update([
@@ -86,9 +94,18 @@ class TimAchievement extends Component
     public function handleSaveContent()
     {
         $this->validate([
-            'branchCount' => 'required|integer',
-            'employeeCount' => 'required|integer',
-            'customerCount' => 'required|integer',
+            'branchCount' => [
+                'required' => 'Jumlah cabang harus diisi',
+                'integer' => 'Jumlah cabang harus berupa angka'
+            ],
+            'employeeCount' => [
+                'required' => 'Jumlah karyawan harus diisi',
+                'integer' => 'Jumlah karyawan harus berupa angka'
+            ],
+            'customerCount' => [
+                'required' => 'Jumlah pelanggan harus diisi',
+                'integer' => 'Jumlah pelanggan harus berupa angka'
+            ],
         ]);
 
         // Update branch count

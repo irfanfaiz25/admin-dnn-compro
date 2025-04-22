@@ -51,8 +51,16 @@ class TimBranches extends Component
         }
 
         $this->validate([
-            'headlineTitle' => 'required|string|max:50',
-            'headlineSubtitle' => 'required|string|max:100',
+            'headlineTitle' => [
+                'required' => 'Judul headline harus diisi',
+                'string' => 'Judul headline harus berupa teks',
+                'max:50' => 'Judul headline tidak boleh lebih dari 50 karakter'
+            ],
+            'headlineSubtitle' => [
+                'required' => 'Subjudul headline harus diisi',
+                'string' => 'Subjudul headline harus berupa teks',
+                'max:100' => 'Subjudul headline tidak boleh lebih dari 100 karakter'
+            ],
         ]);
 
         $headline->update([
@@ -97,10 +105,26 @@ class TimBranches extends Component
     public function handleSaveContent()
     {
         $this->validate([
-            'city' => 'required|string|max:30',
-            'region' => 'required|string|max:30',
-            'established' => 'required|string|max:30',
-            'address' => 'required|string|max:100',
+            'city' => [
+                'required' => 'Nama kota harus diisi',
+                'string' => 'Nama kota harus berupa teks',
+                'max:30' => 'Nama kota tidak boleh lebih dari 30 karakter'
+            ],
+            'region' => [
+                'required' => 'Nama wilayah harus diisi',
+                'string' => 'Nama wilayah harus berupa teks',
+                'max:30' => 'Nama wilayah tidak boleh lebih dari 30 karakter'
+            ],
+            'established' => [
+                'required' => 'Tahun pendirian harus diisi',
+                'string' => 'Tahun pendirian harus berupa teks',
+                'max:30' => 'Tahun pendirian tidak boleh lebih dari 30 karakter'
+            ],
+            'address' => [
+                'required' => 'Alamat harus diisi',
+                'string' => 'Alamat harus berupa teks',
+                'max:100' => 'Alamat tidak boleh lebih dari 100 karakter'
+            ],
         ]);
 
         if ($this->isEditMode) {
