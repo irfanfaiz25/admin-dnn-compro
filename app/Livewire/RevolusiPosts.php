@@ -46,6 +46,7 @@ class RevolusiPosts extends Component
         $this->isEditMode = false;
         $this->reset('date', 'postTitle', 'content', 'mediaFiles', 'mediaUpload', 'postId');
         $this->resetValidation();
+        $this->dispatch('editorContentUpdated', content: '');
     }
 
     public function updatedMediaUpload()

@@ -73,7 +73,16 @@
                             @else
                                 <div
                                     class="w-full h-60 rounded-lg shadow-md bg-gray-200 dark:bg-neutral-700 flex justify-center items-center">
-                                    <i class="fa fa-image text-gray-400"></i>
+                                    <i wire:loading.remove wire:target='image' class="fa fa-image text-gray-400"></i>
+                                    <div wire:loading wire:target='image'
+                                        class="space-y-2 flex flex-col justify-center items-center">
+                                        <div
+                                            class="mx-auto animate-spin rounded-full h-6 w-6 border-[2.5px] border-primary-gold border-t-transparent">
+                                        </div>
+                                        <p class="text-sm text-gray-500 font-semibold animate-pulse">
+                                            Uploading ...
+                                        </p>
+                                    </div>
                                 </div>
                             @endif
                         </div>

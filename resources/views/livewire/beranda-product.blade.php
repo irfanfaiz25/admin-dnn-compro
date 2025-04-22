@@ -43,8 +43,13 @@
                             Batal
                         </button>
                         <button type="submit"
-                            class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center">
-                            Simpan
+                            class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
+                            <span>
+                                Simpan
+                            </span>
+                            <span wire:loading wire:target='handleSaveHeadline'
+                                class="animate-spin rounded-full h-5 w-5 border-[2px] border-primary-gold border-t-transparent ml-2">
+                            </span>
                         </button>
                     </div>
                 </form>
@@ -96,7 +101,7 @@
                         <span>
                             Simpan
                         </span>
-                        <span wire:loading wire:target='save'
+                        <span wire:loading wire:target='handleSaveContent'
                             class="animate-spin rounded-full h-5 w-5 border-[2px] border-primary-gold border-t-transparent ml-2">
                         </span>
                     </button>
@@ -124,7 +129,17 @@
                             @else
                                 <div
                                     class="w-full h-60 rounded-lg shadow-md bg-gray-200 dark:bg-[#252525] flex justify-center items-center">
-                                    <i class="fa fa-image text-gray-400 dark:text-gray-300"></i>
+                                    <i wire:loading.remove wire:target='image'
+                                        class="fa fa-image text-gray-400 dark:text-gray-300"></i>
+                                    <div wire:loading wire:target='image'
+                                        class="space-y-2 flex flex-col justify-center items-center">
+                                        <div
+                                            class="mx-auto animate-spin rounded-full h-6 w-6 border-[2.5px] border-primary-gold border-t-transparent">
+                                        </div>
+                                        <p class="text-sm text-gray-500 font-semibold animate-pulse">
+                                            Mengunggah ...
+                                        </p>
+                                    </div>
                                 </div>
                             @endif
                         </div>

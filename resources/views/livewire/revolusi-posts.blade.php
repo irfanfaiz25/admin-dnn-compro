@@ -67,16 +67,8 @@
                     <div class="w-full mb-4">
                         <label for="media-upload"
                             class="flex flex-col items-center justify-center w-full h-32 border-2 border-gray-300 dark:border-gray-600 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:bg-neutral-700 hover:bg-gray-100 dark:hover:bg-neutral-600 transition-all duration-300 relative {{ count($mediaFiles) >= $maxMediaFiles ? 'opacity-50 cursor-not-allowed' : '' }}">
-                            <div wire:loading wire:target='mediaUpload'
-                                class="absolute top-0 w-full h-full bg-black/50 flex justify-center items-center rounded-md">
-                                <div class="absolute inset-0 flex items-center justify-center">
-                                    <!-- Spinning circle loader -->
-                                    <div
-                                        class="animate-spin rounded-full h-6 w-6 border-[3px] border-primary-gold border-t-transparent">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                            <div wire:loading.remove wire:target='mediaUpload'
+                                class="flex flex-col items-center justify-center pt-5 pb-6">
                                 <svg class="w-8 h-8 mb-3 text-gray-500 dark:text-gray-400" aria-hidden="true"
                                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -88,6 +80,15 @@
                                 </p>
                                 <p class="text-xs text-gray-500 dark:text-gray-400">
                                     PNG, JPG, JPEG, MP4 (MAX. 5MB)
+                                </p>
+                            </div>
+                            <div wire:loading wire:target='mediaUpload'
+                                class="space-y-2 flex flex-col justify-center items-center">
+                                <div
+                                    class="mx-auto animate-spin rounded-full h-6 w-6 border-[2.5px] border-primary-gold border-t-transparent">
+                                </div>
+                                <p class="text-sm text-gray-500 font-semibold animate-pulse">
+                                    Uploading ...
                                 </p>
                             </div>
                             <input id="media-upload" type="file" wire:model="mediaUpload" class="hidden"

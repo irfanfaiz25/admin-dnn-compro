@@ -68,8 +68,13 @@
                             Batal
                         </button>
                         <button type="submit"
-                            class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center">
-                            Simpan
+                            class="text-white bg-secondary-green hover:bg-secondary-green focus:ring-2 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center">
+                            <span>
+                                Simpan
+                            </span>
+                            <span wire:loading wire:target='handleSaveHeadline'
+                                class="animate-spin rounded-full h-5 w-5 border-[2px] border-primary-gold border-t-transparent ml-2">
+                            </span>
                         </button>
                     </div>
                 </form>
@@ -133,7 +138,7 @@
                     {{ $testimonial->created_at->format('F d, Y') }}
                 </p>
                 <p class="text-sm dark:text-gray-300">
-                    {{ $testimonial->testimonial }}f
+                    {{ $testimonial->testimonial }}
                 </p>
             </div>
         @endforeach

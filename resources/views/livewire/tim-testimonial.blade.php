@@ -149,12 +149,25 @@
                         <div class="flex items-center space-x-4">
                             <div>
                                 @if ($image)
-                                    <img src="{{ $image->temporaryUrl() }}"
+                                    <img src="{{ $image->temporaryUrl() }}" alt="{{ $image->getClientOriginalName() }}"
+                                        class="w-24 h-24 rounded-full object-cover border-2 border-primary-gold">
+                                @elseif ($existingImage)
+                                    <img src="{{ asset($existingImage) }}" alt="{{ $existingImage }}"
                                         class="w-24 h-24 rounded-full object-cover border-2 border-primary-gold">
                                 @else
                                     <div
                                         class="w-24 h-24 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center border-2 border-dashed border-gray-400 dark:border-gray-600">
-                                        <i class="fas fa-user text-gray-400 dark:text-gray-500 text-3xl"></i>
+                                        <i wire:loading.remove wire:target='image'
+                                            class="fas fa-user text-gray-400 dark:text-gray-500 text-3xl"></i>
+                                        <div wire:loading wire:target='image'
+                                            class="space-y-2 flex flex-col justify-center items-center">
+                                            <div
+                                                class="mx-auto animate-spin rounded-full h-6 w-6 border-[2.5px] border-primary-gold border-t-transparent">
+                                            </div>
+                                            <p class="text-xs text-gray-500 font-semibold animate-pulse">
+                                                Uploading ...
+                                            </p>
+                                        </div>
                                     </div>
                                 @endif
                             </div>

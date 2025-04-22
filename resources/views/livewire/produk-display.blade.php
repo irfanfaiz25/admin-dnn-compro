@@ -77,7 +77,17 @@
                             @else
                                 <div
                                     class="w-full h-80 rounded-lg shadow-md bg-gray-200 dark:bg-[#252525] flex justify-center items-center">
-                                    <i class="fa fa-image text-gray-400"></i>
+                                    <i wire:loading.remove wire:target='detailImage'
+                                        class="fa fa-image text-gray-400"></i>
+                                    <div wire:loading wire:target='detailImage'
+                                        class="space-y-2 flex flex-col justify-center items-center">
+                                        <div
+                                            class="mx-auto animate-spin rounded-full h-6 w-6 border-[2.5px] border-primary-gold border-t-transparent">
+                                        </div>
+                                        <p class="text-sm text-gray-500 font-semibold animate-pulse">
+                                            Uploading ...
+                                        </p>
+                                    </div>
                                 </div>
                             @endif
                         </div>
@@ -138,7 +148,17 @@
                             @else
                                 <div
                                     class="w-full h-80 bg-[#f0f0f0] dark:bg-gray-700 bg-[linear-gradient(45deg,#ccc_25%,transparent_25%),linear-gradient(-45deg,#ccc_25%,transparent_25%),linear-gradient(45deg,transparent_75%,#ccc_75%),linear-gradient(-45deg,transparent_75%,#ccc_75%)] bg-[length:20px_20px] bg-[position:0_0,0_10px,10px_-10px,-10px_0] rounded-md flex items-center justify-center">
-                                    <i class="fa fa-image text-gray-400"></i>
+                                    <i wire:loading.remove wire:target='packImage'
+                                        class="fa fa-image text-gray-400"></i>
+                                    <div wire:loading wire:target='packImage'
+                                        class="space-y-2 flex flex-col justify-center items-center">
+                                        <div
+                                            class="mx-auto animate-spin rounded-full h-6 w-6 border-[2.5px] border-primary-gold border-t-transparent">
+                                        </div>
+                                        <p class="text-sm text-gray-500 font-semibold animate-pulse">
+                                            Uploading ...
+                                        </p>
+                                    </div>
                                 </div>
                             @endif
                         </div>

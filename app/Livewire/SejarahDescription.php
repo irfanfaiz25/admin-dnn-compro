@@ -40,6 +40,7 @@ class SejarahDescription extends Component
     {
         $this->isShowForm = false;
         $this->reset('title', 'description', 'image', 'existingImage');
+        $this->dispatch('editorContentUpdated', description: '');
     }
 
     public function handleSave()

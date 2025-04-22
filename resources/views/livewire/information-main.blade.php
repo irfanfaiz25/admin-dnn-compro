@@ -43,7 +43,13 @@
                 @else
                     <div
                         class="h-24 w-24 rounded-full bg-gray-200 dark:bg-gray-700 shadow-md flex justify-center items-center">
-                        <i class="fa fa-camera text-lg text-gray-400"></i>
+                        <i wire:loading.remove wire:target='companyLogo' class="fa fa-camera text-lg text-gray-400"></i>
+                        <div wire:loading wire:target='companyLogo'
+                            class="space-y-2 flex flex-col justify-center items-center">
+                            <div
+                                class="mx-auto animate-spin rounded-full h-6 w-6 border-[2.5px] border-primary-gold border-t-transparent">
+                            </div>
+                        </div>
                     </div>
                 @endif
                 <div class="w-full">
@@ -58,7 +64,7 @@
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                     @enderror
                 </div>
-                <div class="w-full">
+                {{-- <div class="w-full">
                     <label for="companyName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                         Nama Perusahaan
                     </label>
@@ -68,7 +74,7 @@
                     @error('companyName')
                         <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
                     @enderror
-                </div>
+                </div> --}}
             </div>
         </div>
 

@@ -63,7 +63,7 @@ class InformationMain extends Component
 
         // Update or create company information
         $fields = [
-            'company_name' => $this->companyName,
+            'company_name' => 'DWIPA NUSANTARA NIAGA',
             'email' => $this->email,
             'phone' => $this->phone,
             'whatsapp' => $this->whatsapp,
