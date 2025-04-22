@@ -52,6 +52,23 @@ class APIController extends Controller
         ], 200);
     }
 
+    public function getInformations()
+    {
+        $informations = Information::all();
+        if (!$informations) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Informations not found',
+            ], 404);
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Informations data retrieved successfully',
+            'data' => $informations,
+        ], 200);
+    }
+
     public function getInformation($name)
     {
         $information = Information::where('name', $name)->first();
@@ -96,10 +113,16 @@ class APIController extends Controller
             ], 404);
         }
 
+        // Format the date for each post
+        $formattedBranches = $branches->map(function ($branch) {
+            $branch->established = date('F, d Y', strtotime($branch->established));
+            return $branch;
+        });
+
         return response()->json([
             'success' => true,
             'message' => 'Branches data retrieved successfully',
-            'data' => $branches,
+            'data' => $formattedBranches,
         ], 200);
     }
 
@@ -201,6 +224,12 @@ class APIController extends Controller
                     'message' => 'Testimonials not found',
                 ], 404);
             }
+
+            // Format the date for each post
+            $formattedTestimonials = $testimonials->map(function ($testimonial) {
+                $testimonial->position = date('F, d Y', strtotime($testimonial->position));
+                return $testimonial;
+            });
         } else {
             $testimonials = UserTestimonial::all();
             if (!$testimonials) {
@@ -209,18 +238,34 @@ class APIController extends Controller
                     'message' => 'Testimonials not found',
                 ], 404);
             }
+
+            // Format the date for each post
+            $formattedTestimonials = $testimonials->map(function ($testimonial) {
+                $testimonial->formatted_date = $testimonial->created_at->format('F, d Y');
+                return $testimonial;
+            });
         }
 
         return response()->json([
             'success' => true,
             'message' => 'Testimonials data retrieved successfully',
-            'data' => $testimonials,
+            'data' => $formattedTestimonials,
         ], 200);
     }
 
     public function getPosts()
     {
-        $posts = Post::with('media')->latest()->paginate(9);
+        $posts = Post::query()
+            ->when(request('search'), function ($query, $search) {
+                $search = trim($search);
+                if (!empty($search)) {
+                    $query->where('title', 'LIKE', "%{$search}%");
+                }
+            })
+            ->with('media')
+            ->latest()
+            ->paginate(9);
+
         if (!$posts) {
             return response()->json([
                 'success' => false,
@@ -228,10 +273,25 @@ class APIController extends Controller
             ], 404);
         }
 
+        // Format the date for each post
+        $formattedPosts = $posts->getCollection()->map(function ($post) {
+            $post->date = date('F, d Y', strtotime($post->date));
+            return $post;
+        });
+
+        // Create pagination data structure
+        $paginationData = [
+            'current_page' => $posts->currentPage(),
+            'last_page' => $posts->lastPage(),
+            'per_page' => $posts->perPage(),
+            'total' => $posts->total(),
+            'items' => $formattedPosts
+        ];
+
         return response()->json([
             'success' => true,
             'message' => 'Posts data retrieved successfully',
-            'data' => $posts,
+            'data' => $paginationData,
         ]);
     }
 
@@ -244,6 +304,9 @@ class APIController extends Controller
                 'message' => 'Post not found',
             ], 404);
         }
+
+        // Format the date for the post
+        $post->date = date('F, d Y', strtotime($post->date));
 
         return response()->json([
             'success' => true,
@@ -262,10 +325,16 @@ class APIController extends Controller
             ], 404);
         }
 
+        // Format the date for each post
+        $formattedPosts = $posts->map(function ($post) {
+            $post->date = date('F, d Y', strtotime($post->date));
+            return $post;
+        });
+
         return response()->json([
             'success' => true,
             'message' => 'Posts data retrieved successfully',
-            'data' => $posts,
+            'data' => $formattedPosts,
         ], 200);
     }
 }

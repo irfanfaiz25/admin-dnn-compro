@@ -13,7 +13,9 @@ Route::get('/branches', [APIController::class, 'getBranches']);
 
 Route::get('/contact', [APIController::class, 'getContact']);
 
-Route::get('/information/{name}', [APIController::class, 'getInformation']);
+Route::get('/informations', [APIController::class, 'getInformations']);
+
+Route::get('/informations/{name}', [APIController::class, 'getInformation']);
 
 Route::get('/visi-misi/{name}', [APIController::class, 'getVisiMisi']);
 
