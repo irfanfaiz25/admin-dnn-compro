@@ -57,7 +57,7 @@
 
 /* CK Editor Content Styles */
 .ck-content {
-    @apply text-gray-700 text-base leading-6;
+    @apply text-gray-700 dark:text-gray-50 text-base leading-6;
 }
 
 /* Headings */

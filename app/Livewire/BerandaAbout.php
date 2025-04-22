@@ -54,42 +54,37 @@ class BerandaAbout extends Component
         }
 
         $validationRules = [
-            'aboutContent' => [
-                'required' => 'Konten harus diisi',
-                'string' => 'Konten harus berupa teks',
-                'max:255' => 'Konten tidak boleh lebih dari 255 karakter'
-            ],
-            'aboutTitle' => [
-                'required' => 'Judul harus diisi',
-                'string' => 'Judul harus berupa teks',
-                'max:100' => 'Judul tidak boleh lebih dari 100 karakter'
-            ],
-            'aboutDescription' => [
-                'required' => 'Deskripsi harus diisi',
-                'string' => 'Deskripsi harus berupa teks',
-                'max:255' => 'Deskripsi tidak boleh lebih dari 255 karakter'
-            ]
+            'aboutContent' => 'required|string|max:255',
+            'aboutTitle' => 'required|string|max:100',
+            'aboutDescription' => 'required|string|max:255'
         ];
 
-        $imageRules = [];
+        $messages = [
+            'aboutContent.required' => 'Konten harus diisi',
+            'aboutContent.string' => 'Konten harus berupa teks',
+            'aboutContent.max' => 'Konten tidak boleh lebih dari 255 karakter',
+            'aboutTitle.required' => 'Judul harus diisi',
+            'aboutTitle.string' => 'Judul harus berupa teks',
+            'aboutTitle.max' => 'Judul tidak boleh lebih dari 100 karakter',
+            'aboutDescription.required' => 'Deskripsi harus diisi',
+            'aboutDescription.string' => 'Deskripsi harus berupa teks',
+            'aboutDescription.max' => 'Deskripsi tidak boleh lebih dari 255 karakter'
+        ];
+
         if ($this->existingImage) {
             if ($this->image) {
-                $imageRules['image'] = [
-                    'mimes:jpg,jpeg,png' => 'Format gambar harus jpg, jpeg, atau png',
-                    'max:2048' => 'Ukuran gambar tidak boleh lebih dari 2MB'
-                ];
+                $validationRules['image'] = 'mimes:jpg,jpeg,png|max:2048';
+                $messages['image.mimes'] = 'Format gambar harus jpg, jpeg, atau png';
+                $messages['image.max'] = 'Ukuran gambar tidak boleh lebih dari 2MB';
             }
         } else {
-            $imageRules['image'] = [
-                'required' => 'Gambar harus diisi',
-                'mimes:jpg,jpeg,png' => 'Format gambar harus jpg, jpeg, atau png',
-                'max:2048' => 'Ukuran gambar tidak boleh lebih dari 2MB'
-            ];
+            $validationRules['image'] = 'required|mimes:jpg,jpeg,png|max:2048';
+            $messages['image.required'] = 'Gambar harus diisi';
+            $messages['image.mimes'] = 'Format gambar harus jpg, jpeg, atau png';
+            $messages['image.max'] = 'Ukuran gambar tidak boleh lebih dari 2MB';
         }
 
-        $validationRules = array_merge($validationRules, $imageRules);
-
-        $this->validate($validationRules);
+        $this->validate($validationRules, $messages);
 
         $imageUrl = $this->existingImage;
         if ($this->image) {

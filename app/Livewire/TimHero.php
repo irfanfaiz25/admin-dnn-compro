@@ -47,16 +47,8 @@ class TimHero extends Component
         }
 
         $validationRules = [
-            'heroTitle' => [
-                'required' => 'Judul hero harus diisi',
-                'string' => 'Judul hero harus berupa teks',
-                'max:100' => 'Judul hero tidak boleh lebih dari 100 karakter'
-            ],
-            'heroDescription' => [
-                'required' => 'Deskripsi hero harus diisi',
-                'string' => 'Deskripsi hero harus berupa teks',
-                'max:255' => 'Deskripsi hero tidak boleh lebih dari 255 karakter'
-            ],
+            'heroTitle' => 'required|string|max:100',
+            'heroDescription' => 'required|string|max:255',
         ];
 
         if ($this->existingImage) {
@@ -65,7 +57,14 @@ class TimHero extends Component
             $validationRules['image'] = 'required|mimes:jpg,jpeg,png|max:2048';
         }
 
-        $this->validate($validationRules);
+        $this->validate($validationRules, [
+            'heroTitle.required' => 'Judul hero harus diisi',
+            'heroTitle.string' => 'Judul hero harus berupa teks',
+            'heroTitle.max' => 'Judul hero tidak boleh lebih dari 100 karakter',
+            'heroDescription.required' => 'Deskripsi hero harus diisi',
+            'heroDescription.string' => 'Deskripsi hero harus berupa teks',
+            'heroDescription.max' => 'Deskripsi hero tidak boleh lebih dari 255 karakter'
+        ]);
 
         $imageUrl = $this->existingImage;
         if ($this->image) {
