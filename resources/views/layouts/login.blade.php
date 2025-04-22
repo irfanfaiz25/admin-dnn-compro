@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin Panel - DNN</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     @livewireStyles
+
+    <link rel="icon" href="{{ asset('img/logo.png') }}">
 
     {{-- icon --}}
     <script src="https://kit.fontawesome.com/0cb804cef9.js" crossorigin="anonymous"></script>
